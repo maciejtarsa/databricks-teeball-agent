@@ -23,8 +23,10 @@ SKIP_TYPES = {"page_header", "page_footer", "page_number"}
 INLINE_HEADER = re.compile(r"^(\(|SCENARIO|OUTCOME|NOTE|SPECIAL NOTE|CONCLUSION|EXAMPLE)|:$", re.IGNORECASE)
 
 
-def is_inline_header(text):
-    return bool(INLINE_HEADER.search(text)) or (text.isupper() and len(text) < 60)
+def is_inline_header(text, in_rule):
+    """Scenario/outcome/note sub-headings always stay inline; short ALL-CAPS ones only inside a numbered rule."""
+    return bool(INLINE_HEADER.search(text)) or (in_rule and text.isupper() and len(text) < 60)
+
 
 with open(documents_json) as f:
     doc_meta = {k: v for k, v in json.load(f).items() if not k.startswith("_")}
@@ -87,7 +89,7 @@ for el in elements:
     if m:
         chunks.append(cur)
         cur = new_chunk(el.file_name, page, m.group(1), m.group(2), cur["part"])
-    elif el.type in ("section_header", "title") and not (cur["rule_no"] and is_inline_header(text)):
+    elif el.type in ("section_header", "title") and not is_inline_header(text, bool(cur["rule_no"])):
         chunks.append(cur)
         cur = new_chunk(el.file_name, page, part=text)
         cur["body"].append(text)
@@ -98,6 +100,16 @@ for el in elements:
         cur["page_end"] = page
 if cur:
     chunks.append(cur)
+
+# Unnumbered sections (e.g. Manual "Obstruction") inherit the rule number of the
+# highest-authority document's section with the same heading (Rule Book "20 Obstruction")
+rank = lambda c: doc_meta.get(c["file_name"], {}).get("authority_rank", 99)
+heading_rule = {}
+for c in sorted((c for c in chunks if c["rule_no"]), key=rank, reverse=True):
+    heading_rule[c["heading"].strip().lower()] = c["rule_no"]
+for c in chunks:
+    if not c["rule_no"] and c["part"] and c["part"].strip().lower() in heading_rule:
+        c["rule_no"], c["heading"] = heading_rule[c["part"].strip().lower()], c["part"]
 
 rows = []
 for c in chunks:

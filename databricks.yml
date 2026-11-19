@@ -44,3 +44,15 @@ targets:
       host: https://dbc-414b7f92-c469.cloud.databricks.com
       profile: teeball
       root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
+    resources:
+      # Prod is what business users (business_us group) can ask; dev stays owner-only
+      genie_spaces:
+        teeball_umpire:
+          permissions:
+            - group_name: business_us
+              level: CAN_RUN
+      schemas:
+        teeball:
+          grants:
+            - principal: business_us
+              privileges: [USE_SCHEMA, SELECT, EXECUTE]

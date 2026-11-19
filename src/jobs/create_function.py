@@ -32,15 +32,17 @@ RETURN (
   FROM (
     SELECT concat_ws('\\n\\n---\\n\\n', collect_list(content)) AS excerpts
     FROM (
-      SELECT c.content,
+      SELECT c.content, c.file_name,
              aggregate(zip_with(c.embedding, q.v, (a, b) -> a * b), 0D, (acc, x) -> acc + x)
                / (sqrt(aggregate(c.embedding, 0D, (acc, x) -> acc + x * x))
                   * sqrt(aggregate(q.v, 0D, (acc, x) -> acc + x * x))) AS score
       FROM {catalog}.{schema}.rule_chunks c,
            (SELECT ai_query({sql_str(embedding_endpoint)}, question) AS v) q
       WHERE c.embedding IS NOT NULL
+      -- top 5 per document so the (shorter) Rule Book sections aren't crowded out by the Manual
+      QUALIFY row_number() OVER (PARTITION BY c.file_name ORDER BY score DESC) <= 5
       ORDER BY score DESC
-      LIMIT 10
+      LIMIT 12
     )
   )
 )

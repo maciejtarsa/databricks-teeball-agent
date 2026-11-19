@@ -2,6 +2,35 @@
 
 Running log for a possible blog post. Newest findings appended at bottom of each section.
 
+## Blog post notes (author)
+Not writing yet; raw material.
+
+### Story / motivation
+- Been umpiring for my son's teeball team for the past few weeks. Several versions of rulebooks around; many rules hard to find and understand.
+- Gave AI a go. Started with a local Claude (Claude Code) session: it read the whole rulebook each time and answered questions post-game. During games I noted questions down, ran them through Claude after the game. Aim: improve my knowledge, be a better umpire long term.
+- Wanted something more persistent + accessible on the day, from my phone.
+- Also wanted to experiment with something that scales: all rules fit in one prompt, but build it as if the rules were much longer, e.g. vast documentation for a bigger company, multiple use cases.
+- Include the agent's prompts in the post: `src/prompts/answer_rules.md` (answering prompt inside `ask_rulebook`) + Genie agent instructions/description in `resources/genie.yml`.
+
+### Why not just Claude Code on mobile? (arguments, to refine)
+For Databricks:
+- **Shareable + governed**: Genie agent can be opened to other people (other umpires, the local teeball association, a club account) via groups/permissions; per-user access, audit, usage tracking. A local Claude Code session is tied to my machine/repo; Claude Code on mobile/web is a developer tool tied to a repo + environment, not something to hand to other umpires. (Nuance: claude.ai Team/Enterprise Projects can be shared within an org, but every person needs a seat in that org; not a fit for an association of volunteers on personal plans.)
+- **Business-user UX**: Genie One mobile = chat for non-technical users, no repo, no terminal, no prompt engineering.
+- **Scales past the context window**: retrieval over chunks instead of loading the whole rulebook each question; adding more rulebooks/editions = drop a PDF and run the job.
+- **Cost per question**: reading ~55k tokens of rulebook every question vs top-10 chunks; everything pay-per-use, nothing always-on.
+- **Single source of truth**: rulebook versions + precedence (Ed 8 beats 7A) managed as data in a pipeline, same answers for everyone.
+- **Learning goal**: how far Databricks Free + Genie One get you; patterns transfer to company docs (HR policies, runbooks, product docs).
+For Claude Code (be honest):
+- Better model (Claude vs open GPT-OSS-120B on Free), better reasoning on tricky edge cases and grey areas.
+- Remembers past questions: CLAUDE.md rulings log grows each session, follow-ups build on earlier rulings.
+- Zero infra: setup was minutes vs a pipeline, function, agent, permissions.
+
+### Disadvantages of the Genie solution
+- **No memory across conversations**: Genie One can't keep track of questions I asked previously. The local Claude session kept them (rulings log in CLAUDE.md) and reused them. Genie conversations persist per user (web/mobile/desktop) but the agent doesn't learn from them.
+- **Workaround (planned, not built)**: scheduled job harvests conversations via Genie API (`genie list-conversations --include-all` + messages + thumbs feedback) → LLM summarises good Q&As into the rulings format → reviewer approves → approved rulings written as md into the volume / a `rulings` table → ingest job chunks + embeds them → future answers retrieve past rulings. Bonus: rulings become shared knowledge across all users, not just mine.
+- Open models only on Free (no Claude); Genie routing needed tuning (description + table comments); answer shown twice (function result + Genie summary); file-based Genie features unavailable on Free.
+- **But**: with Genie One I can open access to more people (e.g. an account for the local teeball association) via a group like `business_us`. With my local Claude setup I couldn't do that.
+
 ## Goal
 - Teeball umpire asks situational rules questions on phone, mid-game. Answers must cite rule numbers.
 - Sources: TBAWA Rule Book Ed 8 (21 pp) + Annotated Rule Manual Ed 7A (73 pp). Rule Book wins on conflict.
@@ -74,6 +103,12 @@ Running log for a possible blog post. Newest findings appended at bottom of each
 ## Mobile app
 - Mobile tabs: Chat, Dashboards, Apps, Schedules. No agent list; Genie One Chat auto-routes to a matching Genie Agent (docs: searches agents first, then data assets). Web search bar drop-down lets you pick an agent explicitly.
 - First mobile question: Genie One said it had no teeball knowledge; user had to tell it an agent exists. Routing relies on agent title/description (+ likely table metadata). Fix attempt: keyword-rich agent description (teeball/tee-ball/T-ball, TBAWA, topic list) + COMMENT ON TABLE/columns for rule_chunks.
+
+## Prod + permissions
+- Dev-mode resources are real + visible to owner/admins (only names prefixed). Admins always see all Genie agents → can't hide dev from yourself with permissions; two near-identical agents may hurt Genie One routing.
+- Solution: separate test user in `business_us` group; prod-only grants via `targets.prod.resources` overrides: Genie `permissions: group_name business_us, CAN_RUN`; schema `grants: business_us [USE_SCHEMA, SELECT, EXECUTE]`. Catalog USE_CATALOG + warehouse CAN_USE already granted to all workspace users on Free.
+- Gotcha: `databricks groups list` doesn't return members (showed 0) — use `groups get <id>`.
+- Prod ingest: 284 chunks parsed + embedded in one run. Mobile test as business user: works, routes to "Teeball Umpire" (after keyword-rich description + table comments).
 
 ## Open questions / to revisit
 - Does Genie reliably route questions to `ask_rulebook`, and render text not a 1-cell table?
