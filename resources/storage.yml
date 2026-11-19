@@ -1,0 +1,15 @@
+resources:
+  schemas:
+    teeball:
+      catalog_name: ${var.catalog}
+      name: ${var.schema}
+      comment: Teeball umpire rules agent
+
+  volumes:
+    kb_docs:
+      catalog_name: ${var.catalog}
+      schema_name: ${resources.schemas.teeball.name}
+      name: kb_docs
+      volume_type: MANAGED
+      comment: Source rulebook PDFs (drop new editions in rulebooks/)
+

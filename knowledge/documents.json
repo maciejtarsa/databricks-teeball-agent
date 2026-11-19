@@ -1,0 +1,15 @@
+{
+  "_comment": "Metadata per rulebook PDF. authority_rank: lower = wins on conflict. Unknown files get rank 99.",
+  "Rule-Book-Edition-8.pdf": {
+    "title": "TBAWA Official Rules, Edition 8 (2026/27)",
+    "doc_type": "rulebook",
+    "edition": "8",
+    "authority_rank": 1
+  },
+  "Annotated-Rule-Manual-7A.pdf": {
+    "title": "TBAWA Annotated Rule Book & Umpire Manual, Edition 7A",
+    "doc_type": "manual",
+    "edition": "7A",
+    "authority_rank": 2
+  }
+}

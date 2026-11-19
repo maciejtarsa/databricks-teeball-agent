@@ -1,0 +1,63 @@
+resources:
+  genie_spaces:
+    teeball_umpire:
+      title: Teeball Umpire
+      description: >-
+        Teeball / tee-ball / T-ball umpire rules assistant for TBAWA (Teeball Association of Western Australia).
+        Answers ANY teeball rules question, umpiring ruling or game situation (outs, force plays, tag ups, fair/foul balls,
+        obstruction, interference, batting, base running, fielding positions, substitutions, safety, equipment, age groups),
+        citing rule numbers from the TBAWA Official Rule Book Edition 8 and the Annotated Rule Book & Umpire Manual 7A.
+        Use this agent for all teeball, tee-ball, T-ball and junior baseball rules questions.
+      warehouse_id: ${var.warehouse_id}
+      parent_path: ${workspace.file_path}/genie
+      serialized_space:
+        version: 2
+        config:
+          sample_questions:
+          - id: "011e0d29f68b4c99b2db8d2555799d5f"
+            question:
+              - "Runner leaves 1st on the hit and the ball is caught. Is the runner out?"
+          - id: "8055440a5ee242eb8a61ba6da86957b3"
+            question:
+              - "Ball first lands fair between home and 3rd then rolls foul. Fair or foul?"
+          - id: "8624961a966144ffbe84cec707ba5c66"
+            question:
+              - "Fielder without the ball stands on 2nd and the runner has to go around them. What's the call?"
+          - id: "8bd6fe73c6dc4f848b7ece038e2caaf0"
+            question:
+              - "Do runs count if the 3rd out is a force out?"
+        data_sources:
+          tables:
+            - identifier: ${var.catalog}.${resources.schemas.teeball.name}.rule_chunks
+        instructions:
+          text_instructions:
+            - id: "f392c42f1d604e81a59294c849ad9f8c"
+              content:
+                - "You answer teeball umpire rules questions for TBAWA (Western Australia).\n"
+                - "ALWAYS answer by calling the ask_rulebook function with the user's full question (include relevant context from earlier in the conversation, e.g. runner positions and outs).\n"
+                - "Return the function's answer text exactly as the response. Do not summarise it into a table or chart.\n"
+                - "Only query the rule_chunks table directly if the user asks to see the source text of a specific rule number.\n"
+          example_question_sqls:
+            - id: "2d524b7ec0ee4372be4866d10110a54d"
+              question:
+                - "Runner on 1st runs on the hit and the ball is caught. Is the runner out?"
+              sql:
+                - "SELECT ${var.catalog}.${resources.schemas.teeball.name}.ask_rulebook(:question) AS answer"
+              parameters:
+                - name: question
+                  type_hint: STRING
+                  description:
+                    - "The user's full rules question including situation context"
+            - id: "bf4829069f2d4c2c85ffc7840c74e7de"
+              question:
+                - "What's the ruling when a fielder without the ball blocks the base?"
+              sql:
+                - "SELECT ${var.catalog}.${resources.schemas.teeball.name}.ask_rulebook(:question) AS answer"
+              parameters:
+                - name: question
+                  type_hint: STRING
+                  description:
+                    - "The user's full rules question including situation context"
+          sql_functions:
+            - id: "fd489c029c6d47fcb87e968ec3f5fe2c"
+              identifier: ${var.catalog}.${resources.schemas.teeball.name}.ask_rulebook

@@ -1,0 +1,42 @@
+resources:
+  jobs:
+    ingest_rulebooks:
+      name: teeball_ingest_rulebooks
+      description: Copy rulebook PDFs into kb_docs, parse, chunk + embed them, (re)create ask_rulebook
+      tasks:
+        - task_key: copy_pdfs
+          environment_key: default
+          spark_python_task:
+            python_file: ../src/jobs/seed_rulebooks.py
+            parameters:
+              - ${workspace.file_path}/knowledge/rulebooks
+              - ${var.volume_dir}
+
+        - task_key: parse_chunk
+          depends_on: [{task_key: copy_pdfs}]
+          environment_key: default
+          spark_python_task:
+            python_file: ../src/jobs/parse_chunk.py
+            parameters:
+              - ${var.catalog}
+              - ${resources.schemas.teeball.name}
+              - ${var.volume_dir}
+              - ${workspace.file_path}/knowledge/documents.json
+              - ${var.embedding_endpoint}
+
+        - task_key: create_function
+          depends_on: [{task_key: parse_chunk}]
+          environment_key: default
+          spark_python_task:
+            python_file: ../src/jobs/create_function.py
+            parameters:
+              - ${var.catalog}
+              - ${resources.schemas.teeball.name}
+              - ${var.llm_endpoint}
+              - ${var.embedding_endpoint}
+              - ${workspace.file_path}/src/prompts/answer_rules.md
+
+      environments:
+        - environment_key: default
+          spec:
+            environment_version: "4"

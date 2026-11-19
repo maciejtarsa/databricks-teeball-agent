@@ -1,0 +1,171 @@
+"""Parse rulebook PDFs in the volume with ai_parse_document and split them into rule-level chunks.
+
+Args: catalog schema volume_dir documents_json embedding_endpoint
+- parsed_docs: one row per PDF (only new/changed files are re-parsed)
+- rule_chunks: one row per rule section, merged by chunk_id, with an embedding per chunk (only new chunks are embedded)
+"""
+import hashlib
+import json
+import re
+import sys
+
+from pyspark.sql import SparkSession
+
+catalog, schema, volume_dir, documents_json, embedding_endpoint = sys.argv[1:6]
+spark = SparkSession.builder.getOrCreate()
+parsed_tbl = f"{catalog}.{schema}.parsed_docs"
+chunks_tbl = f"{catalog}.{schema}.rule_chunks"
+
+MAX_CHARS = 2500
+RULE_HEADER = re.compile(r"^\s*(\d{1,2}(?:\.\d{1,2})?)\s+(\S.*)$")
+SKIP_TYPES = {"page_header", "page_footer", "page_number"}
+# Sub-headings inside a rule (manual scenarios/outcomes, lettered clauses) stay in the rule's chunk
+INLINE_HEADER = re.compile(r"^(\(|SCENARIO|OUTCOME|NOTE|SPECIAL NOTE|CONCLUSION|EXAMPLE)|:$", re.IGNORECASE)
+
+
+def is_inline_header(text):
+    return bool(INLINE_HEADER.search(text)) or (text.isupper() and len(text) < 60)
+
+with open(documents_json) as f:
+    doc_meta = {k: v for k, v in json.load(f).items() if not k.startswith("_")}
+
+# 1. Parse new or changed PDFs
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {parsed_tbl} (
+  path STRING, file_name STRING, modification_time TIMESTAMP, parsed VARIANT)
+""")
+spark.sql(f"""
+CREATE OR REPLACE TEMP VIEW new_files AS
+SELECT f.path, f.modificationTime AS modification_time, f.content
+FROM read_files('{volume_dir}', format => 'binaryFile', pathGlobFilter => '*.pdf') f
+LEFT ANTI JOIN {parsed_tbl} p ON p.path = f.path AND p.modification_time = f.modificationTime
+""")
+n_new = spark.sql("SELECT count(*) FROM new_files").first()[0]
+print(f"{n_new} new/changed PDF(s) to parse")
+if n_new:
+    spark.sql(f"""
+    MERGE INTO {parsed_tbl} t
+    USING (SELECT path, regexp_extract(path, '[^/]+$', 0) AS file_name, modification_time,
+                  ai_parse_document(content) AS parsed
+           FROM new_files) s
+    ON t.path = s.path
+    WHEN MATCHED THEN UPDATE SET *
+    WHEN NOT MATCHED THEN INSERT *
+    """)
+# Drop PDFs removed from the volume
+spark.sql(f"""
+DELETE FROM {parsed_tbl}
+WHERE path NOT IN (SELECT path FROM read_files('{volume_dir}', format => 'binaryFile', pathGlobFilter => '*.pdf'))
+""")
+
+# 2. Chunk by rule section headers
+elements = spark.sql(f"""
+SELECT file_name, el.type AS type, el.content AS content, el.bbox[0].page_id AS page_id, pos
+FROM {parsed_tbl},
+LATERAL posexplode(variant_get(parsed, '$.document.elements',
+  'ARRAY<STRUCT<type STRING, content STRING, bbox ARRAY<STRUCT<page_id INT>>>>')) AS (pos, el)
+ORDER BY file_name, pos
+""").collect()
+
+
+def new_chunk(file_name, page, rule_no=None, heading=None, part=None):
+    return {"file_name": file_name, "rule_no": rule_no, "heading": heading, "part": part,
+            "page_start": page, "page_end": page, "body": []}
+
+
+chunks, cur = [], None
+for el in elements:
+    if el.type in SKIP_TYPES or not (el.content or "").strip():
+        continue
+    page = (el.page_id or 0) + 1  # PDF page number, 1-based
+    text = el.content.strip()
+    if cur is None or cur["file_name"] != el.file_name:
+        if cur:
+            chunks.append(cur)
+        cur = new_chunk(el.file_name, page)
+    m = RULE_HEADER.match(text) if el.type in ("section_header", "title") else None
+    if m:
+        chunks.append(cur)
+        cur = new_chunk(el.file_name, page, m.group(1), m.group(2), cur["part"])
+    elif el.type in ("section_header", "title") and not (cur["rule_no"] and is_inline_header(text)):
+        chunks.append(cur)
+        cur = new_chunk(el.file_name, page, part=text)
+        cur["body"].append(text)
+    else:
+        if el.type == "figure":
+            text = f"[Figure] {text}"
+        cur["body"].append(text)
+        cur["page_end"] = page
+if cur:
+    chunks.append(cur)
+
+rows = []
+for c in chunks:
+    body = "\n".join(c["body"]).strip()
+    if not body and not c["heading"]:
+        continue
+    meta = doc_meta.get(c["file_name"], {"title": c["file_name"], "doc_type": "other",
+                                         "edition": None, "authority_rank": 99})
+    rule_label = f"Rule {c['rule_no']} {c['heading']}" if c["rule_no"] else (c["part"] or "General")
+    header = f"{meta['title']} | {rule_label} | pages {c['page_start']}-{c['page_end']}"
+    # Split long sections, repeating the header so every piece stands alone
+    pieces = [body[i:i + MAX_CHARS] for i in range(0, max(len(body), 1), MAX_CHARS)]
+    for i, piece in enumerate(pieces):
+        content = f"{header}\n{piece}"
+        rows.append({
+            "chunk_id": hashlib.sha1(f"{c['file_name']}|{rule_label}|{c['page_start']}|{i}|{content}".encode()).hexdigest(),
+            "file_name": c["file_name"],
+            "doc_title": meta["title"],
+            "doc_type": meta["doc_type"],
+            "edition": meta["edition"],
+            "authority_rank": int(meta["authority_rank"]),
+            "rule_no": c["rule_no"],
+            "heading": c["heading"] or c["part"],
+            "page_start": c["page_start"],
+            "page_end": c["page_end"],
+            "content": content,
+            "embedding": None,
+        })
+rows = list({r["chunk_id"]: r for r in rows}.values())  # identical sections (e.g. repeated headings) share an id
+print(f"{len(rows)} chunks from {len({r['file_name'] for r in rows})} document(s)")
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {chunks_tbl} (
+  chunk_id STRING NOT NULL, file_name STRING, doc_title STRING, doc_type STRING, edition STRING,
+  authority_rank INT, rule_no STRING, heading STRING, page_start INT, page_end INT, content STRING,
+  embedding ARRAY<FLOAT>)
+""")
+if "embedding" not in spark.table(chunks_tbl).columns:
+    spark.sql(f"ALTER TABLE {chunks_tbl} ADD COLUMNS (embedding ARRAY<FLOAT>)")
+spark.createDataFrame(rows, schema=spark.table(chunks_tbl).schema).createOrReplaceTempView("new_chunks")
+spark.sql(f"""
+MERGE INTO {chunks_tbl} t USING new_chunks s ON t.chunk_id = s.chunk_id
+WHEN NOT MATCHED THEN INSERT *
+WHEN NOT MATCHED BY SOURCE THEN DELETE
+""")
+spark.sql(f"""COMMENT ON TABLE {chunks_tbl} IS 'Teeball (tee-ball, T-ball) rules knowledge base for TBAWA umpires: every rule and umpire interpretation from the TBAWA Official Rule Book (Edition 8) and the Annotated Rule Book & Umpire Manual (Edition 7A), one row per rule section. Answer teeball rules questions with the ask_rulebook function.'""")
+for col, comment in {
+    "rule_no": "Teeball rule number, e.g. 17.10 (tag up after catch), 13.1 (foul ball), 20 (obstruction)",
+    "heading": "Rule heading / title, e.g. Forced Play, Obstruction, Fair Batted Balls",
+    "content": "Full rule text with document title, rule number and page numbers",
+    "doc_title": "Source document: TBAWA Official Rule Book Ed 8 or Annotated Rule Book & Umpire Manual Ed 7A",
+    "authority_rank": "1 = Rule Book (wins on conflict), 2 = Annotated Manual",
+}.items():
+    spark.sql(f"ALTER TABLE {chunks_tbl} ALTER COLUMN {col} COMMENT '{comment}'")
+# Clean up duplicate ids left by earlier runs
+spark.sql(f"""
+INSERT OVERWRITE {chunks_tbl}
+SELECT * FROM {chunks_tbl} QUALIFY row_number() OVER (PARTITION BY chunk_id ORDER BY embedding IS NULL) = 1
+""")
+# ai_query is non-deterministic so can't be used in UPDATE/MERGE directly; materialise embeddings first
+to_embed = spark.sql(f"""
+SELECT chunk_id, ai_query('{embedding_endpoint}', content) AS embedding
+FROM {chunks_tbl} WHERE embedding IS NULL
+""").collect()
+if to_embed:
+    spark.createDataFrame(to_embed, "chunk_id STRING, embedding ARRAY<FLOAT>").createOrReplaceTempView("new_embeddings")
+    spark.sql(f"""
+    MERGE INTO {chunks_tbl} t USING new_embeddings s ON t.chunk_id = s.chunk_id
+    WHEN MATCHED THEN UPDATE SET t.embedding = s.embedding
+    """)
+print(f"embedded {len(to_embed)} new chunk(s)")
