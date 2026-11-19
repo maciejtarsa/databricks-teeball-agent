@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "question": "Runner on 1st runs on the hit, the ball is caught (batter out) and the runner doesn't go back to 1st. Is the runner out?",
+    "expected": "Not automatically out. Leaving on the hit is legal (17.4 only bans leaving before the hit). Under 17.10 a runner who left before the catch is out only if they fail to retouch 1st before they or 1st base are tagged by a fielder holding the ball. Must retouch in reverse order (17.7). After retouching may advance at own risk (17.11)."
+  },
+  {
+    "id": 2,
+    "question": "Does the ball need to be inside the diamond before the umpire can call Time?",
+    "expected": "No. Rule 11: Time is called when the ball is held by any player in an infield position, no play is being made, and all runners are in close proximity (~3 paces) to a base. Infield positions are mostly outside the diamond, so inside the diamond is not a requirement."
+  },
+  {
+    "id": 3,
+    "question": "Fielders without the ball are standing on the bases or baselines, especially home plate, blocking runners. What's the ruling?",
+    "expected": "Obstruction (Rule 20): fielder not holding the ball and not in the act of fielding who impedes a runner. Contact not required. Umpire nullifies it and awards the runner at least one base beyond where they were going (or where they would have ended up). Runners must not charge through fielders."
+  },
+  {
+    "id": 4,
+    "question": "A fielder stands on 2nd base waiting for a throw and the runner arrives before the ball. What's the call?",
+    "expected": "Obstruction (Rule 20) if the fielder without the ball blocks the runner's path/base; fielders are only entitled to occupy the base when they have the ball. Award at least one extra base beyond 2nd (i.e. 3rd). On a force the ball must beat the runner (1.2a)."
+  },
+  {
+    "id": 5,
+    "question": "The 1st baseman is stretched out with only the edge of a foot on the base and catches the throw before the runner arrives. Is the runner out?",
+    "expected": "Yes, legal force out. 17.8 note: tagging a base means touching it with any part of the body while in control of the ball; the rest of the body doesn't matter. Foot must be touching the base at the catch, ball secured, and the ball must beat the runner."
+  },
+  {
+    "id": 6,
+    "question": "The ball first lands fair halfway between home and 3rd, then rolls into foul territory before reaching 3rd. Fair or foul?",
+    "expected": "Fair ball. Teeball decides fair/foul by where the ball first lands (13.1a, 14a, 14c): a ball that first lands fair and then settles in foul territory is still fair. Not the baseball rule."
+  },
+  {
+    "id": 7,
+    "question": "Runner on 1st is forced to 2nd. Does the fielder need to tag the runner or just touch 2nd base?",
+    "expected": "Either one (17.8a): on a forced play the base can be tagged before the runner arrives, or the runner tagged before reaching the base. If the batter-runner is put out first, the force is removed and the runner must be tagged."
+  },
+  {
+    "id": 8,
+    "question": "A runner crosses home before the 3rd out is made. Does the run count?",
+    "expected": "Depends on the 3rd out (17.13). No runs count if the 3rd out is the batter-runner before reaching 1st or any force play. Otherwise runs that crossed home before the 3rd out count."
+  },
+  {
+    "id": 9,
+    "question": "When is a runner going from 1st to 2nd NOT forced?",
+    "expected": "When the batter-runner is out: the batted ball is caught, or the batter-runner is put out before reaching 1st. Then the force is removed; touching 2nd does nothing and the runner must be tagged off base (17.8b)."
+  },
+  {
+    "id": 10,
+    "question": "The batter hits too much tee, but the pitcher catches the ball in the air. Out or foul?",
+    "expected": "Out. A ball cannot be declared foul until it touches the ground (13.1 note), and a ball caught anywhere is fair (14d). Umpire waits until the ball hits the ground before calling a tee foul."
+  },
+  {
+    "id": 11,
+    "question": "The 3rd out is made at 3rd base, and two runners ahead had already crossed home. Do their runs count?",
+    "expected": "Depends whether the out at 3rd was a force play (17.13). If the runner was forced to 3rd (bases behind full) it is a force out and no runs count. If the runner was not forced and had to be tagged, runs that crossed home before the tag count."
+  },
+  {
+    "id": 12,
+    "question": "A non-forced runner is stuck between 2nd and 3rd (3rd is occupied). A fielder with the ball stands between the runner and 2nd but doesn't tag them. The umpire called Time and sent the runner back to 2nd. Correct?",
+    "expected": "Runner is not out unless tagged. Not obstruction because the fielder has the ball (Rule 20 needs a fielder without the ball). Runner can't go to occupied 3rd (one runner per base). Time should only be called when all runners are close to a base (Rule 11); if the runner was near 2nd, Time and returning to 2nd is correct."
+  }
+]

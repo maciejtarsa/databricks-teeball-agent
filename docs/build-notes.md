@@ -110,6 +110,18 @@ For Claude Code (be honest):
 - Gotcha: `databricks groups list` doesn't return members (showed 0) — use `groups get <id>`.
 - Prod ingest: 284 chunks parsed + embedded in one run. Mobile test as business user: works, routes to "Teeball Umpire" (after keyword-rich description + table comments).
 
+## Accuracy check (12 logged rulings, prod, first run)
+- Bundle job `eval_rulings`: `evals/rulings.json` (question + expected ruling from CLAUDE.md log) → `ask_rulebook` → LLM judge (GPT-OSS-120B, same model; self-grading bias caveat) → `eval_results` table, appended per run.
+- Run 1: **5 CORRECT, 3 PARTIAL, 4 WRONG**; rule cited in 9/12.
+- Failure analysis (manual review agrees with judge):
+  - #2 Time / inside diamond: reasoning error; model equated "infield position" with "inside the diamond" despite citing the right definition.
+  - #5 foot on edge of base: retrieval miss; 17.8 note (tag base with any part of body) not retrieved → "not covered".
+  - #9 when not forced: model followed Manual 17.9 ("force ends once batter reaches 1st"), which is the known Rule Book vs Manual conflict (ruling 7). Expected answer should arguably require flagging the conflict.
+  - #10 too much tee + caught: retrieval miss on 13.1 note / 14(d) (caught = fair) → answered "strike". Same question via Genie earlier answered "Out", so results are unstable with retrieval/model variance.
+  - Partials (#4, #7, #11): right ruling, missing conditions (force removal, force vs non-force).
+- Compare: local Claude session with the whole rulebook in context got all of these "right" (they ARE the reference answers), a real trade-off for the post: scale + sharing vs accuracy on a small corpus.
+- Improvement ideas: hybrid keyword + vector retrieval (rule numbers, terms like "tee", "force"), retrieve rule notes with parent rule, larger k, query rewriting, stronger model (try Llama 4 Maverick / Qwen 3.5 122B on Free), judge with a different model than the answerer.
+
 ## Open questions / to revisit
 - Does Genie reliably route questions to `ask_rulebook`, and render text not a 1-cell table?
 - GPT-OSS answer quality vs Claude (baseline = rulings log in CLAUDE.md, use as eval set).
