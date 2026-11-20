@@ -255,3 +255,10 @@ Gotchas: serverless python tasks have no `__file__` (pass code dir as arg); `bun
 - Does Genie reliably route questions to `ask_rulebook`, and render text not a 1-cell table?
 - GPT-OSS answer quality vs Claude (baseline = rulings log in CLAUDE.md, use as eval set).
 - Learning loop (rulings from conversations) parked; mobile access is priority.
+
+### Follow-up: business user + Genie One Chat (2026-11-20)
+- Business user (consumer entitlement) opening agent directly works -> permissions fine.
+- Chat auto-routing still misses it: "agent" in question -> Chat searched Agent Bricks (serving endpoints), not Genie spaces. Naming "Teeball Umpire Genie space" -> "not found... might not be indexed yet"; fell back to reading `rule_chunks`.
+- Likely cause: agent recreated twice same day (new IDs) -> Genie One search index lag. Old prod agent (days old, hidden .bundle folder) was found fine, so folder move maybe not the real fix.
+- Lessons: Chat routing best-effort; direct agent link = reliable entry point; avoid recreating agents (key/parent_path changes) close to a demo.
+- Possible fallback (not done): table comment telling Chat to run `SELECT workspace.teeball.ask_rulebook('<q>')`.
