@@ -25,11 +25,40 @@ For Claude Code (be honest):
 - Remembers past questions: CLAUDE.md rulings log grows each session, follow-ups build on earlier rulings.
 - Zero infra: setup was minutes vs a pipeline, function, agent, permissions.
 
+### Key message: evaluation is where the value comes in (stress this)
+- The 12 questions I'd already asked the local Claude session, with answers I'd checked and trusted, became a ready-made eval set for free. Real questions from real games, not synthetic ones.
+- With that, judging the system needed no manual testing: one bundle job (`eval_rulings`) runs every question through the agent, an LLM judge compares each answer with the trusted ruling, and the scores go into a table.
+- That turned "does it feel right?" into numbers, and every change became measurable: chunking fixes, citation prompt, model swap, hybrid retrieval. Try something → run the eval → keep it or drop it.
+- Cheap to iterate: comparing 3 models was one parameter change (`models=a|b|c`) and a few minutes of pay-per-use compute; experiments use temporary variants of the same SQL template, so the live agent isn't touched.
+- Lesson: before building the clever bit, keep a small set of questions with answers you trust. The earlier local Claude Q&A wasn't throwaway work; it became the yardstick for everything after.
+- **Plot twist: verify the evaluator too.** The "best" model (Qwen, 8/12) returned empty strings for every question; the LLM judge graded them CORRECT anyway. Only spotted by reading the raw answers. Lesson: add deterministic checks (empty answer, missing citation) before the LLM judge, and spot-read results, especially surprising wins.
+- Caveats worth stating: LLM judges vary (self-judge harsher than Maverick), single runs are noisy, 12 questions is small; still far better than eyeballing answers on a phone.
+
 ### Disadvantages of the Genie solution
 - **No memory across conversations**: Genie One can't keep track of questions I asked previously. The local Claude session kept them (rulings log in CLAUDE.md) and reused them. Genie conversations persist per user (web/mobile/desktop) but the agent doesn't learn from them.
 - **Workaround (planned, not built)**: scheduled job harvests conversations via Genie API (`genie list-conversations --include-all` + messages + thumbs feedback) → LLM summarises good Q&As into the rulings format → reviewer approves → approved rulings written as md into the volume / a `rulings` table → ingest job chunks + embeds them → future answers retrieve past rulings. Bonus: rulings become shared knowledge across all users, not just mine.
 - Open models only on Free (no Claude); Genie routing needed tuning (description + table comments); answer shown twice (function result + Genie summary); file-based Genie features unavailable on Free.
 - **But**: with Genie One I can open access to more people (e.g. an account for the local teeball association) via a group like `business_us`. With my local Claude setup I couldn't do that.
+
+## Iteration log (story arc: start simple, measure, improve)
+Same 12 questions (`evals/rulings.json`, from my real post-game questions) used as the yardstick throughout. Every eval run stored in `eval_runs` (label, model, mode, judge, verdict per question).
+
+| # | Iteration | What changed | Result |
+|---|---|---|---|
+| 0 | Local Claude Code | Whole rulebook (~55k tokens) in context, rulings log in CLAUDE.md | Produced the 12 reference answers. Accurate, but laptop-only, single user, re-reads everything each question |
+| 1 | Genie native file search | Attach UC volume of PDFs to a Genie agent | Blocked on Free: `REQUIRED_MODEL_NOT_AVAILABLE` |
+| 2 | Own pipeline + Vector Search | ai_parse_document → rule chunks → VS index → `ask_rulebook` SQL function → Genie | Function worked directly; from Genie `PERMISSION_DENIED` on index (grant didn't help). Endpoint always-on |
+| 3 | Embeddings in Delta | gte-large-en embeddings stored in `rule_chunks`, cosine similarity in SQL | Works from Genie + mobile, nothing always-on |
+| 3a | Routing | Keyword-rich agent description + table/column comments | Genie One mobile chat now finds the agent |
+| 3b | Chunking + citations | Sub-headings (SCENARIO/OUTCOME/CONCLUSION) kept inline; unnumbered Manual sections inherit Rule Book numbers by heading; top-5 per document; stricter citation prompt | Obstruction answer went from "Manual CONCLUSION p48" to "Rule 20" |
+| 4 | First accuracy check | GPT-OSS-120B answering + judging itself | 5 correct / 3 partial / 4 wrong, rule cited 9/12 |
+| 5 | Independent judge + model comparison | Judge = Llama 4 Maverick; answer models GPT-OSS-120B vs Qwen 3.5 122B vs Llama 3.3 70B (vector retrieval) | GPT-OSS 5C/7P/0W (cites 11/12); **Qwen 8C/4P/0W** (cites 7/12); Llama 3.3 3C/9P/0W (cites 12/12). Maverick judge more lenient than self-judge (GPT-OSS 4 WRONG → 0). Single runs are noisy |
+| 6 | Hybrid retrieval | + IDF keyword score + rule-number boost; + sibling expansion (all chunks of a retrieved rule, both docs) | GPT-OSS: vector 5C/7P/0W → **hybrid 7C/4P/1W, cites 12/12** (earlier partial run 7C/2P/3W) → hybrid+siblings 5C/6P/1W (more context ≠ better). #5 (foot on base) fixed by hybrid |
+| 7 | **Eval caught lying** | Inspected Qwen's "winning" 8C: ALL 36 Qwen answers were EMPTY; judge still graded 8/12 CORRECT | Qwen 3.5 is a reasoning model: `max_tokens` 2000 consumed by hidden thinking → `''`. Fix: max_tokens 8000; eval marks empty answers WRONG without judging. Bonus: Qwen asked without context gives the *baseball* fair/foul rule (wrong for teeball) → grounding matters. Re-run with real answers: Qwen vector 6C/4P/2W (cites 10/12), hybrid 5C/5P/2W, hybrid+siblings 5C/5P/2W → GPT-OSS + hybrid stays best |
+| 8 | Ship the winner | `retrieval_mode` default → `hybrid`, model GPT-OSS-120B, max_tokens 8000; redeploy dev + prod; eval as regression check | **9C/3P/0W, cites 12/12** (from 5C/3P/4W self-judged / 5C/7P/0W independent at iteration 4-5). Genie re-checked on #5 (previously WRONG) → Out. GPT-OSS hybrid runs so far: 7/2/3, 7/4/1, 9/3/0 → expect run-to-run variance |
+
+Engineering bits worth mentioning: shared SQL template (`src/jobs/rag_sql.py`) builds both the deployed function and temporary eval variants, so experiments don't touch the live agent; eval is a bundle job with parameters (`models`, `modes`, `judge`, `label`).
+Gotchas: serverless python tasks have no `__file__` (pass code dir as arg); `bundle run --params` splits on commas (use `|` in list values). SQL UDFs can't reference the parameter inside nested subqueries (`ACCESSING_OUTER_QUERY_COLUMN_IS_NOT_ALLOWED`) → first hybrid attempt (IDF computed per question via subqueries) failed; fix = precompute IDF in a `rule_terms` table at ingest, reference the question once in a CTE, score with higher-order array functions (`filter`, `aggregate`) + a vocab map.
 
 ## Goal
 - Teeball umpire asks situational rules questions on phone, mid-game. Answers must cite rule numbers.

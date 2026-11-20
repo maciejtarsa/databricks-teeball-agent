@@ -3,6 +3,7 @@
 Args: catalog schema volume_dir documents_json embedding_endpoint
 - parsed_docs: one row per PDF (only new/changed files are re-parsed)
 - rule_chunks: one row per rule section, merged by chunk_id, with an embedding per chunk (only new chunks are embedded)
+- rule_terms: IDF per word (keyword weights for hybrid retrieval)
 """
 import hashlib
 import json
@@ -169,6 +170,19 @@ spark.sql(f"""
 INSERT OVERWRITE {chunks_tbl}
 SELECT * FROM {chunks_tbl} QUALIFY row_number() OVER (PARTITION BY chunk_id ORDER BY embedding IS NULL) = 1
 """)
+# Keyword rarity (IDF) per word, used by hybrid retrieval in ask_rulebook
+spark.sql(f"""
+CREATE OR REPLACE TABLE {catalog}.{schema}.rule_terms
+COMMENT 'Inverse document frequency of words in rule_chunks (keyword weights for hybrid retrieval)' AS
+WITH terms AS (
+  SELECT DISTINCT chunk_id, w
+  FROM {chunks_tbl} LATERAL VIEW explode(split(regexp_replace(lower(content), '[^a-z0-9.]+', ' '), ' ')) x AS w
+  WHERE length(w) >= 3
+)
+SELECT w AS word, ln(n / (1 + count(*))) AS idf
+FROM terms CROSS JOIN (SELECT count(*) AS n FROM {chunks_tbl}) GROUP BY w, n
+""")
+
 # ai_query is non-deterministic so can't be used in UPDATE/MERGE directly; materialise embeddings first
 to_embed = spark.sql(f"""
 SELECT chunk_id, ai_query('{embedding_endpoint}', content) AS embedding

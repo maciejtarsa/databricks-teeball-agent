@@ -35,6 +35,8 @@ resources:
               - ${var.llm_endpoint}
               - ${var.embedding_endpoint}
               - ${workspace.file_path}/src/prompts/answer_rules.md
+              - ${var.retrieval_mode}
+              - ${workspace.file_path}/src/jobs
 
       environments:
         - environment_key: default

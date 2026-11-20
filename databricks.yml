@@ -25,6 +25,9 @@ variables:
   embedding_endpoint:
     description: Foundation model endpoint for chunk + question embeddings
     default: databricks-gte-large-en
+  retrieval_mode:
+    description: "ask_rulebook retrieval: vector | hybrid | hybrid_siblings (see src/jobs/rag_sql.py)"
+    default: hybrid
   warehouse_id:
     description: SQL warehouse for Genie + SQL tasks
     lookup:

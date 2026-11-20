@@ -2,7 +2,16 @@ resources:
   jobs:
     eval_rulings:
       name: teeball_eval_rulings
-      description: Score ask_rulebook against the logged rulings (evals/rulings.json) with an LLM judge
+      description: Score ask_rulebook variants (model x retrieval mode) against the logged rulings (evals/rulings.json) with an LLM judge
+      parameters:
+        - name: models
+          default: ${var.llm_endpoint}
+        - name: modes
+          default: ${var.retrieval_mode}
+        - name: judge
+          default: databricks-llama-4-maverick
+        - name: label
+          default: adhoc
       tasks:
         - task_key: eval
           environment_key: default
@@ -11,8 +20,14 @@ resources:
             parameters:
               - ${var.catalog}
               - ${resources.schemas.teeball.name}
-              - ${var.llm_endpoint}
+              - ${var.embedding_endpoint}
+              - ${workspace.file_path}/src/prompts/answer_rules.md
               - ${workspace.file_path}/evals/rulings.json
+              - "{{job.parameters.judge}}"
+              - "{{job.parameters.models}}"
+              - "{{job.parameters.modes}}"
+              - "{{job.parameters.label}}"
+              - ${workspace.file_path}/src/jobs
       environments:
         - environment_key: default
           spec:
