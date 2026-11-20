@@ -1,0 +1,49 @@
+{
+  "space_id": "01f1e3c331561b9aaf2785eca9d4a556",
+  "note": "Orphan Genie agent created by an ad-hoc API probe (pre-DABs), volume-only source; Genie One routed real mobile questions to it",
+  "conversations": [
+    {
+      "conversation_id": "01f1e3d952081e0d83538a3868118f4a",
+      "title": "for an umpire to call time, do all runners need to",
+      "created": "2026-11-19T05:23:14.891000+00:00",
+      "messages": [
+        {
+          "question": "for an umpire to call time, do all runners need to be on their bases?",
+          "status": "COMPLETED",
+          "answer_text": [],
+          "sql": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "conversation_id": "01f1e3d119ee1f0f8d716ddd4646e06f",
+      "title": "In teeball, a batter hits the ball but it is caugh",
+      "created": "2026-11-19T04:24:24.795000+00:00",
+      "messages": [
+        {
+          "question": "In teeball, a batter hits the ball but it is caught by a fielder. The batter is out, do all the runners need to go back to their bases before potentially running to the next base?",
+          "status": "COMPLETED",
+          "answer_text": [],
+          "sql": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "conversation_id": "01f1e3d0dda11631ac05efab96493e96",
+      "title": "A ball is caught by a fielder after a bat, do all the runners...",
+      "created": "2026-11-19T04:22:43.623000+00:00",
+      "messages": [
+        {
+          "question": "A ball is caught by a fielder after a bat, do all the runners need to come back to their base?",
+          "status": "COMPLETED",
+          "answer_text": [],
+          "sql": [],
+          "error": null
+        }
+      ]
+    }
+  ],
+  "answers_note": "Messages COMPLETED but carry no attachments via the Genie conversation API, so the answers shown on mobile are not retrievable (likely Genie One agent-mode responses not exposed by this API). Questions preserved."
+}

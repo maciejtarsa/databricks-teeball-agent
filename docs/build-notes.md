@@ -116,6 +116,13 @@ For Claude Code (be honest):
 5. **Know your noise floor.** Same config twice differs by ~4 pts on 301 Qs, so only trust bigger changes, or average several runs.
 6. **Test on dev, compare on prod.** Bundle targets let the chunking experiment run on a separate schema while prod evals ran undisturbed.
 
+### Cleanup + the orphan agent (blog: why everything should be in the bundle)
+- `bundle destroy -t dev`: 7 resources deleted (dev Genie agent, 4 jobs, schema with 5 tables, volume). Dev eval data lost by design; numbers already in these notes. Prod untouched.
+- Afterwards the workspace still had **two** "Teeball Umpire" agents. The extra one (created 19 Nov 02:44 UTC) was from the very first ad-hoc `genie create-space` API probes, before the move to DABs: the probe returned an error, yet a space had been created. It pointed at the PDF volume (Genie file search, unavailable on Free) and was invisible to the bundle.
+- **Genie One routed 3 of my real mobile questions to it** instead of the bundle-managed agent (tag-up after a catch ×2, do all runners need to be on base for Time), so they bypassed our rulebook pipeline. The API shows those messages COMPLETED but with no answer attachments, so the answers aren't recoverable. Questions exported to `docs/orphan-agent-conversations.json` (candidate eval questions).
+- Deleted manually with `genie trash-space` (bundle couldn't, since it never managed it).
+- Lessons: (1) anything created outside the bundle becomes invisible drift that `destroy` won't clean up; (2) an error response doesn't guarantee nothing was created; check; (3) duplicate agent names confuse Genie One routing; (4) the "everything via DABs" rule (adopted after this probe) is what made the rest of the project reproducible and cleanly destroyable.
+
 ### Disadvantages of the Genie solution
 - **No memory across conversations**: Genie One can't keep track of questions I asked previously. The local Claude session kept them (rulings log in CLAUDE.md) and reused them. Genie conversations persist per user (web/mobile/desktop) but the agent doesn't learn from them.
 - **Workaround (planned, not built)**: scheduled job harvests conversations via Genie API (`genie list-conversations --include-all` + messages + thumbs feedback) → LLM summarises good Q&As into the rulings format → reviewer approves → approved rulings written as md into the volume / a `rulings` table → ingest job chunks + embeds them → future answers retrieve past rulings. Bonus: rulings become shared knowledge across all users, not just mine.
