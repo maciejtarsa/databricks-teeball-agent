@@ -18,6 +18,7 @@ parsed_tbl = f"{catalog}.{schema}.parsed_docs"
 chunks_tbl = f"{catalog}.{schema}.rule_chunks"
 
 MAX_CHARS = 2500
+MIN_CHARS = 300  # unnumbered fragments smaller than this merge into the previous chunk of the same section
 RULE_HEADER = re.compile(r"^\s*(\d{1,2}(?:\.\d{1,2})?)\s+(\S.*)$")
 SKIP_TYPES = {"page_header", "page_footer", "page_number"}
 # Sub-headings inside a rule (manual scenarios/outcomes, lettered clauses) stay in the rule's chunk
@@ -27,6 +28,15 @@ INLINE_HEADER = re.compile(r"^(\(|SCENARIO|OUTCOME|NOTE|SPECIAL NOTE|CONCLUSION|
 def is_inline_header(text, in_rule):
     """Scenario/outcome/note sub-headings always stay inline; short ALL-CAPS ones only inside a numbered rule."""
     return bool(INLINE_HEADER.search(text)) or (in_rule and text.isupper() and len(text) < 60)
+
+
+def is_sentence(text):
+    """Parser sometimes tags emphasised sentences as headings ("Do not get involved in petty squabbling...")."""
+    return len(text) > 45 or text.rstrip().endswith((".", "!", ","))
+
+
+def section_of(chunk):
+    return (chunk["part"] or "").split(" > ")[0]
 
 
 with open(documents_json) as f:
@@ -76,7 +86,7 @@ def new_chunk(file_name, page, rule_no=None, heading=None, part=None):
             "page_start": page, "page_end": page, "body": []}
 
 
-chunks, cur = [], None
+chunks, cur, section = [], None, None
 for el in elements:
     if el.type in SKIP_TYPES or not (el.content or "").strip():
         continue
@@ -90,10 +100,18 @@ for el in elements:
     if m:
         chunks.append(cur)
         cur = new_chunk(el.file_name, page, m.group(1), m.group(2), cur["part"])
-    elif el.type in ("section_header", "title") and not is_inline_header(text, bool(cur["rule_no"])):
+        section = None
+    elif (el.type in ("section_header", "title") and not is_inline_header(text, bool(cur["rule_no"]))
+          and not is_sentence(text)):
+        title = " ".join(text.split())
         chunks.append(cur)
-        cur = new_chunk(el.file_name, page, part=text)
-        cur["body"].append(text)
+        if title.isupper() and section:
+            # ALL-CAPS sub-heading of an unnumbered section, e.g. "Signals > SAFE"
+            cur = new_chunk(el.file_name, page, part=f"{section} > {title}")
+        else:
+            section = title
+            cur = new_chunk(el.file_name, page, part=title)
+        cur["body"].append(title)
     else:
         if el.type == "figure":
             text = f"[Figure] {text}"
@@ -101,6 +119,19 @@ for el in elements:
         cur["page_end"] = page
 if cur:
     chunks.append(cur)
+
+# Merge small unnumbered fragments into the previous chunk of the same section
+merged = []
+for c in chunks:
+    prev = merged[-1] if merged else None
+    if (prev and not c["rule_no"] and not prev["rule_no"] and prev["file_name"] == c["file_name"]
+            and section_of(prev) == section_of(c) and len("\n".join(c["body"])) < MIN_CHARS):
+        prev["body"] += c["body"]
+        prev["page_end"] = max(prev["page_end"], c["page_end"])
+        prev["part"] = section_of(prev) or prev["part"]
+    else:
+        merged.append(c)
+chunks = merged
 
 # Unnumbered sections (e.g. Manual "Obstruction") inherit the rule number of the
 # highest-authority document's section with the same heading (Rule Book "20 Obstruction")

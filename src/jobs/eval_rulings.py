@@ -3,7 +3,8 @@
 Each variant is built from the same SQL template as ask_rulebook (rag_sql.py) as a temporary function,
 so the deployed agent is untouched.
 
-Args: catalog schema embedding_endpoint prompt_file evals_json judge_endpoint models modes label src_dir
+Args: catalog schema embedding_endpoint prompt_file evals_json judge_endpoint models modes label id_prefix src_dir
+  id_prefix: only run questions whose id starts with one of these "|"-separated prefixes ("all" = every question)
   models / modes: "|"-separated (CLI --params splits on commas), e.g. "databricks-gpt-oss-120b|databricks-qwen35-122b-a10b" / "vector|hybrid"
 Appends to {catalog}.{schema}.eval_runs.
 """
@@ -16,7 +17,7 @@ from pyspark.sql import SparkSession
 sys.path.insert(0, sys.argv[-1])  # src/jobs dir (serverless tasks have no __file__)
 from rag_sql import function_body, sql_str  # noqa: E402
 
-catalog, schema, embedding_endpoint, prompt_file, evals_json, judge, models, modes, label = sys.argv[1:10]
+catalog, schema, embedding_endpoint, prompt_file, evals_json, judge, models, modes, label, id_prefix = sys.argv[1:11]
 spark = SparkSession.builder.getOrCreate()
 runs_tbl = f"{catalog}.{schema}.eval_runs"
 
@@ -34,6 +35,8 @@ with open(prompt_file) as f:
     prompt = f.read()
 with open(evals_json) as f:
     evals = json.load(f)
+if id_prefix != "all":
+    evals = [e for e in evals if str(e["id"]).startswith(tuple(id_prefix.split("|")))]
 spark.createDataFrame([(e["id"], e["question"], e["expected"]) for e in evals], "id INT, question STRING, expected STRING").createOrReplaceTempView("evals")
 
 run_at = datetime.now(timezone.utc)
@@ -66,7 +69,9 @@ for model in [m.strip() for m in models.split("|") if m.strip()]:
         print(f"{label} | {model} | {mode} | {counts} | cites_rule={sum(o[10] for o in variant)}/{len(variant)} | "
               f"by id: {' '.join(f'{o[5]}:{o[9][0]}' for o in variant)}")
 
+prompt_name = prompt_file.rsplit("/", 1)[-1]
+out = [o + (prompt_name,) for o in out]
 spark.createDataFrame(out, "run_at TIMESTAMP, label STRING, model STRING, mode STRING, judge STRING, id INT, "
                            "question STRING, expected STRING, answer STRING, verdict STRING, cites_rule BOOLEAN, "
-                           "judgement STRING") \
-    .write.mode("append").saveAsTable(runs_tbl)
+                           "judgement STRING, prompt STRING") \
+    .write.mode("append").option("mergeSchema", "true").saveAsTable(runs_tbl)

@@ -1,5 +1,45 @@
 # Infra diagram notes (for image generation)
 
+## v2 render: current (docs/images/architecture-v2.png)
+Generated from the Option A prompt below. Good: two lanes tell the story, return arrow with "Fair ball (Rule 14c)" shows the payoff, no clutter. Blog-ready as is.
+
+Pending tweaks (next image-generation session):
+1. Vertical arrow points UP into "Knowledge base" (reads like writing); should point DOWN to "Find rules + answer" (or be two-way).
+2. Same Databricks icon on "Parse & chunk" and "Genie agent" makes them look alike; drop it from "Parse & chunk", or add it to "Find rules + answer" too (where the work happens).
+3. Phone sits slightly lower than the bottom-lane boxes.
+
+Edit-pass prompt:
+> Keep everything the same, but: reverse the vertical arrow so it points down from "Knowledge base" to "Find rules + answer"; remove the orange icon from "Parse & chunk"; add the same small orange layered icon to the left of "Find rules + answer". No other changes.
+
+## v2: simplified (prompt)
+Feedback on v1 (ChatGPT render of the prompt below): too noisy. Four equal-weight columns with sub-steps, flow direction misleading (Answer → Genie → phone; the question actually starts on the phone), confusing dashed return arrow, busy bottom banner and stray icons. Fix: tell the two things that happen. Ingestion runs **once per rulebook**; answering runs **every question**. 5 boxes, ≤3-word labels, details go in the blog text/caption.
+
+Option A: two lanes (recommended)
+```
+BUILD ONCE      [Rulebook PDFs] → [Parse & chunk] → [(Knowledge base)]
+                                                          ↑
+EVERY QUESTION  [Phone] → [Genie agent] → [Find rules + answer] ┘
+                   ↖──────────── "Fair ball (Rule 14c)" ────────┘
+```
+Option B: single line
+```
+[Rulebook PDFs] → [Knowledge base] ← [Genie agent] ← [Phone]
+                                     answer with rule number → phone
+```
+
+Prompt (Option A):
+> Minimal flat architecture diagram, 16:9, white background, lots of empty space. Two horizontal lanes with small grey lane labels on the left: "Build once" (top) and "Every question" (bottom).
+> Top lane, left to right: a PDF document icon labelled "Rulebooks" → a rounded box labelled "Parse & chunk" → a database cylinder labelled "Knowledge base".
+> Bottom lane, left to right: a smartphone with a chat bubble "Fair or foul?" → a rounded box with a small orange layered icon labelled "Genie agent" → a rounded box labelled "Find rules + answer", with a vertical arrow up to "Knowledge base".
+> One curved arrow returns from "Find rules + answer" to the phone, carrying a small chat bubble "Fair ball (Rule 14c)".
+> Only these 6 labels, no other text. Colours: dark navy #1B3139 outlines and text, orange-red #FF3621 for arrows and the Genie icon, light grey #F5F5F5 lane backgrounds. Thin lines, sans-serif font, no gradients, no shadows, no extra icons or decorations.
+
+Tips: if extra text appears, follow up "remove all text except the 6 labels"; if the return arrow gets messy, generate without it and add in an edit pass. Optional second, technical diagram for the "how it's built" section can reuse v1 below.
+
+---
+
+## v1 (original, too detailed)
+
 ## What the diagram must show
 Left-to-right flow in 4 zones, plus a deploy bar along the bottom.
 

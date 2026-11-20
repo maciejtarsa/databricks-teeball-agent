@@ -21,8 +21,12 @@ def sql_str(s):
     return "'" + s.replace("\\", "\\\\").replace("'", "\\'") + "'"
 
 
-def function_body(catalog, schema, llm_endpoint, embedding_endpoint, prompt, mode="vector"):
-    """Body of a SQL UDF with one STRING parameter named `question`, returning the answer text."""
+def function_body(catalog, schema, llm_endpoint, embedding_endpoint, prompt, mode="vector", output="answer"):
+    """Body of a SQL UDF with one STRING parameter named `question`.
+
+    output="answer": the LLM's answer text. output="retrieval": JSON array of the selected chunks
+    (rule_no, heading, file) in rank order, without calling the LLM, to measure retrieval on its own.
+    """
     if mode not in MODES:
         raise ValueError(f"unknown mode {mode}")
     chunks = f"{catalog}.{schema}.rule_chunks"
@@ -32,7 +36,7 @@ def function_body(catalog, schema, llm_endpoint, embedding_endpoint, prompt, mod
 
     if mode == "vector":
         scored = f"""
-      SELECT c.chunk_id, c.file_name, c.rule_no, c.content, {cosine} AS score
+      SELECT c.chunk_id, c.file_name, c.rule_no, c.heading, c.content, {cosine} AS score
       FROM {chunks} c, q
       WHERE c.embedding IS NOT NULL"""
     else:
@@ -40,7 +44,7 @@ def function_body(catalog, schema, llm_endpoint, embedding_endpoint, prompt, mod
         # because SQL UDFs can't use the outer `question` inside nested subqueries
         kw_weight = "coalesce(vocab.idf[w], vocab.max_idf)"
         scored = f"""
-      SELECT c.chunk_id, c.file_name, c.rule_no, c.content,
+      SELECT c.chunk_id, c.file_name, c.rule_no, c.heading, c.content,
              {cosine}
              + {KEYWORD_WEIGHT} * coalesce(
                  aggregate(filter(q.words, w -> instr(lower(c.content), w) > 0), 0D, (acc, w) -> acc + {kw_weight})
@@ -80,14 +84,14 @@ def function_body(catalog, schema, llm_endpoint, embedding_endpoint, prompt, mod
         selected = """
     selected AS (
       -- top hits, plus every other chunk of the same rule (any document) ranked just below its best hit
-      SELECT content, CASE WHEN in_top THEN score ELSE rule_best - 0.001 END AS score
+      SELECT content, rule_no, heading, file_name, CASE WHEN in_top THEN score ELSE rule_best - 0.001 END AS score
       FROM with_rule_best
       WHERE in_top OR (rule_no IS NOT NULL AND rule_best IS NOT NULL)
     )"""
     else:
-        selected = "\n    selected AS (SELECT content, score FROM top)"
+        selected = "\n    selected AS (SELECT content, rule_no, heading, file_name, score FROM top)"
 
-    return f"""(
+    ctes = f"""
   WITH q AS (
       SELECT ai_query({sql_str(embedding_endpoint)}, question) AS v, lower(question) AS ql,
              filter(array_distinct(split(regexp_replace(lower(question), '[^a-z0-9.]+', ' '), ' ')),
@@ -96,14 +100,22 @@ def function_body(catalog, schema, llm_endpoint, embedding_endpoint, prompt, mod
       SELECT map_from_entries(collect_list(struct(word, idf))) AS idf, max(idf) AS max_idf
       FROM {catalog}.{schema}.rule_terms),
     scored AS ({scored}
-    ),{top},{selected}
+    ),{top},{selected}"""
+    ranked = f"slice(sort_array(collect_list(struct(-score AS s, content AS c, rule_no AS r, heading AS h, file_name AS f))), 1, {MAX_CHUNKS})"
+
+    if output == "retrieval":
+        return f"""({ctes}
+  SELECT to_json(transform({ranked}, x -> named_struct('rule_no', x.r, 'heading', x.h, 'file', x.f)))
+  FROM selected
+)"""
+    return f"""({ctes}
   SELECT ai_query(
     {sql_str(llm_endpoint)},
     concat({sql_str(prompt)}, '\\n\\nRULE EXCERPTS:\\n', excerpts, '\\n\\nQUESTION: ', question),
     -- generous max_tokens: reasoning models (e.g. Qwen 3.5) spend tokens thinking and return '' if cut off
     modelParameters => named_struct('temperature', 0.0, 'max_tokens', 8000))
   FROM (
-    SELECT concat_ws('\\n\\n---\\n\\n', transform(slice(sort_array(collect_list(struct(-score AS s, content AS c))), 1, {MAX_CHUNKS}), x -> x.c)) AS excerpts
+    SELECT concat_ws('\\n\\n---\\n\\n', transform({ranked}, x -> x.c)) AS excerpts
     FROM selected
   )
 )"""

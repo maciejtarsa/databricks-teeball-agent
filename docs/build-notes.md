@@ -88,6 +88,34 @@ For Claude Code (be honest):
   - Likely cause: the rule-number boost + keyword scoring favour numbered Rule Book chunks, pushing out unnumbered Manual umpiring sections (signals, positioning, procedures). Points straight at the next improvement.
   - Blog lesson: small evals give direction, big evals give the truth, and per-segment breakdowns show trade-offs an overall score hides. Also: always run the same config twice to know your noise floor.
 
+- **Iteration 11: diagnose before fixing (retrieval vs generation)**
+  - Added a retrieval-only eval (`eval_retrieval` job): for each of the 301 questions, does the selected context contain the question's rule (or Manual section)? No LLM answer/judge, so fast and nearly free. Template gained `output="retrieval"`.
+  - Result r0: recall vector 92% (hit@3 84%), **hybrid 95% (hit@3 89%)**, siblings 95% (85%). Weak area (rules 18-22 + Manual): vector 89% (76%), hybrid 90% (**86%**).
+  - Surprise: retrieval is NOT the bottleneck. Hybrid finds the right section more often in the weak area, yet answers there were worse. Problem is generation.
+  - Reading the failures: (1) answer prompt over-applied "Rule Book wins" + "prefer citing the Rule Book first", so the model dismissed Manual interpretations the umpire relies on (5002 runner hit by ball not out if fielder not fielding; 5057 overruling exception); (2) "ruling in one line" format → procedure questions ("what should the umpire do") lost the Manual's exact calls, signals, order of steps; (3) hybrid ranks Rule Book chunks first → model anchors on them.
+  - Also found: practical Manual section (pp 51-73) is fragmented: sub-headings (SAFE, OUT, TIME) lose their parent "Signals", sentences detected as headings, the OBSTRUCTION *signal* inherited rule 20. Chunking fix queued after the prompt test.
+  - Fix 1: `answer_rules_v2.md`: Rule Book wins only on direct contradiction, otherwise use Manual interpretations/procedures; procedure questions → ordered steps with exact calls/signals. Eval job gained `prompt` and `id_prefix` params to A/B prompts on a slice (area 5 = 83 Qs) before a full run.
+
+  - Prompt v2 results. Area 5 slice first (83 Qs, hybrid): Manual-only 43% → 64% correct; rules 18-22 54% → 72% (wrong 12% → 4%). Then full 301:
+
+    | Prompt | Retrieval | Correct | Partial | Wrong |
+    |---|---|---|---|---|
+    | v1 | hybrid (2 runs) | 66.9% | 26.7% | 6.3% |
+    | **v2** | **hybrid** | **73.8%** | 20.9% | **5.3%** |
+    | v1 | vector | 65.4% | 26.9% | 7.6% |
+    | v2 | vector | 73.4% | 19.3% | 7.3% |
+
+    By area (hybrid v1 → v2): R1-9 73 → 75, R10-16 69 → 78, R17 79 → 81 (wrong 6 → 10%, ~3 Qs, watch), R18-22+Manual 49 → 63 (wrong 9 → 2%). +7-8 pts overall ≈ 2× the run-to-run noise → real. Biggest single gain of the project came from the prompt, not the model or retrieval.
+  - Fix 2: chunking v2 for the practical Manual section: ALL-CAPS sub-headings keep parent ("Signals > SAFE", "Practical Umpiring At The Plate > TEE FOUL"); emphasised sentences tagged as headings stay inline; fragments < 300 chars merge into the previous chunk of the same section; only top-level sections inherit rule numbers (OBSTRUCTION *signal* no longer "Rule 20"). 267 → 247 chunks. Tested on **dev** (separate schema) so prod evals weren't disturbed. Retrieval r1 (hybrid): ALL 95% / hit@3 90% (was 95/89); R18-22+Manual 92% / 88% (was 90/86). Small retrieval gain; answer eval pending.
+
+### Blog lessons from iterations 9-13 (accuracy work)
+1. **Measure where it fails before fixing.** Big eval + per-area breakdown pointed at Manual umpiring content; the overall score hid it.
+2. **Split retrieval from generation.** A cheap retrieval-only eval (no LLM) showed search already found the right section ~95% of the time. Without it we'd have tuned search (the obvious suspect) and missed the real problem.
+3. **The prompt was the biggest lever.** One instruction ("Rule Book wins") was over-applied and made the model ignore the Manual's practical guidance. Rewording it was worth more than swapping models or retrieval methods.
+4. **Not every sensible fix moves the needle.** Chunking v2 was clearly cleaner but changed answers within noise; shipped anyway (no harm, better data), and said so honestly.
+5. **Know your noise floor.** Same config twice differs by ~4 pts on 301 Qs, so only trust bigger changes, or average several runs.
+6. **Test on dev, compare on prod.** Bundle targets let the chunking experiment run on a separate schema while prod evals ran undisturbed.
+
 ### Disadvantages of the Genie solution
 - **No memory across conversations**: Genie One can't keep track of questions I asked previously. The local Claude session kept them (rulings log in CLAUDE.md) and reused them. Genie conversations persist per user (web/mobile/desktop) but the agent doesn't learn from them.
 - **Workaround (planned, not built)**: scheduled job harvests conversations via Genie API (`genie list-conversations --include-all` + messages + thumbs feedback) → LLM summarises good Q&As into the rulings format → reviewer approves → approved rulings written as md into the volume / a `rulings` table → ingest job chunks + embeds them → future answers retrieve past rulings. Bonus: rulings become shared knowledge across all users, not just mine.
@@ -110,6 +138,11 @@ Same 12 questions (`evals/rulings.json`, from my real post-game questions) used 
 | 6 | Hybrid retrieval | + IDF keyword score + rule-number boost; + sibling expansion (all chunks of a retrieved rule, both docs) | GPT-OSS: vector 5C/7P/0W → **hybrid 7C/4P/1W, cites 12/12** (earlier partial run 7C/2P/3W) → hybrid+siblings 5C/6P/1W (more context ≠ better). #5 (foot on base) fixed by hybrid |
 | 7 | **Eval caught lying** | Inspected Qwen's "winning" 8C: ALL 36 Qwen answers were EMPTY; judge still graded 8/12 CORRECT | Qwen 3.5 is a reasoning model: `max_tokens` 2000 consumed by hidden thinking → `''`. Fix: max_tokens 8000; eval marks empty answers WRONG without judging. Bonus: Qwen asked without context gives the *baseball* fair/foul rule (wrong for teeball) → grounding matters. Re-run with real answers: Qwen vector 6C/4P/2W (cites 10/12), hybrid 5C/5P/2W, hybrid+siblings 5C/5P/2W → GPT-OSS + hybrid stays best |
 | 8 | Ship the winner | `retrieval_mode` default → `hybrid`, model GPT-OSS-120B, max_tokens 8000; redeploy dev + prod; eval as regression check | **9C/3P/0W, cites 12/12** (from 5C/3P/4W self-judged / 5C/7P/0W independent at iteration 4-5). Genie re-checked on #5 (previously WRONG) → Out. GPT-OSS hybrid runs so far: 7/2/3, 7/4/1, 9/3/0 → expect run-to-run variance |
+| 9 | Bigger eval set | Opus 5.5 (whole docs) writes 301 Qs; umpire spot-checks 26 → all correct | Live config on 301: 69% C / 24% P / 7% W. Margin ±5 instead of ±25. Weak area found: Rules 18-22 + Manual umpiring (48% C) |
+| 10 | Re-test conclusions at scale | 4 variants × 301 Qs | GPT-OSS ≫ Qwen confirmed; hybrid vs vector overall = noise (same config 69.1 vs 64.8); per area hybrid +9 on R1-16 but -10 on Manual umpiring |
+| 11 | Diagnose: retrieval or generation? | Retrieval-only eval (recall of the right rule/section, no LLM) | Recall 92-95%, hybrid better even in the weak area → the bottleneck was the **prompt**, not search. Prompt v2 (Manual-aware, procedures as steps): **+8 pts overall (66.9 → 73.8% C)**, Manual area 49 → 63%, wrong 9 → 2% |
+| 12 | Chunking v2 | Parent section on sub-headings, merge fragments, no sentence-headings, no false rule numbers | Retrieval slightly up (weak area hit@3 86 → 88%); answers within noise (70.8% vs 73.8%). Kept: cleaner data, no measured harm |
+| 13 | Ship | Prompt v2 + chunking v2 live (dev + prod), final eval ×2 for a firm number | **75.1% / 76.1% correct (avg 75.6%), wrong 6.3% / 4.7%, rule cited 99%**. By area (avg of 2): R1-9 78%, R10-16 83%, R17 76%, R18-22+Manual 67% (was 48%). Two runs only 1 pt apart. Overall journey on 301 Qs: 66.9% → 75.6% correct; weakest area 48% → 67%. Genie check: tee-foul procedure answer now has the exact calls + signal from the Manual |
 
 Engineering bits worth mentioning: shared SQL template (`src/jobs/rag_sql.py`) builds both the deployed function and temporary eval variants, so experiments don't touch the live agent; eval is a bundle job with parameters (`models`, `modes`, `judge`, `label`).
 Gotchas: serverless python tasks have no `__file__` (pass code dir as arg); `bundle run --params` splits on commas (use `|` in list values). SQL UDFs can't reference the parameter inside nested subqueries (`ACCESSING_OUTER_QUERY_COLUMN_IS_NOT_ALLOWED`) → first hybrid attempt (IDF computed per question via subqueries) failed; fix = precompute IDF in a `rule_terms` table at ingest, reference the question once in a CTE, score with higher-order array functions (`filter`, `aggregate`) + a vocab map.

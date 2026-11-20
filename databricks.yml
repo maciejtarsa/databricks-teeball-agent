@@ -25,6 +25,9 @@ variables:
   embedding_endpoint:
     description: Foundation model endpoint for chunk + question embeddings
     default: databricks-gte-large-en
+  answer_prompt:
+    description: Answer prompt file in src/prompts used by ask_rulebook (v2 = Manual-aware, procedure steps)
+    default: answer_rules_v2.md
   retrieval_mode:
     description: "ask_rulebook retrieval: vector | hybrid | hybrid_siblings (see src/jobs/rag_sql.py)"
     default: hybrid
