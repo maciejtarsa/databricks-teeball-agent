@@ -60,13 +60,33 @@ For Claude Code (be honest):
   - 17.9 force after batter reaches 1st (known); 19.3(g) penalty list differs (Manual adds (c)); catcher's mitts legal on Manual p72 vs illegal on p19; Rule Book 2.3(f) cites a nonexistent "9.1d"; Manual fielder numbering typo; 7.4 bat stamp new in Ed 8.
   - Unclear in the documents: 2nd pitcher offence per pitcher or per team; "one extra base" beyond what.
 - Flagged for human review: #2005 follows the Manual (plate umpire final on 3rd/home) where Rule Book 1.2c says umpires don't overrule each other.
-- Human spot-check: `docs/eval-review.md`: 25 stratified random (seed 2026) + flagged items, checkbox per item → teacher accuracy estimate.
+- Human spot-check: `docs/eval-review.md`: 25 stratified random (seed 2026) + flagged #2005. **Umpire (me) reviewed: all 26 correct**, incl. #2005 → Opus teacher trusted as ground truth (vs GPT-OSS teacher pilot ~75-80% usable).
 
 - **Iteration 9 result: live agent (GPT-OSS + hybrid) on 301 Opus questions** (judge Maverick): **208 CORRECT (69%) / 72 PARTIAL (24%) / 21 WRONG (7%)**, rule cited 295/301. 95% margin now ~±5 pts (vs ±25 with 12 Qs). The 12-question 9/3/0 (75% correct) was in the right ballpark but optimistic.
   - By area: Rule 17 base running 82% correct / 8% wrong; Rules 1-9 78% / 3%; Rules 10-16 71% / 7%; **Rules 18-22 + Manual umpiring 48% / 10%** (weakest: signals, positioning, procedures live in unnumbered Manual sections, the chunks retrieval and citation handle worst).
   - By difficulty: easy 70% C / 6% W, medium 68% / 6%, hard 70% / 13% W (hard questions fail harder).
   - Wrong ids: 2033 2038 3004 3027 3033 3057 3071 4023 4031 4041 4051 4063 4067 5001 5002 5004 5012 5023 5039 5057 5082. Note 3027 (tee foul but caught = out) is the ruling-10 pattern again.
   - Bigger eval → targeted improvement: next iteration should focus on Manual-only umpiring content (chunk headings/section names, retrieval of unnumbered sections), not on base running which is already strong.
+
+- **Iteration 10: cross-check at scale (301 Qs, judge Maverick)**: re-test the 12-question conclusions.
+
+  | Model | Retrieval | Correct | Partial | Wrong | Empty | Cites rule |
+  |---|---|---|---|---|---|---|
+  | GPT-OSS-120B | hybrid (run 1) | 69.1% | 23.9% | 7.0% | 0 | 98.0% |
+  | GPT-OSS-120B | hybrid (run 2) | 64.8% | 29.6% | 5.6% | 0 | 98.3% |
+  | GPT-OSS-120B | vector | 65.4% | 26.9% | 7.6% | 0 | 97.7% |
+  | Qwen 3.5 122B | hybrid | 55.5% | 30.6% | 14.0% | 32 | 87.7% |
+  | Qwen 3.5 122B | vector | 55.5% | 31.2% | 13.3% | 27 | 89.4% |
+
+  - **Held up:** GPT-OSS beats Qwen clearly (~+10 pts correct, half the wrong rate). Qwen still returns ~10% empty answers even at max_tokens 8000.
+  - **Did NOT hold up:** "hybrid beats vector". Overall hybrid (avg 67%) vs vector (65%) is within run-to-run noise (same config: 69.1 vs 64.8 = ~4 pts variance). The 12-question jump 5→7 correct was mostly noise.
+  - **But per area, hybrid isn't neutral; it's a trade-off** (GPT-OSS, hybrid avg of 2 runs vs vector):
+    - Rules 1-9: 73% vs 64% (+9)
+    - Rules 10-16: 69% vs 61% (+8)
+    - Rule 17: 79% vs 78% (=)
+    - Rules 18-22 + Manual umpiring: **49% vs 59% (-10)**
+  - Likely cause: the rule-number boost + keyword scoring favour numbered Rule Book chunks, pushing out unnumbered Manual umpiring sections (signals, positioning, procedures). Points straight at the next improvement.
+  - Blog lesson: small evals give direction, big evals give the truth, and per-segment breakdowns show trade-offs an overall score hides. Also: always run the same config twice to know your noise floor.
 
 ### Disadvantages of the Genie solution
 - **No memory across conversations**: Genie One can't keep track of questions I asked previously. The local Claude session kept them (rulings log in CLAUDE.md) and reused them. Genie conversations persist per user (web/mobile/desktop) but the agent doesn't learn from them.

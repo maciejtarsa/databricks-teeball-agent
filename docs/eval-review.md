@@ -11,7 +11,7 @@ Mark each: [x] correct, or write a correction under it. Results feed the blog (t
 
 > ⚠️ Flagged: Follows Manual (plate ump final on 3rd/home) where Rule Book 1.2c says umpires may not overrule each other
 
-- [ ] Correct
+- [x] Correct
 - Correction:
 
 ## 2007 · Rules 1-9 · rule 1.1 · easy
@@ -20,7 +20,7 @@ Mark each: [x] correct, or write a correction under it. Results feed the blog (t
 
 **Expected:** Rule 1.1 defines it as: any act intended to contravene the rules; any act designed to exploit gaps in the rules; any act of general anti-social behaviour; any act that may reasonably be foreseen to cause injury; and any act in contravention of the Four F's of Tee-Ball (Fun, Fair Play, Fundamental Skills, Family Involvement).
 
-- [ ] Correct
+- [x] Correct
 - Correction:
 
 ## 2018 · Rules 1-9 · rule 2.3 · medium
@@ -29,7 +29,7 @@ Mark each: [x] correct, or write a correction under it. Results feed the blog (t
 
 **Expected:** No. The umpire calls Time for the injury (6.1, 15c). Per the Manual (p9 under 2.3g, and p13 under 6.1), any player hit in the head by a ball, or who hits their head falling to the ground, must be removed from the game and sent for professional medical assessment, and must not re-enter until assessed as safe by a qualified medical professional.
 
-- [ ] Correct
+- [x] Correct
 - Correction:
 
 ## 2023 · Rules 1-9 · rule 3.2 · easy
@@ -38,7 +38,7 @@ Mark each: [x] correct, or write a correction under it. Results feed the blog (t
 
 **Expected:** Only after "Time" has been called and all runners have stopped running. Rule 3.2: the plate umpire MUST pick up the tee after each hit, fold it and hold it until then. The Manual (p10) stresses this as a safety rule ("FOLD IT & HOLD IT"), gripping the base and stem together so the tee can't swivel and hurt anyone.
 
-- [ ] Correct
+- [x] Correct
 - Correction:
 
 ## 2031 · Rules 1-9 · rule 5.1 · hard
@@ -47,7 +47,7 @@ Mark each: [x] correct, or write a correction under it. Results feed the blog (t
 
 **Expected:** The leading runner is out, i.e. the runner from 3rd, not the batter-runner (5.1b). The penalty for a coach outside the box interfering with play always falls on the leading runner.
 
-- [ ] Correct
+- [x] Correct
 - Correction:
 
 ## 2060 · Rules 1-9 · rule 8 · hard
@@ -56,7 +56,7 @@ Mark each: [x] correct, or write a correction under it. Results feed the blog (t
 
 **Expected:** No. Under rule 8(a) (and 1.1), a first offender is liable to be removed at the umpire's discretion; a warning is optional, but a second offence by the same person must lead to removal. By contrast, some specific rules need at least one warning before removal or ejection: coaches leaving the coach's box (5.1a), incitement running (17.14) and the sitting-out rule (19.2).
 
-- [ ] Correct
+- [x] Correct
 - Correction:
 
 ## 2071 · Rules 1-9 · rule 9.3 · medium
@@ -65,7 +65,7 @@ Mark each: [x] correct, or write a correction under it. Results feed the blog (t
 
 **Expected:** The batter is credited with a home run: the indication was made by the fielding team (9.3c), so the throw-out does not stand. The batter must still touch all bases legally.
 
-- [ ] Correct
+- [x] Correct
 - Correction:
 
 ## 3045 · Rules 10-16 · rule 16.1(a) · easy
@@ -74,7 +74,7 @@ Mark each: [x] correct, or write a correction under it. Results feed the blog (t
 
 **Expected:** Batter 10. Up to 12 players may be listed, only 9 bat per innings, and the next innings starts with the next listed batter (16.1a).
 
-- [ ] Correct
+- [x] Correct
 - Correction:
 
 ## 3052 · Rules 10-16 · rule 16.3 · easy
@@ -83,7 +83,7 @@ Mark each: [x] correct, or write a correction under it. Results feed the blog (t
 
 **Expected:** Just swap in the correct batter; there's no penalty (Manual p32, 16.3 scenario 1). The rule only applies once 'Play Ball' has been called for the improper batter (16.3b). Scorers must tell the umpire when a batter bats or is about to bat out of order (4.2a).
 
-- [ ] Correct
+- [x] Correct
 - Correction:
 
 ## 3053 · Rules 10-16 · rule 16.3(a) · medium
@@ -92,7 +92,7 @@ Mark each: [x] correct, or write a correction under it. Results feed the blog (t
 
 **Expected:** Replace them with the proper batter, who inherits the strike. Any strikes on the improper batter count for the proper batter (16.3a; Manual p32 scenario 2).
 
-- [ ] Correct
+- [x] Correct
 - Correction:
 
 ## 3056 · Rules 10-16 · rule 16.3(c) · hard
@@ -101,7 +101,7 @@ Mark each: [x] correct, or write a correction under it. Results feed the blog (t
 
 **Expected:** Both hits stand. Batter 3 became legal when 'Play Ball' was called for the next batter (16.3b, c). The next batter is the one listed after the legalised batter, so batter 4 was correct, and batter 5 is next. Batter 2 misses that turn (Manual p33 scenario 6).
 
-- [ ] Correct
+- [x] Correct
 - Correction:
 
 ## 3057 · Rules 10-16 · rule 16.3(c) · hard
@@ -110,7 +110,7 @@ Mark each: [x] correct, or write a correction under it. Results feed the blog (t
 
 **Expected:** Batter 3 became legal when 'Play Ball' was called for the next batter (16.3c), so the proper next batter was batter 4. That makes batter 2 the improper batter. It was caught before 'Play Ball' for the following batter, so batter 2's play is nullified, runners go back, and batter 4 bats (16.3a, b; Manual p33 scenario 7).
 
-- [ ] Correct
+- [x] Correct
 - Correction:
 
 ## 3072 · Rules 10-16 · rule 16.9 · medium
@@ -119,7 +119,7 @@ Mark each: [x] correct, or write a correction under it. Results feed the blog (t
 
 **Expected:** Batter out and ball dead for not disposing of the bat by halfway to 1st. All runners return to their bases and the next batter is called up (16.9). The halfway point is the umpire's judgement and unquestionable. Manual p35 says don't be overly pedantic and invoke it when the carried bat has inhibited the fielder, but the Rule Book has no such condition and wins.
 
-- [ ] Correct
+- [x] Correct
 - Correction:
 
 ## 4004 · Rule 17 · rule 17.1 · hard
@@ -128,7 +128,7 @@ Mark each: [x] correct, or write a correction under it. Results feed the blog (t
 
 **Expected:** Runner out for missing the base and the run does not count (17.7), provided an umpire saw the miss and the fielder correctly identified the runner on the first appeal, before 'Play Ball' on the next batter. The runner cannot come back to touch home because they have left the diamond (17.1); the Manual says 17.1 exists to stop runners re-entering after missing home plate.
 
-- [ ] Correct
+- [x] Correct
 - Correction:
 
 ## 4013 · Rule 17 · rule 17.3 · hard
@@ -137,7 +137,7 @@ Mark each: [x] correct, or write a correction under it. Results feed the blog (t
 
 **Expected:** Under the Manual's 17.3 exception, when two runners are on the same base path only the front runner goes on to the base they were going to (2nd). The back runner (the batter-runner) must return to the last base they crossed (1st).
 
-- [ ] Correct
+- [x] Correct
 - Correction:
 
 ## 4019 · Rule 17 · rule 17.4 · medium
@@ -146,7 +146,7 @@ Mark each: [x] correct, or write a correction under it. Results feed the blog (t
 
 **Expected:** No. The infringement came before the hit, so the ball is dead from that point and no outs or plays count (17.4 note). All runners return and the offending runner is warned (or called out if it's their second offence that innings). The Manual says to call 'Time and Dead Ball' quickly, before an out can happen, to avoid this situation.
 
-- [ ] Correct
+- [x] Correct
 - Correction:
 
 ## 4040 · Rule 17 · rule 17.9 · easy
@@ -155,7 +155,7 @@ Mark each: [x] correct, or write a correction under it. Results feed the blog (t
 
 **Expected:** Yes, a force out. With the bases loaded every runner is forced (17.9), so tagging home before the runner arrives is enough (17.8a). The ball must beat the runner and the catcher must have control (1.2a).
 
-- [ ] Correct
+- [x] Correct
 - Correction:
 
 ## 4044 · Rule 17 · rule 17.11 · medium
@@ -164,7 +164,7 @@ Mark each: [x] correct, or write a correction under it. Results feed the blog (t
 
 **Expected:** Yes. After any catch the ball is live and runners may advance at their own risk (17.11). The batter is out, so the runner isn't forced, which means they must be tagged before reaching 2nd (17.8b); touching 2nd isn't enough. The Manual notes this is common on deep outfield catches.
 
-- [ ] Correct
+- [x] Correct
 - Correction:
 
 ## 4070 · Rule 17 · rule 17.16 · easy
@@ -173,7 +173,7 @@ Mark each: [x] correct, or write a correction under it. Results feed the blog (t
 
 **Expected:** Yes. 17.16 note: a runner close to a base may try to slide under a tag. If the slide gets the runner to the base before the tag, they are safe.
 
-- [ ] Correct
+- [x] Correct
 - Correction:
 
 ## 5004 · Rules 18-22 + Manual umpiring · rule 18.1 / 17.16 · hard
@@ -182,7 +182,7 @@ Mark each: [x] correct, or write a correction under it. Results feed the blog (t
 
 **Expected:** Not out for going around the fielder. A fielder fielding a batted ball has right of way and the runner must go around (Manual 18.1, p44); moving off the running line to avoid interfering with a fielder fielding a ball is not avoiding a tag (Manual 17.16, p43). Only if the fielder has the ball and is in a position to tag, and the runner deviates from the running line to avoid that tag, is the runner out (17.16).
 
-- [ ] Correct
+- [x] Correct
 - Correction:
 
 ## 5010 · Rules 18-22 + Manual umpiring · rule 19.2 · easy
@@ -191,7 +191,7 @@ Mark each: [x] correct, or write a correction under it. Results feed the blog (t
 
 **Expected:** No listed player may sit out two consecutive fielding innings unless at the player's own request to the umpire (19.2). On noticing it, the umpire gives the coach one warning; on a second occasion the umpire removes the coach from the game.
 
-- [ ] Correct
+- [x] Correct
 - Correction:
 
 ## 5014 · Rules 18-22 + Manual umpiring · rule 19.3(e) · medium
@@ -200,7 +200,7 @@ Mark each: [x] correct, or write a correction under it. Results feed the blog (t
 
 **Expected:** No. From Play Ball until the swing no fielder except the catcher may be in foul territory (19.3e). The foul lines are fair territory (Manual 7.1h and Definitions, p71), so standing on or inside the line is fine. If the fielder gains an advantage from the violation, the umpire calls Dead Ball, returns runners and warns the fielder (19.3g).
 
-- [ ] Correct
+- [x] Correct
 - Correction:
 
 ## 5032 · Rules 18-22 + Manual umpiring · rule 20 · easy
@@ -209,7 +209,7 @@ Mark each: [x] correct, or write a correction under it. Results feed the blog (t
 
 **Expected:** Yes. Obstruction is a fielder not holding the ball and not in the act of fielding who impedes a runner's progress (20); 'impedes' does not need contact (Manual 20, p48). The umpire nullifies it, and the runner advances at least one base beyond where they were going.
 
-- [ ] Correct
+- [x] Correct
 - Correction:
 
 ## 5036 · Rules 18-22 + Manual umpiring · rule 20 · hard
@@ -218,7 +218,7 @@ Mark each: [x] correct, or write a correction under it. Results feed the blog (t
 
 **Expected:** Obstruction (20): the runner from 1st is sent home, and all runners in front of that runner also advance home (Manual 20 scenario, p48). The umpires come together after Time to decide where the runner would have reached; the award is at least one base beyond where they were going.
 
-- [ ] Correct
+- [x] Correct
 - Correction:
 
 ## 5056 · Rules 18-22 + Manual umpiring · Positioning: responsibility · medium
@@ -227,5 +227,5 @@ Mark each: [x] correct, or write a correction under it. Results feed the blog (t
 
 **Expected:** The base umpire's call stands: the base umpire has the final say on 1st and 2nd, the plate umpire on 3rd and home (Manual 1.2c p5; Positioning p65). Umpires may consult but not overrule each other (1.2c). Any disagreement should be resolved by coming together quietly and quickly, never challenged in front of players.
 
-- [ ] Correct
+- [x] Correct
 - Correction:
