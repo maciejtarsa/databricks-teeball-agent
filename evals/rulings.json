@@ -58,5 +58,20 @@
     "id": 12,
     "question": "A non-forced runner is stuck between 2nd and 3rd (3rd is occupied). A fielder with the ball stands between the runner and 2nd but doesn't tag them. The umpire called Time and sent the runner back to 2nd. Correct?",
     "expected": "Runner is not out unless tagged. Not obstruction because the fielder has the ball (Rule 20 needs a fielder without the ball). Runner can't go to occupied 3rd (one runner per base). Time should only be called when all runners are close to a base (Rule 11); if the runner was near 2nd, Time and returning to 2nd is correct."
+  },
+  {
+    "id": 13,
+    "question": "For an umpire to call time, do all runners need to be on their bases?",
+    "expected": "No, not strictly on the base. Rule 11: Time is called when the ball is held by a player in an infield position, no play is being made, and all runners are in close proximity to a base (Manual p23: about 3 paces either side of the base, scaled to age). A runner halfway between bases is not close, so Time should not be called yet."
+  },
+  {
+    "id": 14,
+    "question": "In teeball, a batter hits the ball but it is caught by a fielder. The batter is out, do all the runners need to go back to their bases before potentially running to the next base?",
+    "expected": "Only runners who left their base before the catch. Leaving on the hit is legal (17.4 only bans leaving before the hit), but under 17.10 a runner who left before the catch is out if they or that base are tagged by a fielder holding the ball before they retouch it (retouch in reverse order, 17.7). Runners who had not left need not go back. After retouching, runners may advance at their own risk (17.11, 14 note)."
+  },
+  {
+    "id": 15,
+    "question": "A ball is caught by a fielder after a bat, do all the runners need to come back to their base?",
+    "expected": "Not all, and it is not automatic. The batter is out on the catch; any runner who left their base before the catch must retouch it (in reverse order, 17.7) and is out only if they or that base are tagged by a fielder holding the ball before they get back (17.10). The ball stays live and runners may then advance at their own risk (17.11)."
   }
 ]
