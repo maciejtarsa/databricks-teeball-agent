@@ -262,3 +262,4 @@ Gotchas: serverless python tasks have no `__file__` (pass code dir as arg); `bun
 - Likely cause: agent recreated twice same day (new IDs) -> Genie One search index lag. Old prod agent (days old, hidden .bundle folder) was found fine, so folder move maybe not the real fix.
 - Lessons: Chat routing best-effort; direct agent link = reliable entry point; avoid recreating agents (key/parent_path changes) close to a demo.
 - Possible fallback (not done): table comment telling Chat to run `SELECT workspace.teeball.ask_rulebook('<q>')`.
+- Resolved (same day, few hours later): web Chat found agent unprompted. Mobile Chat missed it first; found it once agent named explicitly. Confirms index lag, not permissions/folder. No certification needed.
