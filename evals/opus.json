@@ -1,0 +1,3108 @@
+[
+  {
+    "id": 2001,
+    "topic": "rule 1.1",
+    "question": "Only one umpire has turned up for a competition game. Can the game go ahead with a single umpire?",
+    "expected": "No. Rule 1.1(a): competition games are to be administered by a minimum of two umpires (a plate umpire and a field/base umpire). The Manual (p4) explains this is for safety and fairness, as one umpire cannot view the whole game accurately; Manual p7 also advises never starting without at least one base umpire.",
+    "rules": [
+      "1.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2002,
+    "topic": "rule 1.2",
+    "question": "On a force play at 1st, the throw and the runner arrive at the base at exactly the same time. Safe or out?",
+    "expected": "Safe. Rule 1.2(a): on a close forced play the ball must BEAT the runner to the base and the fielder must have control of the ball. The Manual (p5) states a dead heat means the runner is safe because the ball did not beat the runner.",
+    "rules": [
+      "1.2"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2003,
+    "topic": "rule 1.2",
+    "question": "An assistant coach runs onto the field to argue that the base umpire got a safe/out call wrong at 2nd base. What should the umpire do?",
+    "expected": "A safe/out call is a judgement decision and is final, not open to inquiry (1.2b). Inquiries are allowed only on rule interpretations, only by the team Head Coach, and only directed respectfully to the plate umpire. Manual p5: a coach charging onto the field ranting should immediately be sent back to the bench with at least a warning (per 1.1h).",
+    "rules": [
+      "1.2",
+      "1.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2004,
+    "topic": "rule 1.2",
+    "question": "The head coach thinks the base umpire applied a rule incorrectly at 1st base. Who do they speak to, and what happens next?",
+    "expected": "The Head Coach (only) may raise the rule-interpretation inquiry, respectfully, with the plate umpire, who then consults the base umpire (1.2b, 1.2c). Per the Manual (p5), if the umpire concludes their decision was wrong they should change it; if satisfied with the original call the coach must accept it, and the discussion should not hold up the game. Manual p67: coaches should approach only after Time has been called and granted.",
+    "rules": [
+      "1.2"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2005,
+    "topic": "rule 1.2",
+    "question": "In a two-umpire game there is a close play at 3rd base. The base umpire calls the runner out, but the plate umpire saw the runner safe. Can the plate umpire overrule?",
+    "expected": "Yes, per the Manual. Rule 1.2(c) says umpires may consult with but not overrule each other, but the Manual (p5, p65) gives the plate umpire final say on 3rd and home and the base umpire final say on 1st and 2nd, and the only time an umpire may overrule another is when that umpire makes a call on a base outside their jurisdiction. In a three-umpire game each base umpire has final say on their own base (plate keeps 3rd and home); in a four-umpire game each umpire has final say on their own base.",
+    "rules": [
+      "1.2"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 2006,
+    "topic": "rule 1.1",
+    "question": "A coach keeps instructing players to do things that technically aren't against the written rules but exploit gaps in them to gain an advantage. What can the umpire do?",
+    "expected": "This is \"bringing the sport into disrepute\": the 1.1 definition includes any act designed to exploit gaps in the rules, and 1.2(d) says umpires must discourage exploitation of gaps. Penalty (1.1): at the umpire's discretion a warning or removal from the game and vicinity; on a second occasion by the same offender they should be ejected. The Manual (p6) says warn them or, in more severe cases, remove them.",
+    "rules": [
+      "1.1",
+      "1.2"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2007,
+    "topic": "rule 1.1",
+    "question": "What acts count as \"bringing the sport into disrepute\" under the rules?",
+    "expected": "Rule 1.1 defines it as: any act intended to contravene the rules; any act designed to exploit gaps in the rules; any act of general anti-social behaviour; any act that may reasonably be foreseen to cause injury; and any act in contravention of the Four F's of Tee-Ball (Fun, Fair Play, Fundamental Skills, Family Involvement).",
+    "rules": [
+      "1.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2008,
+    "topic": "rule 1.1",
+    "question": "A parent spectator keeps abusing the umpire. The umpire warns the parent once, the abuse continues, and the parent then refuses to leave the ground. What happens?",
+    "expected": "Under 1.1 (and 8): for a first offence the umpire may at their discretion warn or remove the person from the game and vicinity; on the second occasion by the same offender they should be ejected (8a: must be removed). Failure to leave the vicinity means forfeiture of the game, scored 9-0 in favour of the opposing team (1.1 ii, 8b). Each warning must be recorded by the scorers with the offender's name, team and type of offence (1.1 iii, 8c). The Manual (p20) treats forfeiture as a last resort and recommends a written report afterwards.",
+    "rules": [
+      "1.1",
+      "8"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 2009,
+    "topic": "rule 1.1",
+    "question": "When the umpire gives a coach or player a warning, what must also be done?",
+    "expected": "The umpire must instruct the scorers to record the warning on the scorecard/scorebook, with the offending person's name, team and type of offence (1.1 penalty iii; 8c).",
+    "rules": [
+      "1.1",
+      "8"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2010,
+    "topic": "rule 1.1",
+    "question": "An abusive coach refuses to go back to the bench. Can the umpire take the coach by the arm and lead them off the field?",
+    "expected": "No. Rule 1.1(f): umpires must use no physical force towards any person, and 1.1(g) requires solving problems diplomatically without petty squabbling. Deal with it through the conduct penalties instead (warning, then removal; refusal to leave = 9-0 forfeit under 1.1/8). The Manual (p4, p57) recommends having a club official on hand or calling for an official if the situation can't be controlled.",
+    "rules": [
+      "1.1",
+      "8"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2011,
+    "topic": "rule 2.1",
+    "question": "What are the \"Four F's\" and the main objectives of Tee-Ball?",
+    "expected": "The Four F's are Fun, Fair Play, Fundamental Skills and Family Involvement (rulebook p1). Main objectives (2.1): introduce children to a diamond-based team sport where enjoyment and success come from simple participation; promote good health through exercise; and promote good sportsmanship. 2.2 encourages parents to get involved as coaches, scorers, umpires, managers or equipment officers.",
+    "rules": [
+      "2.1",
+      "2.2"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2012,
+    "topic": "rule 2.3",
+    "question": "A player turns up wearing football boots with screw-in metal studs. Can the player play? What about the team scorer wearing thongs?",
+    "expected": "Neither is allowed. Rule 2.3(b): enclosed shoes must be worn at all times by anyone involved in a game, and screw-in studs and metal cleats are not permitted on any Tee-Ball diamond. The Manual (p8) says any exposed metal on shoes is generally illegal (rivets set below the sole surface are usually legal), and that coaches, managers, umpires, scorers and any parent performing a role count as \"involved in the game\".",
+    "rules": [
+      "2.3"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2013,
+    "topic": "rule 2.3",
+    "question": "Which players must wear helmets and what other protective equipment is compulsory?",
+    "expected": "Batters, base runners and catchers must wear helmets in all regulation games; pitchers must wear helmets with facemasks (2.3c). Chest plates are also compulsory for pitchers (2.3f). Helmet types (7.6): batters and catchers wear a conventional baseball/softball batter's helmet with both ear covers; pitchers wear one with a non-removable face mask.",
+    "rules": [
+      "2.3",
+      "7.6"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2014,
+    "topic": "rule 2.3",
+    "question": "It's time to start but the fielding team's pitcher doesn't have a chest plate fitted. What should the umpire do?",
+    "expected": "The pitcher must not take the diamond until a chest plate is correctly fitted (2.3f). The Manual (p9) adds that the game should not be held up if the pitcher isn't ready in a reasonable time: the game may start without that pitcher, who may only enter after a stoppage in play with the plate umpire's consent.",
+    "rules": [
+      "2.3"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2015,
+    "topic": "rule 2.3",
+    "question": "A player has earrings that won't come out and the parent offers to tape over them. Is that acceptable? What about a medical alert bracelet?",
+    "expected": "Earrings: no. Exposed jewellery (watches, bracelets, earrings etc.) must not be worn (2.3d), and the Manual (p8) says umpires will refuse to let the player participate until it is removed, and that taping is not acceptable. Medical alert bracelets/necklaces are not considered jewellery; if a metal-type one is loose or exposed it should be taped to the wrist leaving the tag free (2.3d).",
+    "rules": [
+      "2.3"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2016,
+    "topic": "rule 2.3",
+    "question": "A fielder wants to wear ordinary fashion sunglasses. Is that against the rules?",
+    "expected": "Not prohibited, but not recommended. Rule 2.3(e) only recommends that glasses (including prescription) be approved sports glasses (ASTM F803-2003). The Manual (p9) explains the concern is that cheap sunglasses could shatter if hit, and asks parents to arrange approved sports or safety sunglasses if non-prescription sunglasses are wanted.",
+    "rules": [
+      "2.3"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2017,
+    "topic": "rule 2.3",
+    "question": "Before the game the umpire notices several players with shirts hanging out and caps on backwards. Does the umpire need to do anything?",
+    "expected": "Yes. Rule 2.3(a): correct uniforms must be worn in all regulation games, including shirts tucked in and caps properly aligned. The Manual (p7) says umpires MUST make sure players are correctly attired before play begins, partly for safety (a fielder once broke an arm caught in a runner's untucked shirt). Correct attire = team shirt, Tee-Ball/baseball pants, socks (no skin showing on the legs), jogger/baseball shoes and team cap.",
+    "rules": [
+      "2.3"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2018,
+    "topic": "rule 2.3",
+    "question": "A fielder is hit in the head by a thrown ball, gets up and says they are fine. Can they keep playing?",
+    "expected": "No. The umpire calls Time for the injury (6.1, 15c). Per the Manual (p9 under 2.3g, and p13 under 6.1), any player hit in the head by a ball, or who hits their head falling to the ground, must be removed from the game and sent for professional medical assessment, and must not re-enter until assessed as safe by a qualified medical professional.",
+    "rules": [
+      "2.3",
+      "6.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2019,
+    "topic": "rule 2.3",
+    "question": "A base coach notices a dangerous object or hazard on the field while play is going on. Is it only the umpire's job to stop play?",
+    "expected": "No. Rule 2.3(g): umpires, coaches and all game officials have a duty of care for player safety. The Manual (p9) says \"all officials\" includes managers, scorers, base coaches and anyone performing a role in the game, and anyone who sees a safety risk should call \"Time Safety\" and bring it immediately to the plate umpire's attention. Umpires may call Time/Dead Ball when someone is foreseeably about to enter into danger (15d).",
+    "rules": [
+      "2.3",
+      "15"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2020,
+    "topic": "rule 7.6",
+    "question": "The pitcher is wearing a baseball catcher's helmet with a face mask that flips up. Is that legal?",
+    "expected": "Not as described. Pitchers need a conventional baseball/softball helmet with a non-removable face mask (2.3c, 7.6). The Manual (p8, p19) says some baseball catchers' helmets are acceptable for pitchers only if the mask cannot be flicked off or lifted up while worn and the helmet covers both ears.",
+    "rules": [
+      "7.6",
+      "2.3"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 2021,
+    "topic": "rule 7.6",
+    "question": "The catcher wants to wear a cricket helmet, and a batter has a skull-cap style helmet with one ear cover. Are these legal?",
+    "expected": "Neither is legal. Rule 7.6: batters and catchers must wear a conventional baseball or softball batter's-type helmet with both ear covers; cricket helmets are not acceptable because they are cut higher at the back. The Manual (p19) confirms skull-cap helmets with one or no ear covers are not legal, and that caps may be worn under helmets as long as they are not worn back to front.",
+    "rules": [
+      "7.6",
+      "2.3"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2022,
+    "topic": "rule 3.1",
+    "question": "A batter asks the umpire to move the tee a little forward of home plate, towards the pitcher. A coach then walks out to lower the tee. What's correct?",
+    "expected": "Neither is allowed. The tee must sit directly on top of home plate with the stem directly above the point of the plate (3.1a, b). Only the umpire may handle the tee, and the umpire adjusts the height at the request of a player or coach (3.1 note). The Manual (p10) says players are not entitled to have the tee moved sideways, forward or back; only height can change. Best practice is to ask each batter about tee height as soon as they come to the plate.",
+    "rules": [
+      "3.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2023,
+    "topic": "rule 3.2",
+    "question": "After a hit, when may the plate umpire put the tee back down on home plate?",
+    "expected": "Only after \"Time\" has been called and all runners have stopped running. Rule 3.2: the plate umpire MUST pick up the tee after each hit, fold it and hold it until then. The Manual (p10) stresses this as a safety rule (\"FOLD IT & HOLD IT\"), gripping the base and stem together so the tee can't swivel and hurt anyone.",
+    "rules": [
+      "3.2"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2024,
+    "topic": "rule 4.1",
+    "question": "Where must the scorers sit during a game?",
+    "expected": "Together, behind home plate and just outside the dead ball line (4.1). The Manual (p10) says the area between the plate umpire and the scorers must be kept clear so scorers can hear calls and see signals; at State Championships, where parent lines are used, scorers sit between the parent line and the dead ball line.",
+    "rules": [
+      "4.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2025,
+    "topic": "rule 4.2",
+    "question": "When must the scorers notify the umpire during a game?",
+    "expected": "When a batter bats or is about to bat out of order, and when the ninth batter has completed their turn at bat (4.2a, b). The Manual (p11) asks scorers to report the ninth batter as soon as \"Time\" is called, and to flag out-of-order batters quickly because delays make it harder to untangle.",
+    "rules": [
+      "4.2"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2026,
+    "topic": "rule 4",
+    "question": "A coach asks the scorer what the score is during the game. Must the scorer answer, and should the umpire check the score?",
+    "expected": "There is no rule preventing it; per the Manual (p10) scorers must give the score to a coach if asked, though umpires can restrict people checking the score if it distracts the scorer. The umpire should NOT ask or check the score during the game, as that could compromise their impartiality.",
+    "rules": [
+      "4.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2027,
+    "topic": "rule 9.3",
+    "question": "As the batting team's ninth batter walks up, the scorer says \"this is the ninth batter\" out loud. How should scorers handle the ninth batter correctly?",
+    "expected": "Scorers must not announce or indicate that the ninth batter is approaching or at bat: rule 9.3(a) bans anyone, including scorers, from making any verbal or physical indication of the ninth batter. Their duty under 4.2(b) is to tell the umpire after the ninth batter has completed their turn at bat (Manual p11: as soon as Time is called), so the umpire can declare \"Side Away\".",
+    "rules": [
+      "4.2",
+      "9.3"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2028,
+    "topic": "rule 5.1",
+    "question": "When a team is batting, where are its coaches allowed to be?",
+    "expected": "Only in the 1st and 3rd base coach's boxes or in the team bench area (5.1a). Coaches may go out to assist and instruct a batter but must return to the bench or a coach's box before \"Play Ball\" is called, and coaches in the boxes must stay inside the marked lines during play.",
+    "rules": [
+      "5.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2029,
+    "topic": "rule 5.1",
+    "question": "The 3rd base coach keeps stepping outside the coach's box lines during play. Can the umpire remove the coach straight away?",
+    "expected": "No, not straight away. Penalty for failing to stay in the box could be removal from the game, but the coach must be given at least one warning first (5.1a). The Manual (p11) says if a pre-warned coach keeps stepping out while the ball is in play, rule 1.1 may be invoked. After Time, coaches may move around, but they should be back in their areas once \"Batter Up\" is called.",
+    "rules": [
+      "5.1",
+      "1.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2030,
+    "topic": "rule 5.1",
+    "question": "Runners on 1st and 3rd. On the hit, the 3rd base coach steps out of the coach's box and gets in the way of a fielder making a play. What's the ruling?",
+    "expected": "The leading runner is out (5.1b): if a coach moves outside the lines of the box and interferes with play, the leading runner is given out. Here that is the runner from 3rd.",
+    "rules": [
+      "5.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2031,
+    "topic": "rule 5.1",
+    "question": "Runner on 3rd, batter hits to 1st. The 1st base coach steps out of the box and interferes with the throw to 1st. Who is out, the batter-runner or someone else?",
+    "expected": "The leading runner is out, i.e. the runner from 3rd, not the batter-runner (5.1b). The penalty for a coach outside the box interfering with play always falls on the leading runner.",
+    "rules": [
+      "5.1"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 2032,
+    "topic": "rule 5.1",
+    "question": "When a team is fielding, where must its coaches be?",
+    "expected": "All fielding-team coaches must stay in the bench area (5.1b). Exception: for nines or lower age teams, one coach may stand anywhere behind the line of the outfielders to direct play. If a live ball touches that coach, or the coach physically assists a fielder, the batter is awarded a home run.",
+    "rules": [
+      "5.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2033,
+    "topic": "rule 5.1",
+    "question": "In an Under 10s game, the fielding coach stands behind the outfielders to direct the fielders. Is that allowed?",
+    "expected": "No. The exception allowing one fielding coach behind the outfielders applies only to nines or lower age teams (5.1b), so it covers U9 and U7 but not U10. In U10 all fielding-team coaches must stay in the bench area.",
+    "rules": [
+      "5.1",
+      "22.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2034,
+    "topic": "rule 5.1",
+    "question": "In an Under 9s game, a long hit rolls to the outfield and touches the fielding coach standing behind the outfielders. What's the ruling?",
+    "expected": "The batter is awarded a home run (5.1b): if a live ball touches the fielding coach positioned behind the outfielders, or that coach physically assists a fielder, it is a home run. The Manual (p11) adds that the batter must still run the bases touching each in order and may be out on appeal if a base is missed.",
+    "rules": [
+      "5.1",
+      "17.7"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2035,
+    "topic": "rule 5.1",
+    "question": "An overthrow rolls towards the 3rd base coach's box and the batting-team coach, standing in the box, bends down and stops the live ball. What happens?",
+    "expected": "The umpire calls \"Time, Dead Ball\" and, in consultation with the base umpire(s), decides the outcome of that play (5.1c) by working out what would have happened had the infringement not occurred. The Manual (p12) says no one other than the umpires takes part in that discussion, and the rule applies only when the ball is live.",
+    "rules": [
+      "5.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2036,
+    "topic": "rule 5.1",
+    "question": "A hard-hit ball comes straight at the 1st base coach in the coach's box. Case 1: the coach puts a hand up inside the box to protect themselves. Case 2: the coach reaches outside the lines of the box and touches the ball. Is either intentional handling under 5.1(c)?",
+    "expected": "Case 1 is not intentional handling: the Manual (p12) says a ball hit straight into the box that the coach puts a hand up to protect themselves from is not intentionally handled, and a hard throw that hits a coach in the box is not the coach's fault. Case 2 is considered deliberate, so 5.1(c) applies: Time, Dead Ball, and the umpires decide the outcome together. The rule only applies when the ball is live, and the umpires alone judge what is accidental.",
+    "rules": [
+      "5.1"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 2037,
+    "topic": "rule 5.2",
+    "question": "A runner rounding 3rd hesitates, and the 3rd base coach gives the runner a push towards home. What's the ruling?",
+    "expected": "The runner is out. Batting coaches in the 1st or 3rd base coach's boxes may not physically assist runners; if the umpire considers any touching to be assistance, the runner is called out (5.2).",
+    "rules": [
+      "5.2"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2038,
+    "topic": "rule 5.2",
+    "question": "The 1st base coach steps out of the coach's box to give a runner a high-five after a hit. Is the runner out?",
+    "expected": "No, congratulatory contact is allowed (5.2), but the coach's feet must stay inside the box lines. Per the Manual (p12), a hand or arm may extend out of the box as long as the bulk of the body stays inside; a coach who steps out to give a high-five should be warned, and on a second time rule 1.1 may be invoked. The runner is out only if the umpire judges the touching was assistance.",
+    "rules": [
+      "5.2",
+      "1.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2039,
+    "topic": "rule 5.1",
+    "question": "A batting-team parent stands up the line on the fielding team's side of the diamond, behind the dead ball line, calling out instructions. Can the umpire act?",
+    "expected": "Yes. The Manual (p11, under 5.1b) says umpires should make sure no coaching staff are up the dead ball lines on the opposition's side trying to direct play, and any parent or supporter sitting or standing on the opposition's side may be removed or sent back to their own side if the umpire thinks they are causing problems or directing play.",
+    "rules": [
+      "5.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2040,
+    "topic": "rule 6.1",
+    "question": "During a play a fielder dives for the ball and stays down on the ground. What should the umpires do, and how is the play then resolved?",
+    "expected": "Call \"Time\" immediately to halt the game; any umpire, plate or base, can call it (6.1; Manual p13; 15c). After the player is attended to, the plate umpire consults the field umpire(s) and they use their discretion to decide the outcome of the play: what they believe would have happened had Time not been called (e.g. where runners end up). No one other than the umpires takes part in that discussion (Manual p13).",
+    "rules": [
+      "6.1",
+      "15"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2041,
+    "topic": "rule 6.2",
+    "question": "A player is badly hurt and cannot continue. The team has 11 players. What happens to that player's spot in the batting line-up?",
+    "expected": "With the umpire's permission (requested by the coach), the player is removed from the batting line-up without penalty and may not re-enter the game (6.2a). The Manual (p13) says the request is a courtesy and should be granted, and to trust the coach's judgement on incapacity.",
+    "rules": [
+      "6.2"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2042,
+    "topic": "rule 6.2",
+    "question": "A team has exactly nine players. One is incapacitated and removed from the game. How does the game continue?",
+    "expected": "Removal without penalty only applies while 9 or more players remain; below 9, rules 16.1(c) and/or (d) apply (6.2a). With 8 players and no loan player, play continues but the missing batting spot (batter 9) is an automatic out each time it is due to bat; scorers must notify the umpire and coaches (16.1d). If the team falls below 7 players it forfeits 9-0, unless the opposition lends one or two players (16.1c).",
+    "rules": [
+      "6.2",
+      "16.1"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 2043,
+    "topic": "rule 6.2",
+    "question": "A player gets a minor knock (not incapacitated) and goes for first aid while their batting turn is coming up. What happens, and can they come back?",
+    "expected": "With the umpire's approval they may be removed from the line-up for first aid and the line-up closes up without penalty, unless fewer than 9 players remain, in which case 16.1(c)/(d) apply (6.2b i). After treatment, with the approval of the umpire and the first-aid person, they may return in the same batting position (6.2b ii). The Manual (p13) warns some coaches may misuse this to skip a weaker batter, and the plate umpire may refuse re-entry, but only with good cause.",
+    "rules": [
+      "6.2",
+      "16.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2044,
+    "topic": "rule 6.2",
+    "question": "A fielder grazes a knee sliding and it is bleeding. Can the fielder just carry on?",
+    "expected": "No. A player with a bleeding or open injury MUST be removed and treated; contaminated clothing/equipment must be replaced or cleaned of blood and the wound covered before the player returns. If bleeding recurs and can't be controlled, the player takes no further part (6.2c). No penalty applies; the line-up closes up until the player returns or is removed (except 16.1d). The Manual (p14) says not to refuse re-entry over a faint discolouration left after washing.",
+    "rules": [
+      "6.2"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2045,
+    "topic": "rule 6.3",
+    "question": "A batter hurt their ankle last week. The batter hits and reaches 1st, and only then does the coach ask for a substitute runner. Allowed?",
+    "expected": "No. For a previously injured player, the umpire must be told of the substitute-runner request before the player bats (6.3a). Substitution happens only at 1st base after \"Time\" is called, and the substitute must be the last batter who scored or was put out. The Manual (p14) says this applies to any previous injury, from a week earlier or earlier in the game.",
+    "rules": [
+      "6.3"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2046,
+    "topic": "rule 6.3",
+    "question": "The coach told the umpire before the at-bat that an injured batter would need a substitute runner. The batter hits a double and ends up on 2nd base. Can the substitute come in at 2nd?",
+    "expected": "No. Under 6.3(a) the substitution can only happen at 1st base after \"Time\". The Manual (p14) says that if the runner goes past 1st and ends up on 2nd or any other base, they may not be replaced. (Rule 6.3(b) covers only a runner who is injured while safe on a base.)",
+    "rules": [
+      "6.3"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 2047,
+    "topic": "rule 6.3",
+    "question": "A runner slides safely into 3rd and twists an ankle. The coach wants to put the team's fastest player in as a substitute runner. Allowed?",
+    "expected": "A substitute runner is allowed at that base (6.3b: any runner injured when safe at a base). But the substitute must be the last batter who scored or was put out, not the coach's choice of the fastest player. The Manual (p14) says this is meant to stop coaches getting a faster runner on base.",
+    "rules": [
+      "6.3"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2048,
+    "topic": "rule 6.4",
+    "question": "After a game in which a player was hurt, what paperwork should the umpire and scorers complete?",
+    "expected": "The umpire instructs the scorers to record, next to that player's name in the scorebook, any injury that could need ongoing attention (6.4a), and the scorers should have the umpire fill out an incident report after the game (6.4b). The Manual (p15) says clubs should supply the forms and completed reports go to the club secretary for the record.",
+    "rules": [
+      "6.4"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2049,
+    "topic": "rule 7.1",
+    "question": "What are the key diamond measurements: baseline length, pitcher's plate distance, and dead ball line distance?",
+    "expected": "Baselines are 18.29m. The pitcher's plate is 14.02m from the point of home plate, centred between 1st and 3rd. The dead ball line is 6.10m from the foul ball lines and on a 6.10m radius from the point of home plate (7.1a, b).",
+    "rules": [
+      "7.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2050,
+    "topic": "rule 7.1",
+    "question": "Which team sits on which bench, and where should the benches and coach's boxes be?",
+    "expected": "Home team on the 1st base line bench, away team on the 3rd base line bench (7.1f). Benches are outside the dead ball line, about halfway up the 1st and 3rd base lines (7.1e); the Manual (p17) says keep them far enough back that players on the bench can't hinder a fielder near the dead ball line. Coach's boxes are 3m x 0.9m, set 1.83m from the foul lines (7.1d).",
+    "rules": [
+      "7.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2051,
+    "topic": "rule 7.1",
+    "question": "Where is the batters' warm-up circle, and what should an umpire do if they see a player swinging a bat in it without supervision?",
+    "expected": "Each warm-up circle is 1m in diameter, centred 1.25m inside the dead ball line and 1.5m forward of home plate, to the left and right of the batting boxes (7.1g). The Manual (p17) says players must be supervised while swinging bats there; the umpire should ask the coach to fix it immediately, and rule 1.1 may be applied to a coach who doesn't comply. Note: a ball entering an occupied warm-up circle is a dead ball (15b).",
+    "rules": [
+      "7.1",
+      "1.1",
+      "15"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2052,
+    "topic": "rule 7.1",
+    "question": "What size are the bases and plates, and where exactly should 1st, 2nd and 3rd bases sit?",
+    "expected": "Bases are 375mm square and 10-75mm thick; the pitcher's plate is 600 x 150mm, 5-20mm thick; home plate is 430 x 430mm, 5-10mm thick (7.1h-j). The Manual (p17, p67) says 1st and 3rd bases sit entirely inside the corners of the diamond, and 2nd is centred on the 2nd base point. Diamond lines are fair territory.",
+    "rules": [
+      "7.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2053,
+    "topic": "rule 7.2",
+    "question": "Which ball is used in each age division? Can an Under 11 game be played with a rubber tee-ball?",
+    "expected": "Incrediballs (vinyl cover, soft core) for U7; tee-balls (rubber imitation baseball) for U7, U9 and U10; conventional baseballs for U11, U12 and U13 (7.2). So U11 uses baseballs, not tee-balls. (The Manual 7A says Incrediballs are \"recommended\" for U7; the Rule Book Ed 8 just lists them for U7 alongside tee-balls.)",
+    "rules": [
+      "7.2"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2054,
+    "topic": "rule 7.3",
+    "question": "A parent brings a home-made tee to the game. Can it be used?",
+    "expected": "Not unless it is approved. All new tee designs must be approved by the TBAWA Rules Committee before use (7.3g), and the Manual (p18) says only professionally made tees (e.g. Reliance or All-Star type or replicas) are legal. Specs: lightweight steel/composite tubing with a base, telescopic centre tube, flexible top ball holder; base no more than 400mm across, outer tube no more than 40mm thick, flexible top no longer than 250mm; must hold a baseball upright; no spikes or sharp edges (7.3a-e). Umpires may refuse an unsafe tee (7.3f).",
+    "rules": [
+      "7.3",
+      "7.7"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2055,
+    "topic": "rule 7.4",
+    "question": "A batter brings an aluminium bat that is 81cm long and 5.7cm in diameter, professionally made and branded but with no certification stamp. Is it legal?",
+    "expected": "No, under Rule Book Ed 8. The size is within the maximum (86.4cm long, 5.7cm diameter), but 7.4 (changed in Ed 8) requires bats to carry an official baseball- or softball-specific certification mark. Only single-piece wood bats or foam bats for very young players are exempt. The older Manual 7A (p18) only required bats to be professionally made and branded; the Rule Book wins.",
+    "rules": [
+      "7.4"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 2056,
+    "topic": "rule 7.4",
+    "question": "A batter uses a certified bat that is 87cm (just over 34 inches) long. Legal?",
+    "expected": "No. Maximum bat length is 86.4cm (34in) and maximum diameter is 5.7cm (2.25in) (7.4). The Manual (p18) notes this is the maximum and not a suitable size for most players.",
+    "rules": [
+      "7.4"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2057,
+    "topic": "rule 7.5",
+    "question": "The catcher wants to use a softball catcher's mitt. Is that allowed?",
+    "expected": "No. Each fielder must wear a standard diamond sports glove no more than 32.5cm long (top to bottom) and no more than 20cm wide across the palm (7.5). The Manual's commentary on 7.5 (p19) says baseball or softball catchers' mitts are not acceptable or legal for tee-ball. (The Manual's glossary entry for \"Mitt\" on p72 loosely says catchers' and first basemen's mitts are legal but rarely used; the specific 7.5 commentary and the size limit govern.)",
+    "rules": [
+      "7.5"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 2058,
+    "topic": "rule 7.7",
+    "question": "A new style of helmet already used in baseball has just come on the market. Can a player wear it in tee-ball?",
+    "expected": "Not until approved. Any new design of equipment must first be approved by the TBAWA rules committee and TBAWA council before it is used in games (7.7). The Manual (p19) says being used in baseball or softball does not by itself make an item legal for tee-ball, and all equipment must be professionally made.",
+    "rules": [
+      "7.7"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2059,
+    "topic": "rule 8",
+    "question": "A fielder makes insulting remarks to an opposing batter. What can the umpire do?",
+    "expected": "Rule 8 prohibits disparaging, offensive or insulting remarks. For a first offence the umpire may, at their discretion, remove the player from the game and the vicinity of the field, or give a warning; on a second occasion by the same offender they must be removed (8a). Warnings are recorded by the scorers with name, team and offence (8c). The Manual (p20) advises approaching the person calmly and respectfully, not calling them over to you.",
+    "rules": [
+      "8"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2060,
+    "topic": "rule 8",
+    "question": "Does the umpire have to give a warning before removing someone for offensive conduct, like a coach's 5.1 box warning?",
+    "expected": "No. Under rule 8(a) (and 1.1), a first offender is liable to be removed at the umpire's discretion; a warning is optional, but a second offence by the same person must lead to removal. By contrast, some specific rules need at least one warning before removal or ejection: coaches leaving the coach's box (5.1a), incitement running (17.14) and the sitting-out rule (19.2).",
+    "rules": [
+      "8",
+      "1.1",
+      "5.1"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 2061,
+    "topic": "rule 8",
+    "question": "A coach has been removed for a second offence but refuses to leave the vicinity of the field. What's the outcome?",
+    "expected": "The game is forfeited, with a score of 9-0 in favour of the opposing team (8b; also 1.1 penalty ii). The Manual (p20) calls forfeiture a last resort (it deprives up to 24 players of their game), suggests calling a ground official first, and says to follow up with a written report to the committee.",
+    "rules": [
+      "8",
+      "1.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2062,
+    "topic": "rule 8",
+    "question": "According to the Manual, how should an umpire deal with a spectator making unacceptable comments from the sideline?",
+    "expected": "First go through the coach: quietly ask the coach to talk to the person (Manual p20, p57). If that fails, or the offender is the coach, approach the person yourself calmly and respectfully (go to them, don't call them over), ideally between innings, explain what's expected, and offer to discuss grievances after the game. Call for an official if needed. Formal penalties under rule 8/1.1: warning or removal, and refusal to leave means a 9-0 forfeit.",
+    "rules": [
+      "8",
+      "1.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2063,
+    "topic": "rule 9",
+    "question": "What is a \"regulation game\"?",
+    "expected": "A game where scores are kept and that is played with Incrediballs, Tee-balls or Baseballs (9(i)). Safety rules such as helmets and pitchers' chest plates apply in all regulation games (2.3c, f); the Manual (p9) adds that umpires may insist on chest plates in practice and training games too, under duty of care.",
+    "rules": [
+      "9",
+      "2.3"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2064,
+    "topic": "rule 9.1",
+    "question": "How long is a regulation game?",
+    "expected": "Nine innings or one hour, whichever comes first (9.1). No innings may start within five minutes of the scheduled finishing time (9.1a), and an innings that has started must be completed so both sides get an equal number of batting turns (9.1b).",
+    "rules": [
+      "9.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2065,
+    "topic": "rule 9.1",
+    "question": "Scheduled finishing time is 10:00. An innings (both halves) finishes at 9:53. Should another innings be started, and what if it runs past 10:00?",
+    "expected": "Yes, start another innings: more than five minutes remain (9.1a; Manual p21: more than 5 minutes left means call the teams out again). Once started, the innings must be played to completion with equal batting turns for both sides, even if it runs past 10:00 (9.1b).",
+    "rules": [
+      "9.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2066,
+    "topic": "rule 9.1",
+    "question": "Scheduled finish is 10:00 and an innings finishes at exactly 9:55. Does another innings start?",
+    "expected": "No, the game is over. No innings may commence within five minutes of the scheduled finishing time (9.1a), and the Manual (p21) says that when you call Time at the end of an innings, if 5 minutes or less remain you call \"Time and game\".",
+    "rules": [
+      "9.1"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 2067,
+    "topic": "rule 9.1",
+    "question": "The one-hour mark passes while the away team is batting in the top of the 5th innings. Does the game end when the top half finishes?",
+    "expected": "No. Once an innings has started it must be completed, so both sides get an equal number of batting turns (9.1b). The home team bats in the bottom of the 5th, and then the game ends.",
+    "rules": [
+      "9.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2068,
+    "topic": "rule 9.1",
+    "question": "At a club carnival, games are shorter than an hour and time runs out partway through an innings. How is the result decided?",
+    "expected": "Rule 9.1(c) allows exceptions to 9.1 at the Warren Lake Carnival and club carnivals where time doesn't allow full games. Per the Manual (p21), the score reverts to the last even innings unless the team batting second is ahead at the end; if the team batting second is ahead but disadvantaged by percentage, it still reverts to the last even innings. State Championships use the normal 1 hour/9 innings rule (9.1a, b).",
+    "rules": [
+      "9.1"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 2069,
+    "topic": "rule 9.2",
+    "question": "When does a team's half of an innings end?",
+    "expected": "When the third out is made or the innings is declared (9.2), i.e. when nine players have completed their turn at bat with fewer than three outs and the umpire declares \"Side Away\" (16.1b). Manual p21: the plate umpire announces \"Nine batters - side away\". Each team bats in its listed order.",
+    "rules": [
+      "9.2",
+      "16.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2070,
+    "topic": "rule 9.3",
+    "question": "As the ninth batter steps up, the batting team's coach calls out \"last batter, everyone run hard!\". The umpire hears it. What's the ruling?",
+    "expected": "The batter is out and the side is away (9.3b). Nobody may verbally or physically indicate that the ninth batter is approaching or at bat (9.3a); if a member of the batting team does, the penalty is batter out, side away.",
+    "rules": [
+      "9.3"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2071,
+    "topic": "rule 9.3",
+    "question": "With the batting team's ninth batter at the plate, a fielder shouts \"last batter, get this one!\". The batter then hits a ground ball and is thrown out at 1st. What's the ruling?",
+    "expected": "The batter is credited with a home run: the indication was made by the fielding team (9.3c), so the throw-out does not stand. The batter must still touch all bases legally.",
+    "rules": [
+      "9.3"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2072,
+    "topic": "rule 9.3",
+    "question": "The fielding coach tells the umpire that a batting-team parent called out \"ninth batter\". The umpire didn't hear it. Can the umpire apply the penalty?",
+    "expected": "No. The Manual (p22) says the umpire must hear the indication personally, and cannot act on someone else reporting that they heard it. Also, if a parent says it unwittingly from the sidelines, the umpire should use common sense about the penalty.",
+    "rules": [
+      "9.3"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 2073,
+    "topic": "rule 9.3",
+    "question": "The batting team's coach scratches their head in the coach's box every time the ninth batter comes up. Is that a ninth-batter indication?",
+    "expected": "It is the umpire's judgement. The Manual (p22) says a single head-scratch cannot be proved to be an indication and umpires shouldn't be over-zealous, but doing it every time the ninth batter comes up could be construed as an indication. A quiet word with the coach about the umpire's suspicions is preferred. If clearly indicated by the batting team, 9.3(b) applies: batter out, side away.",
+    "rules": [
+      "9.3"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 3001,
+    "topic": "rule 10",
+    "question": "When does the umpire have to call 'Batter Up' and 'Play Ball'?",
+    "expected": "For every batter, and again after every strike, foul, dead ball or whenever 'Time' has been called (Rule 10). 'Batter Up' is called once the batter is settled in the box, then 'Play Ball' once batter and fielders are settled. The Manual (p22) suggests 'Batter Please' / 'Next Batter Please' to call the batter to the box.",
+    "rules": [
+      "10"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 3002,
+    "topic": "rule 10(a)",
+    "question": "After a foul ball, the runner from 1st is still walking back to 1st and two outfielders are still running back to their spots. Can the umpire call 'Play Ball'?",
+    "expected": "No. Rule 10(a): 'Play Ball' must not be called until all runners are in contact with their bases and all fielders are reasonably settled. Manual p22: pitcher and catcher stationary, infielders settled, outfielders may crab sideways a little but must not be running.",
+    "rules": [
+      "10(a)",
+      "19.3(b)"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3003,
+    "topic": "rule 10",
+    "question": "What is the significance of the 'Play Ball' call in tee-ball?",
+    "expected": "Manual p22: 'Play Ball' is the equivalent of the pitcher releasing the ball in baseball/softball; from that call nothing can happen until the batter swings. A hit before 'Play Ball' is a dead ball with no count (16.5), and the back-foot restriction applies from 'Play Ball' (16.4).",
+    "rules": [
+      "10",
+      "16.4",
+      "16.5"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 3004,
+    "topic": "rule 11",
+    "question": "Batter hits a single. The shortstop is holding the ball near 2nd with no play being made, the batter-runner is two paces past 1st and the runner from 2nd is standing on 3rd. Should the umpire call Time?",
+    "expected": "Yes. Rule 11: Time is called once the ball is held by a player in an infield position with no play being made and all runners are in close proximity to a base. Close proximity is about three running paces either side of the base, scaled to the age group (Rule 11; Manual p23, p72).",
+    "rules": [
+      "11"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 3005,
+    "topic": "rule 11",
+    "question": "The centre fielder has the ball in the outfield and all runners are standing on bases. Can the umpire call Time?",
+    "expected": "No. The ball must be held by a player in an infield position (Rule 11). Manual p23: infield position means the area normally occupied by players other than the orthodox left, centre and right fielders, judged by where the infielders are playing in that game. Wait until the ball is held in that area.",
+    "rules": [
+      "11"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3006,
+    "topic": "rule 11",
+    "question": "The pitcher is holding the ball in the infield, but a runner has stopped halfway between 2nd and 3rd. Should the umpire call Time?",
+    "expected": "No. ALL runners must be in close proximity (about 3 paces) to a base before Time (Rule 11). Manual p23: halfway up the line is not close proximity, so 'you should not have called Time'. The ball stays live and the runner can still be tagged.",
+    "rules": [
+      "11"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3007,
+    "topic": "rule 11 / catch",
+    "question": "A deep fly ball is caught in the outfield. Should the umpire call Time as soon as the catch is made?",
+    "expected": "No. After any catch the ball is live and runners may advance at their own risk (14 note iii, 17.11). Manual 17.11: don't call Time on a catch unless the ball is held in an infield position and all runners are in proximity of their base (Rule 11).",
+    "rules": [
+      "11",
+      "14",
+      "17.11"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3008,
+    "topic": "rule 12",
+    "question": "The 1st baseman catches a pop-up in foul territory between the foul line and the dead ball line. What's the ruling?",
+    "expected": "It is a catch and the batter is out. A ball caught anywhere on the playing field, fair or foul, is a fair ball (12a, 14d). The ball is live, so runners may advance at their own risk (14 note iii, 17.11).",
+    "rules": [
+      "12",
+      "14(d)",
+      "17.11"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 3009,
+    "topic": "rule 12",
+    "question": "An outfielder catches a fly ball, then collides with another fielder (or falls over) and the ball comes out of the glove because of it. Is it a catch?",
+    "expected": "No catch. Manual p24 and p70-71: if the fielder collides with another player or falls to the ground right after contacting the ball and drops it as a result, it is not a catch. The fielder must hold the ball long enough to show complete control and a voluntary release. Whether it is a catch is the umpire's judgement.",
+    "rules": [
+      "12"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3010,
+    "topic": "rule 12(b)",
+    "question": "The shortstop catches a line drive, pulls the ball out of the glove to throw to 1st, and drops it. Is the batter out?",
+    "expected": "Yes, it is a catch. Rule 12(b): taking the catch and then dropping the ball while making a second play is still a catch. Manual p71: if the ball was clearly taken out of the glove into the throwing hand and then lost, it's a catch. If the fielder never had possession, it is different. Judgement call.",
+    "rules": [
+      "12(b)"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3011,
+    "topic": "rule 12",
+    "question": "A fly ball bounces off the 3rd baseman's glove and the shortstop catches it before it touches the ground. Catch?",
+    "expected": "Yes, the batter is out. Manual p24: a catch is legal if the ball is finally held by any fielder, even after being juggled or held by another fielder, as long as it hasn't touched the ground. It must end up securely in a hand or glove (Rule 12a).",
+    "rules": [
+      "12"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 3012,
+    "topic": "rule 12",
+    "question": "A line drive hits a fielder in the chest. The fielder pins it against the body with a forearm, but it slips out and drops to the ground. Catch?",
+    "expected": "No catch. The catch isn't complete until the ball is in the fielder's hand or glove. A ball merely held in the arms or kept from dropping by the body, equipment or clothing is not a catch (Rule 12a; Manual p24, p70). If the fielder had smothered it against the body and then taken it out with the hand before it hit the ground, that would be a catch (Manual p70).",
+    "rules": [
+      "12"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3013,
+    "topic": "rule 12(a)",
+    "question": "A fielder deliberately traps a fly ball against their shirt and holds it there. Is the batter out?",
+    "expected": "No. Rule 12(a): a catch must be in the hand or glove, and the fielder must not deliberately use any part of the uniform to take possession. Manual p70: 'line drive into player's shirt - no catch'.",
+    "rules": [
+      "12(a)"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3014,
+    "topic": "rule 12",
+    "question": "A ground ball takes one bounce and the 2nd baseman catches it cleanly. Is the batter out on a catch?",
+    "expected": "No. A catch must be of a ball in flight (Rule 12a). After landing fair it is a fair ball in play (14a). The batter is only out if put out by a throw or tag (force at 1st).",
+    "rules": [
+      "12(a)",
+      "14(a)"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 3015,
+    "topic": "rule 13.1(a)",
+    "question": "The ball first lands in foul territory a few metres up the 3rd base line, then spins back into fair territory. The 3rd baseman fields it and throws the batter out at 1st. What's the call?",
+    "expected": "Foul ball, and there is no out. Fair/foul is decided by where the ball first lands (13.1a). The umpire calls 'Time, Foul Ball', all runners return, and a strike is recorded on the batter (13.1 note ii, 13.2a).",
+    "rules": [
+      "13.1(a)",
+      "13.2(a)"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 3016,
+    "topic": "rule 14(b)",
+    "question": "The ball first lands right on the 1st base foul line. Fair or foul?",
+    "expected": "Fair. Rule 14(b): a ball that first lands on any diamond line is fair. Manual p27: the lines are part of the field, so any part of the ball first landing on the line is fair.",
+    "rules": [
+      "14(b)"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 3017,
+    "topic": "rule 13.1(b)",
+    "question": "The right fielder is standing in foul territory between the foul line and the dead ball line. The ball comes off their glove and lands in fair territory. Fair or foul?",
+    "expected": "Foul. The ball first touched a fielder over foul territory (13.1b), and it is judged by where the ball would have landed if it hadn't been touched (13.1 note i). Manual p24 scenario 1 gives this exact outcome.",
+    "rules": [
+      "13.1(b)",
+      "13.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3018,
+    "topic": "rule 13.1 / 14 note i",
+    "question": "The 3rd baseman is standing in fair territory and reaches across into foul territory for a catch. The ball comes off the glove and lands in fair territory. Fair or foul?",
+    "expected": "Foul. What matters is where the ball would have landed if it hadn't been touched, not where the fielder's feet are (13.1 note i, 14 note i). Manual p27 scenario: the ball would have landed foul, so it is foul. The reverse (ball over fair territory, deflected foul) is fair.",
+    "rules": [
+      "13.1",
+      "14"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 3019,
+    "topic": "rule 14(b)",
+    "question": "A batted ball, still in the air, hits the base umpire standing in fair territory near 2nd. What happens?",
+    "expected": "Fair ball, play continues (14b: hits an umpire or fielder on or over fair territory). If it had hit an umpire over foul territory it would be foul (13.1b).",
+    "rules": [
+      "14(b)",
+      "13.1(b)"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 3020,
+    "topic": "rule 13.1 note ii",
+    "question": "Runners on 1st and 2nd. The ball first lands foul, but the runners keep going and reach 2nd and 3rd, and the fielder throws to 3rd. What's the ruling?",
+    "expected": "Foul ball. The umpire calls 'Time, Foul Ball', all runners return to their original bases (1st and 2nd), and one strike goes on the batter (13.1 note ii, 13.2a). No advances and no outs on the play.",
+    "rules": [
+      "13.1",
+      "13.2(a)"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 3021,
+    "topic": "rule 13.2(a)",
+    "question": "The batter already has two strikes and hits a foul ball. Is the batter out?",
+    "expected": "Yes. In tee-ball every foul is a strike (13.2a), and three strikes is out. Rule 13.1 note ii: the plate umpire calls the batter 'Out' on a third strike. Runners return to their bases. Unlike baseball, there's no exception for a foul with two strikes.",
+    "rules": [
+      "13.2(a)",
+      "13.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3022,
+    "topic": "rule 13.1 note iii",
+    "question": "A high pop-up is drifting into foul territory. Should the plate umpire call 'Foul' while it's still in the air?",
+    "expected": "No. A batted ball can't be declared foul until it touches the ground (13.1 note iii). Manual p25: pick up the tee and WAIT until the ball hits the ground in case it's caught. If it's caught, even in foul territory, the batter is out (14d).",
+    "rules": [
+      "13.1",
+      "14(d)"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3023,
+    "topic": "rule 13.2(b)",
+    "question": "The batter takes a full swing and completely misses the ball, which stays on the tee. What's the call?",
+    "expected": "Strike: a full swing that fails to dislodge the ball (13.2b). Manual p61: arms up, 'Time', 'one strike on the batter, Batter Up', then 'Play Ball' once everyone is settled.",
+    "rules": [
+      "13.2(b)"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 3024,
+    "topic": "rule 13.2(b)",
+    "question": "The batter swings, the ball rises off the top of the tee and drops straight back onto it. What's the call?",
+    "expected": "Strike. A full swing that fails to dislodge the ball is a strike (13.2b). Manual p25 mentions this exact case.",
+    "rules": [
+      "13.2(b)"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3025,
+    "topic": "rule 13.2(c)",
+    "question": "The batter hits the tee hard and the ball dribbles a couple of metres in front of the plate. How does the umpire decide whether it's a 'tee foul'?",
+    "expected": "It is the umpire's judgement (13.2c), not open to appeal. If more tee than ball was hit, it's a strike, called as 'Time, Foul Ball' once the ball hits the ground. Manual p25 indicators: the tee knocked forward with a solid sound of metal/plastic; the tee catapulting forward is a strong indicator; the tee slanting alone may not be. After two tee fouls, offer to adjust the tee.",
+    "rules": [
+      "13.2(c)"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3026,
+    "topic": "rule 13.2(c)",
+    "question": "The batter clearly clips the tee, but the ball carries to mid-outfield. Can the umpire call a tee foul?",
+    "expected": "No. Rule 13.2(c): it can't be considered more tee if the ball reaches mid-outfield, so play stands as a normal hit. Manual p25: a ball landing well into the outfield is generally fair, judged relative to the age group.",
+    "rules": [
+      "13.2(c)"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 3027,
+    "topic": "rule 13.2(c) / 14(d)",
+    "question": "The umpire judges the batter hit more tee than ball, but the ball pops up and the pitcher catches it in the air. Strike or out?",
+    "expected": "Out. A ball can't be declared foul until it touches the ground (13.1 note iii), and a ball caught anywhere is fair (14d). Manual p60 (tee foul procedure): wait until the ball hits the ground; if it is caught, the batter is out instead of getting a strike. The ball is live after the catch (17.11).",
+    "rules": [
+      "13.2(c)",
+      "13.1",
+      "14(d)",
+      "17.11"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 3028,
+    "topic": "rule 13.2(d)",
+    "question": "The batter stops the bat at contact to 'bunt' the ball off the tee and it rolls into the infield. What's the ruling?",
+    "expected": "Strike for not taking a normal full forceful swing (13.2d). This is the umpire's judgement and can't be appealed. Manual p26: pick up the tee, WAIT until the ball hits the ground, then call 'Foul Ball', explain to the batter, and call the strike. If the ball is caught, the batter is out.",
+    "rules": [
+      "13.2(d)"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3029,
+    "topic": "rule 13.2(d)",
+    "question": "A batter chokes up on the bat. Is that legal?",
+    "expected": "Yes, as long as the batter still takes a full and forceful swing (Manual p70 definitions, 'Choke Up'; 13.2d). Otherwise it's a strike under 13.2(d).",
+    "rules": [
+      "13.2(d)"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 3030,
+    "topic": "rule 13.2(g)",
+    "question": "The batter steps on home plate while swinging and hits the ball into the outfield. What's the call, and what if the batter had missed?",
+    "expected": "Strike (13.2g), but the umpire waits until the ball hits the ground in case it is caught, then calls 'Time, one strike on the batter for standing on home plate' (Manual p26, p61). This only applies if the ball is hit. On a swing and miss it's a strike only for the miss.",
+    "rules": [
+      "13.2(g)"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3031,
+    "topic": "rule 13.2(h)",
+    "question": "The ball first lands on home plate and bounces into fair territory. The catcher fields it and throws the batter out at 1st. What's the call?",
+    "expected": "Foul ball and a strike, no out (13.2h). Manual p27: call foul immediately when a ball first lands or settles on home plate; no need to wait for a possible catch. Runners return (13.1 note ii).",
+    "rules": [
+      "13.2(h)",
+      "13.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3032,
+    "topic": "rule 14(c)",
+    "question": "The ball first lands fair halfway up the 1st base line, then rolls into foul territory and stops before reaching 1st. Fair or foul?",
+    "expected": "Fair. Tee-ball uses first landing only: a ball that first lands fair and then settles anywhere on the playing field, including foul territory, is fair (14a, 14c; Manual p27). The baseball rule about passing 1st/3rd doesn't apply.",
+    "rules": [
+      "14(a)",
+      "14(c)"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 3033,
+    "topic": "rule 14",
+    "question": "Should the umpire signal or call 'Fair ball'?",
+    "expected": "No. Umpires only call FOUL. Calling a ball fair can confuse players and make them stop running (Manual p27, 14b). Coaches should teach players to run until 'Time' or 'Foul Ball'. With very young players in regular club teams, the umpire may give a quiet hint to run (Manual 14c).",
+    "rules": [
+      "14"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 3034,
+    "topic": "rule 14(a)/(c)",
+    "question": "A ground ball first lands fair just in front of the plate, then rolls into foul territory where the catcher picks it up. Fair or foul?",
+    "expected": "Fair, and the ball is live. It first landed fair, and touching a fielder after that doesn't change it (14a, 14c). The rule about a fielder over foul territory (13.1b) only applies if the ball touches them before it first lands.",
+    "rules": [
+      "14(a)",
+      "14(c)",
+      "13.1(b)"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3035,
+    "topic": "rule 14 note iii",
+    "question": "Runner on 3rd, one out. The batter hits a fly ball that the left fielder catches in foul territory. The runner, who stayed on 3rd until the catch, then runs home. Does the run count?",
+    "expected": "Yes, if the runner beats the play. A catch in foul territory is a live ball and runners may advance at their own risk (14 note iii, 17.11). The batter is out (14d). Had the runner left 3rd before the catch, they could be out by being tagged, or by 3rd being tagged, before retouching (17.10).",
+    "rules": [
+      "14(d)",
+      "14",
+      "17.11",
+      "17.10"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3036,
+    "topic": "rule 15",
+    "question": "When must umpires call 'Time' and 'Dead Ball'?",
+    "expected": "Rule 15: (a) ball crosses the dead ball line; (b) ball enters an occupied batter warm-up circle; (c) a player appears hurt and needs attention; (d) anyone on the diamond could foreseeably be about to enter danger; (e) anyone is about to cause danger; (f) a fielder deliberately carries, knocks or kicks the ball over the dead ball line to stop runners. For (b)-(f), the umpires consult to decide what the outcome should have been.",
+    "rules": [
+      "15"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 3037,
+    "topic": "rule 15(a)",
+    "question": "The batter hits a fly ball that goes straight over the dead ball line without touching anything. What's the ruling, and what if the batter already had two strikes?",
+    "expected": "Dead ball; the batter bats again with one strike called (Rule 15, case a). With two strikes already, that's the third strike and the batter is out (13.2). Runners stay on their bases.",
+    "rules": [
+      "15(a)",
+      "13.2"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3038,
+    "topic": "rule 15(a)",
+    "question": "A ground ball deflects off the 3rd baseman's glove (in fair territory) and rolls over the dead ball line. At that moment the runner from 1st is between 1st and 2nd and the batter-runner is halfway to 1st. Where do they go?",
+    "expected": "Each runner gets the base they were going to when the ball crossed the line (Rule 15, case a): the runner from 1st gets 2nd, and the batter-runner gets 1st. Ball dead.",
+    "rules": [
+      "15(a)"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3039,
+    "topic": "rule 15(a) / 17.3",
+    "question": "A throw to 1st sails over the dead ball line. The batter-runner was one step past 1st when it crossed. Where does the batter-runner go?",
+    "expected": "To 2nd. For a thrown ball over the dead ball line, Rule 17.3 applies (Rule 15): runners get the next base from where they were when the ball crossed. Manual p37: one step past 1st goes to 2nd; one step short of 1st gets only 1st; standing on 1st gets 2nd.",
+    "rules": [
+      "15(a)",
+      "17.3"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3040,
+    "topic": "rule 15(b)",
+    "question": "A batted ball rolls into the batters' warm-up circle while the next batter is standing in it. What should the umpire do? Does it matter if the circle is empty?",
+    "expected": "If the circle is occupied: call 'Time, Dead Ball' immediately (15b), and the umpires consult to decide what the outcome of the play should have been. 15(b) only applies when the circle is occupied. Manual p28: the umpire may also call Time before the ball enters if a fielder is approaching the circle and may be about to enter danger.",
+    "rules": [
+      "15(b)",
+      "15(d)"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3041,
+    "topic": "rule 15(f)",
+    "question": "On a long hit, a fielder deliberately kicks the ball over the dead ball line to stop the runners advancing further. What's the ruling?",
+    "expected": "Call 'Time, Dead Ball' (15f). The umpires consult and place the runners where the play should have ended. The automatic one-base award for a thrown ball (17.3) doesn't apply. Manual p29: tell the player it's inappropriate and warn them they could be dealt with under Rule 1.1 (disrepute, possible ejection).",
+    "rules": [
+      "15(f)",
+      "1.1"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 3042,
+    "topic": "rule 15(d)",
+    "question": "On a huge hit, the left fielder is chasing the ball towards goal posts on the other side of the oval, watching only the ball. What can the umpire do?",
+    "expected": "Either umpire may call Time to stop the fielder running into the posts (15d: a person about to enter danger). The umpires then come together to decide the outcome of the play. Manual p29 example: 'sounds like a home run to me'.",
+    "rules": [
+      "15(d)"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3043,
+    "topic": "rule 15(e)",
+    "question": "An unforced runner from 2nd sees the ball arrive at 3rd first, speeds up and dips a shoulder to run through the 3rd baseman and knock the ball loose. What's the ruling?",
+    "expected": "Runner out. Manual p29 (15e scenario): call 'Time' the moment you see it to stop the runner, then give the runner out, since the ball was already at 3rd and the runner wasn't going back. Charging a fielder is also covered by 17.14 (incitement/barging).",
+    "rules": [
+      "15(e)",
+      "17.14"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 3044,
+    "topic": "rule 15(c)",
+    "question": "During a live play, a fielder dives, misses the ball and stays down on the ground. What should the umpire do?",
+    "expected": "Call Time immediately (15c, 6.1); don't wait to see if the player is really hurt (Manual p13). After the player is attended to, the plate umpire consults the base umpire and they decide what would have happened if Time hadn't been called.",
+    "rules": [
+      "15(c)",
+      "6.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 3045,
+    "topic": "rule 16.1(a)",
+    "question": "A team lists 12 players. In the 1st innings, batters 1-9 bat and the umpire calls side away. Who leads off the 2nd innings?",
+    "expected": "Batter 10. Up to 12 players may be listed, only 9 bat per innings, and the next innings starts with the next listed batter (16.1a).",
+    "rules": [
+      "16.1(a)"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 3046,
+    "topic": "rule 16.1(b)",
+    "question": "Two out. The 9th batter of the innings hits safely to 1st and play finishes. What does the umpire do?",
+    "expected": "Once play is over, call 'Time, Side Away'. Nine batters have completed their turn with fewer than three outs (16.1b, 9.2). Manual p31: always call 'Time' first.",
+    "rules": [
+      "16.1(b)",
+      "9.2"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 3047,
+    "topic": "rule 16.1(c)",
+    "question": "A team turns up with only 6 players. What happens?",
+    "expected": "A side with fewer than 7 players forfeits 9-0 (16.1c). If the opposing team has more players, it may (optional, not compulsory) lend one or two players. Loaned players are deemed registered players for that team for the game.",
+    "rules": [
+      "16.1(c)"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3048,
+    "topic": "rule 16.1(c)",
+    "question": "A short team borrows a player from the opposition. Can the opposition lend a different player each innings?",
+    "expected": "Rule Book Ed 8 (16.1c) says loaned players are deemed registered players for that team 'for the duration of the game'. The older Manual 7A says 'that inning or game' and allows a different player each innings. Rule Book wins, so the loaned player belongs to that team for the whole game.",
+    "rules": [
+      "16.1(c)"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 3049,
+    "topic": "rule 16.1(d)",
+    "question": "A team has only 8 players and no loan players. How is the missing 9th batter handled? Does every innings start with an out?",
+    "expected": "The game goes ahead normally, but when batter 9 is due to bat it's an automatic out. Scorers must notify the umpire and coaches (16.1d). Manual p31: the out happens only when the missing player would normally bat. Innings do NOT start with an out unless the missing spot is first up.",
+    "rules": [
+      "16.1(d)"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3050,
+    "topic": "rule 16.1(d)",
+    "question": "First innings: a team with only 7 players has one out and all seven players have batted. The scorers say there are no more batters. What's the call?",
+    "expected": "Two automatic outs, for batters 8 and 9, which with the one out already makes three: 'three down, side away' (16.1d; Manual p31 scenario).",
+    "rules": [
+      "16.1(d)"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 3051,
+    "topic": "rule 16.2",
+    "question": "A player arrives late after every listed player has already batted once. Can the coach add them to the line-up?",
+    "expected": "No. Once all listed players have batted, no names can be added except by official substitution (16.2b, 21.2: substitute must be listed as a reserve). Manual p32 admits it seems harsh, but the late player misses out.",
+    "rules": [
+      "16.2(b)",
+      "21.2"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3052,
+    "topic": "rule 16.3",
+    "question": "The wrong batter steps into the box, and the scorers notice before 'Play Ball' is called. What happens?",
+    "expected": "Just swap in the correct batter; there's no penalty (Manual p32, 16.3 scenario 1). The rule only applies once 'Play Ball' has been called for the improper batter (16.3b). Scorers must tell the umpire when a batter bats or is about to bat out of order (4.2a).",
+    "rules": [
+      "16.3",
+      "4.2"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 3053,
+    "topic": "rule 16.3(a)",
+    "question": "The wrong batter swings and misses (one strike), then the scorers say it's the wrong batter. What now?",
+    "expected": "Replace them with the proper batter, who inherits the strike. Any strikes on the improper batter count for the proper batter (16.3a; Manual p32 scenario 2).",
+    "rules": [
+      "16.3(a)"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3054,
+    "topic": "rule 16.3(a)",
+    "question": "Batter 2 bats instead of batter 1 and hits a single, and the runner from 1st goes to 3rd. Before the next batter's 'Play Ball', the scorers report it. Ruling?",
+    "expected": "Call Time and nullify the play. All runners go back to where they were before the improper batter hit (the runner back to 1st, batter 2 off the bases), and batter 1, the proper batter, bats (16.3a; Manual scenario 3). This is still within the window, which runs until 'Play Ball' for the next batter (16.3b).",
+    "rules": [
+      "16.3(a)",
+      "16.3(b)"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3055,
+    "topic": "rule 16.3(a)",
+    "question": "One out. Batter 4 bats instead of batter 2 and hits a fly ball that the shortstop catches. Then the scorers report the error. What's the ruling and who bats next?",
+    "expected": "The play is nullified but the out counts, against the proper batter. Batter 2 is out (now two out), runners go back to their bases, and batter 3 is next (16.3a: outs made while the improper batter was up count against the proper batter; Manual p32 scenario 4).",
+    "rules": [
+      "16.3(a)"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 3056,
+    "topic": "rule 16.3(c)",
+    "question": "Batter 3 bats instead of batter 2 and singles. Batter 4 then comes up, 'Play Ball' is called, and batter 4 reaches 1st. Only now do the scorers report the error. Ruling?",
+    "expected": "Both hits stand. Batter 3 became legal when 'Play Ball' was called for the next batter (16.3b, c). The next batter is the one listed after the legalised batter, so batter 4 was correct, and batter 5 is next. Batter 2 misses that turn (Manual p33 scenario 6).",
+    "rules": [
+      "16.3(b)",
+      "16.3(c)"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 3057,
+    "topic": "rule 16.3(c)",
+    "question": "Batter 3 bats instead of batter 2 and hits safely. Batter 2 then bats ('Play Ball' called) and also hits safely. Then the scorers report that batter 3 batted out of order. Who's legal and who should bat?",
+    "expected": "Batter 3 became legal when 'Play Ball' was called for the next batter (16.3c), so the proper next batter was batter 4. That makes batter 2 the improper batter. It was caught before 'Play Ball' for the following batter, so batter 2's play is nullified, runners go back, and batter 4 bats (16.3a, b; Manual p33 scenario 7).",
+    "rules": [
+      "16.3(a)",
+      "16.3(b)",
+      "16.3(c)"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 3058,
+    "topic": "rule 16.3",
+    "question": "Is there a penalty for batting out of order? What if a coach seems to be doing it on purpose to move a strong batter up?",
+    "expected": "No penalty in itself. The umpire just corrects the order under 16.3. Manual p33: if a coach deliberately exploits this, warn them that doing it again means removal from the game (Rule 1.1, disrepute / exploiting gaps; 1.2d).",
+    "rules": [
+      "16.3",
+      "1.1",
+      "1.2(d)"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3059,
+    "topic": "rule 16.4",
+    "question": "After 'Play Ball', the batter turns the back foot to aim down the 1st base line and hits into the right-field gap. The ball isn't caught. Ruling?",
+    "expected": "If the umpire judges the back-foot repositioning means the ball will be hit in an appreciably different direction, it's 'Foul Ball' and one strike (16.4). The umpire waits for the ball to land, then quickly calls 'Time, Foul Ball', and runners return (13.1 note ii). Judgement call, no appeal (Manual p33).",
+    "rules": [
+      "16.4",
+      "13.2(e)"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3060,
+    "topic": "rule 16.4",
+    "question": "Is the batter allowed to step forward with the front foot, or pivot/drag the back foot during the swing?",
+    "expected": "Yes to both. Front foot movement is permitted (16.4). Pivoting or dragging the back foot after contact is permitted (16.4 note), since it doesn't change the ball's direction (Manual p33).",
+    "rules": [
+      "16.4"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 3061,
+    "topic": "rule 16.4",
+    "question": "The batter moves the back foot after 'Play Ball' to change direction, but the fly ball is caught by the 2nd baseman. Strike or out?",
+    "expected": "Out. Even though the illegal movement happened before the hit, the ball can still be caught. The umpire waits until the ball hits the ground before calling the back-foot foul; if it's caught, the batter is out instead (Manual p26, p33, p60).",
+    "rules": [
+      "16.4",
+      "13.2(e)",
+      "14(d)"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3062,
+    "topic": "rule 16.4",
+    "question": "After 'Batter Up' but before 'Play Ball', the batter shuffles the back foot to a new position. Penalty?",
+    "expected": "No. The back-foot restriction applies from the call of 'Play Ball' (16.4). The batter should be in a set stance, and the umpire shouldn't call 'Play Ball' until the batter is settled (Rule 10; Manual p22: give the batter a moment to settle).",
+    "rules": [
+      "16.4",
+      "10"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3063,
+    "topic": "rule 16.5",
+    "question": "The batter hits before the umpire says 'Play Ball', and the 2nd baseman catches the ball in the air. Is the batter out?",
+    "expected": "No. Hitting before 'Play Ball' makes it a dead ball with no count on the batter (16.5). Manual p34: call 'Dead Ball' and return runners. The ball can't be caught and there are no outs. Remind the batter to wait for 'Play Ball'.",
+    "rules": [
+      "16.5"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 3064,
+    "topic": "rule 16.6",
+    "question": "At contact, part of the batter's front foot is on the line of the batting box. Is that batting out of the box?",
+    "expected": "No. The lines are part of the batting box, so any part of the foot touching a line is in the box (Manual p26, p34). It's only out of the box if a foot is COMPLETELY outside the box at contact (16.6).",
+    "rules": [
+      "16.6"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 3065,
+    "topic": "rule 16.6",
+    "question": "Runner on 2nd. At contact the batter's front foot is completely outside the box. The ball goes into the outfield and the runner from 2nd scores. Does the run count?",
+    "expected": "No. Batting out of the box is a strike, the ball is dead and runners may not advance (16.6). The runner goes back to 2nd and the batter bats again with the strike added (3rd strike = out).",
+    "rules": [
+      "16.6",
+      "13.2(f)"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3066,
+    "topic": "rule 16.6",
+    "question": "The batter's foot is completely outside the box and the batter swings and misses. Is that one strike or two?",
+    "expected": "One strike, for the miss (13.2b). Batting out of the box only happens if contact is made with the ball (16.6; Manual p34: the strike is for missing, not for batting out of the box).",
+    "rules": [
+      "16.6",
+      "13.2(b)"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3067,
+    "topic": "rule 16.7",
+    "question": "The batter hits a slow roller in front of the plate, then discards the bat forward and it knocks the ball, still in fair territory and untouched by any fielder. Ruling?",
+    "expected": "Batter out. Disposing of the bat so that it hits the ball a second time in fair territory is out (16.7). Manual p34: the rule applies to a bat disposed of towards the ball, on any ball first hit fair, to stop batters knocking the ball away from fielders. If the bat was thrown, it's also out under 16.8.",
+    "rules": [
+      "16.7",
+      "16.8"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3068,
+    "topic": "rule 16.7",
+    "question": "The pitcher deflects a batted ball, and then the batter's dropped bat touches the ball in fair territory. Is the batter out under 16.7?",
+    "expected": "No. Manual p34: the 'second strike on ball' rule does NOT apply to a ball that has already touched a fielder. The bat must still be disposed of safely (16.8) and before halfway to 1st (16.9).",
+    "rules": [
+      "16.7"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 3069,
+    "topic": "rule 16.8",
+    "question": "After hitting a clean single, the batter flings the bat sideways towards the empty 3rd-base side; nobody is near it. Is the batter out?",
+    "expected": "Yes. A bat thrown in any direction is a dangerous disposal (16.8); it doesn't have to hit or be near anyone (Manual p35). Batter out, ball dead, runners return to the bases they occupied before the hit. Umpire's judgement, no appeal; err on the side of caution.",
+    "rules": [
+      "16.8"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 3070,
+    "topic": "rule 16.8",
+    "question": "The batter slams the bat hard into the ground at the plate after hitting. Thrown bat?",
+    "expected": "Yes. 16.8 says thrown in any direction includes towards the ground, and Manual p35 says thrown hard at the ground can be a dangerous disposal. Batter out, dead ball, runners return. Players should 'Hit, Drop and Run' or 'Hit, Run and Drop'.",
+    "rules": [
+      "16.8"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3071,
+    "topic": "rule 16.8",
+    "question": "Runner on 3rd, one out. The batter hits a double but throws the bat, and the runner from 3rd crosses home. Does the run count?",
+    "expected": "No. Thrown bat: the batter is out (two out), the ball is dead, and runners go back to the bases they occupied before the hit (16.8). The runner returns to 3rd and the run is cancelled.",
+    "rules": [
+      "16.8"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 3072,
+    "topic": "rule 16.9",
+    "question": "The batter carries the bat well past halfway to 1st, dropping it just before 1st, and beats the throw. Ruling?",
+    "expected": "Batter out and ball dead for not disposing of the bat by halfway to 1st. All runners return to their bases and the next batter is called up (16.9). The halfway point is the umpire's judgement and unquestionable. Manual p35 says don't be overly pedantic and invoke it when the carried bat has inhibited the fielder, but the Rule Book has no such condition and wins.",
+    "rules": [
+      "16.9"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4001,
+    "topic": "rule 17.1",
+    "question": "After a close play at 1st the batter-runner thinks they are out and walks across the dead ball line to the bench, but the umpire had actually called them safe. Can the batter-runner come back onto the field?",
+    "expected": "No. Under 17.1 a runner who has left the diamond gives up the right to re-enter or take any further part in that at-bat innings; the Manual defines leaving the diamond as crossing the dead ball line. The only exception is a player sent off incorrectly by the umpire.",
+    "rules": [
+      "17.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 4002,
+    "topic": "rule 17.1",
+    "question": "The base umpire wrongly calls a runner out at 2nd and the runner leaves the field. The umpires then realise the call was wrong. Can the runner return?",
+    "expected": "Yes. 17.1 does not apply to players sent from the diamond incorrectly by the umpire; the Manual says that after an incorrect 'Out' call the player may be returned to the field.",
+    "rules": [
+      "17.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 4003,
+    "topic": "rule 17.1",
+    "question": "A runner overruns 3rd base well into foul territory but stays inside the dead ball line, then comes back towards 3rd. Has the runner 'left the diamond' under 17.1?",
+    "expected": "No. The Manual defines leaving the diamond as crossing the dead ball line, so 17.1 does not apply and the runner may continue. However, while off the base with the ball live, the runner can be put out by a tag (17.8).",
+    "rules": [
+      "17.1",
+      "17.8"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4004,
+    "topic": "rule 17.1",
+    "question": "The runner from 3rd steps over home plate without touching it and keeps running across the dead ball line to the bench. The plate umpire saw the miss. The catcher then holds the ball on home plate and appeals on that runner. What's the ruling?",
+    "expected": "Runner out for missing the base and the run does not count (17.7), provided an umpire saw the miss and the fielder correctly identified the runner on the first appeal, before 'Play Ball' on the next batter. The runner cannot come back to touch home because they have left the diamond (17.1); the Manual says 17.1 exists to stop runners re-entering after missing home plate.",
+    "rules": [
+      "17.1",
+      "17.7"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 4005,
+    "topic": "rule 17.2",
+    "question": "Between 1st and 2nd a runner deliberately pulls off their helmet, then keeps running and reaches 3rd safely. Nobody tags the runner before Time is called. Where does the runner end up?",
+    "expected": "Back at 1st. Under 17.2 a runner who intentionally removes the helmet and is not put out before Time is returned to the last base they crossed before removing it. The Manual adds that the runner can only be sent back if the base(s) behind are unoccupied.",
+    "rules": [
+      "17.2"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 4006,
+    "topic": "rule 17.2",
+    "question": "A runner rounding 2nd turns their head and the helmet falls off by itself. Is there any penalty?",
+    "expected": "No. 17.2 only applies to intentional removal; the Manual says a helmet that falls off when a runner tilts their head while rounding a base has not been intentionally removed. Play continues normally.",
+    "rules": [
+      "17.2"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 4007,
+    "topic": "rule 17.2",
+    "question": "A runner deliberately takes off their helmet while running and is then tagged out before Time is called. Does the out stand, or does the runner just go back a base?",
+    "expected": "The out stands. 17.2 only returns the runner if they are not put out before Time, and the Manual confirms that if a runner is given out for any reason while not wearing a helmet, the out counts.",
+    "rules": [
+      "17.2"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4008,
+    "topic": "rule 17.2",
+    "question": "A runner intentionally removes their helmet on the way to 3rd, but by the time Time is called the base behind them (2nd) is occupied by another runner. What should the umpire do?",
+    "expected": "Leave the runner where they are, since the Manual says offenders can only be sent back if the bases behind are unoccupied, but at least warn them not to remove the helmet again. If the runner does it again, the umpire can warn that they may be given out under rule 1.1(i) (safe playing environment). The Manual says rule 15(d) and (e) may also be considered.",
+    "rules": [
+      "17.2",
+      "1.1"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 4009,
+    "topic": "rule 17.3",
+    "question": "A runner is standing on 1st (they have stopped running) when a throw goes over the dead ball line. What is the runner awarded?",
+    "expected": "2nd base. Under 17.3 runners get the next base from where they were when the thrown ball crossed the dead ball line; the Manual says a runner standing on 1st goes to 2nd even if they had stopped running.",
+    "rules": [
+      "17.3"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 4010,
+    "topic": "rule 17.3",
+    "question": "The batter-runner is one step short of 1st when the throw to 1st sails over the dead ball line. Where does the batter-runner go?",
+    "expected": "Only to 1st. The award is the next base from where the runner was when the ball crossed the line (17.3). The Manual says a runner one step short of 1st only gets 1st.",
+    "rules": [
+      "17.3"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 4011,
+    "topic": "rule 17.3",
+    "question": "Runners on 2nd and 3rd. On the hit, the throw home goes over the dead ball line. At that moment the runner from 3rd is halfway home and the runner from 2nd is just short of 3rd. Where do the runners end up?",
+    "expected": "The runner from 3rd scores and the runner from 2nd stops at 3rd (Manual 17.3 Scenario 2). Each runner gets the next base from where they were when the ball crossed the line (17.3), and for the runner from 2nd that next base is 3rd.",
+    "rules": [
+      "17.3"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4012,
+    "topic": "rule 17.3",
+    "question": "A runner misses 2nd base and is past it when an overthrow crosses the dead ball line. What is the runner awarded, and can the fielding side still do anything about the missed base?",
+    "expected": "The runner still gets the next base from where they are, and the umpire gives no sign of the missed base. If the runner does not go back and touch the missed base, the fielding side can still appeal in the normal way (17.7) until 'Play Ball' is called on the next batter (Manual 17.3).",
+    "rules": [
+      "17.3",
+      "17.7"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4013,
+    "topic": "rule 17.3",
+    "question": "The runner from 1st and the batter-runner are both between 1st and 2nd when a thrown ball goes over the dead ball line. How are the runners placed?",
+    "expected": "Under the Manual's 17.3 exception, when two runners are on the same base path only the front runner goes on to the base they were going to (2nd). The back runner (the batter-runner) must return to the last base they crossed (1st).",
+    "rules": [
+      "17.3"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 4014,
+    "topic": "rule 17.3",
+    "question": "When is a base considered 'legally crossed' by a runner?",
+    "expected": "When the runner has touched it, or when the umpire calls 'Play Ball' on the next batter without any appeal having been made (17.3(i)). Until then the fielding side can appeal a missed base (17.7). The Manual says umpires must not say or indicate anything if they see a runner miss a base.",
+    "rules": [
+      "17.3",
+      "17.7"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4015,
+    "topic": "rule 17.4",
+    "question": "The runner on 2nd leaves the base before the batter hits the ball, and the batter hits a ground ball into the outfield. What's the ruling?",
+    "expected": "Under 17.4 the umpires call 'Time, Dead Ball', all runners go back to their bases and the play doesn't count. There is no count on the batter, who bats again. The umpire warns the runner that if they leave early again in the same innings they will be called out.",
+    "rules": [
+      "17.4"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 4016,
+    "topic": "rule 17.4",
+    "question": "A runner leaves 1st before the ball is hit and the batter's fly ball is then caught. Is the batter out?",
+    "expected": "No. The infringement happened before the hit, so the ball is dead: the catch does not count and there is no count on the batter (17.4 note). Call 'Time, Dead Ball', send all runners back to their bases and warn the runner who left early.",
+    "rules": [
+      "17.4"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 4017,
+    "topic": "rule 17.4",
+    "question": "A runner already warned for leaving 1st early leaves early again later in the same innings. What happens?",
+    "expected": "That runner is called out (17.4). Leaving early still makes it a dead ball, so 'Time, Dead Ball' is called, the other runners return to their bases, and nothing from the hit counts.",
+    "rules": [
+      "17.4"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4018,
+    "topic": "rule 17.4",
+    "question": "In the 3rd innings, runner A was warned for leaving base early. Later in the same innings, a different runner (B) leaves early for the first time. Is runner B out?",
+    "expected": "No. The out under 17.4 only applies when the same runner offends again in the same innings. Runner B gets a dead ball, all runners return, and runner B is warned. A warning to one runner does not carry over to teammates.",
+    "rules": [
+      "17.4"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4019,
+    "topic": "rule 17.4",
+    "question": "A runner left base before the hit, but the umpires were slow to call it and the fielders completed a double play. Do the outs count?",
+    "expected": "No. The infringement came before the hit, so the ball is dead from that point and no outs or plays count (17.4 note). All runners return and the offending runner is warned (or called out if it's their second offence that innings). The Manual says to call 'Time and Dead Ball' quickly, before an out can happen, to avoid this situation.",
+    "rules": [
+      "17.4"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4020,
+    "topic": "rule 17.5",
+    "question": "On the second half of the run to 1st, the batter-runner runs inside the diamond and the catcher's throw to 1st hits the runner. What's the call?",
+    "expected": "Batter-runner out. Under 17.5 the batter must run the second half to 1st outside the diamond, and if they don't and a play is made between home and 1st, they are called out. The Manual says the purpose is to avoid interfering with a throw from the catcher or a fielder at home.",
+    "rules": [
+      "17.5"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 4021,
+    "topic": "rule 17.5",
+    "question": "The batter hits to deep outfield and runs the whole way to 1st inside the diamond. No play is made at 1st. Is there a penalty?",
+    "expected": "No. 17.5 only gives the out if the batter-runner fails to run the second half outside the diamond AND a play is made between home and 1st. With no play there is no penalty, although runners should still be coached to run outside.",
+    "rules": [
+      "17.5"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 4022,
+    "topic": "rule 17.5",
+    "question": "The batter-runner is inside the diamond on the second half to 1st. The catcher picks up the ball but doesn't throw because the runner is in the line of the throw. Out?",
+    "expected": "Possibly; it is the umpire's judgement. The Manual says the throw does not have to succeed or even happen: if the umpire thinks the attempt may have been obstructed by the runner being in the way after halfway, the runner is out. Rule Book 17.5 wording is stricter ('if a play is made between home and first base'), so the umpire must judge that a play was being made. The Manual says a field umpire who sees it should discuss it with the plate umpire.",
+    "rules": [
+      "17.5"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 4023,
+    "topic": "rule 17.6",
+    "question": "The batter-runner runs through 1st base, turns right into foul territory and walks straight back, but is tagged before getting back to the base. Out?",
+    "expected": "No. 17.6 lets batter-runners run or slide through 1st as long as they return immediately. They are only out if they show intent to move towards 2nd and are tagged while off the base. The Manual recommends turning right, away from 2nd, to avoid any doubt.",
+    "rules": [
+      "17.6"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 4024,
+    "topic": "rule 17.6",
+    "question": "After running through 1st, the batter-runner takes a couple of steps towards 2nd, stops, then heads back and is tagged before reaching 1st. What's the call?",
+    "expected": "Out. Under 17.6 a runner who shows intent to move towards 2nd and is tagged off the base is out, and the Manual counts one or two steps towards 2nd as showing intent. This is a judgement call, so coaches have no right of appeal.",
+    "rules": [
+      "17.6"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4025,
+    "topic": "rule 17.6",
+    "question": "A runner from 1st overruns 2nd base by a few steps and is tagged before getting back. The coach says 'you're allowed to overrun a base.' Is the runner safe?",
+    "expected": "No, the runner is out. The overrun allowance in 17.6 only covers batter-runners running through 1st base. A runner who overruns 2nd (or 3rd) is off base while the ball is live and can be tagged out (17.8).",
+    "rules": [
+      "17.6",
+      "17.8"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 4026,
+    "topic": "rule 17.7",
+    "question": "The runner from 1st misses 2nd base on the way to 3rd, and the base umpire sees it. After the play, the 2nd baseman holds the ball, stands on 2nd and appeals, naming the runner. What's the ruling?",
+    "expected": "The runner is out for missing the base (17.7). The appeal is valid because the fielder held the ball while touching the missed base, an umpire saw the miss, and the right runner was named on the first appeal. The Manual's call is 'Runner out for missing the base.'",
+    "rules": [
+      "17.7"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 4027,
+    "topic": "rule 17.7",
+    "question": "The fielding coach is sure a runner missed 3rd, and the fielder appeals correctly with the ball on 3rd. Neither umpire saw the miss. Out?",
+    "expected": "No. Under 17.7 an appeal is only allowed if either umpire saw the runner miss the base, and the Manual says an umpire must see the infringement to call it. The runner is safe.",
+    "rules": [
+      "17.7"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4028,
+    "topic": "rule 17.7",
+    "question": "Two runners passed through 2nd on the same play and one of them missed it (the umpire saw which one). The fielder appeals naming the wrong runner, then tries again naming the other runner. Out?",
+    "expected": "No. 17.7 requires the fielder to correctly identify the runner on the first appeal. The Manual says the fielding side gets one chance with no process of elimination, so after a wrong first nomination the game goes on.",
+    "rules": [
+      "17.7"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4029,
+    "topic": "rule 17.7",
+    "question": "After 'Play Ball' has been called for the next batter, the fielding team realises a runner missed 2nd on the previous play and wants to appeal. Allowed?",
+    "expected": "No, it's too late. Once 'Play Ball' is called on the next batter with no appeal made, the base is considered legally crossed (17.3(i)). The Manual says appeals must be made before 'Play Ball' on the next batter.",
+    "rules": [
+      "17.7",
+      "17.3"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 4030,
+    "topic": "rule 17.7",
+    "question": "A runner misses 2nd and reaches 3rd. By the time the runner realises, a following runner is standing on 2nd. Can the runner go back to touch 2nd?",
+    "expected": "No. Under 17.7 runners are not entitled to return to an occupied base, and any retouching must be done in reverse order. The miss stands, so the fielding side can still appeal at 2nd before 'Play Ball' on the next batter; the runner is out if an umpire saw the miss and the runner is correctly identified on the first appeal.",
+    "rules": [
+      "17.7"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 4031,
+    "topic": "rule 17.7",
+    "question": "A fielder obviously didn't see a runner miss 1st, but the coach shouts 'get the ball and stand on the base' and then tells the fielder which runner to name. Should the umpire accept the appeal?",
+    "expected": "Yes, if an umpire saw the miss and the runner named on the first appeal is correct. The Manual's special note says the coach is the teacher and the players are learning, so the umpire accepts a coach-prompted appeal and calls the runner out.",
+    "rules": [
+      "17.7"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4032,
+    "topic": "rule 17.8",
+    "question": "A fielder has the ball in the bare throwing hand and tags the runner with the empty glove. Out?",
+    "expected": "No. Under 17.8 note (i) a tag is touching the runner with the ball, or with the hand or glove holding the ball. An empty glove doesn't count, and the Manual specifically warns umpires about this situation.",
+    "rules": [
+      "17.8"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 4033,
+    "topic": "rule 17.8",
+    "question": "A fielder tags a runner off base, but the ball pops out of the glove as the tag is made. Out or safe?",
+    "expected": "Safe. Under 17.8 note (iii) the fielder must still have control of the ball after the tag. Whether the fielder had control is the umpire's judgement and can't be appealed (Manual).",
+    "rules": [
+      "17.8"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 4034,
+    "topic": "rule 17.8",
+    "question": "On a force play at 2nd, the fielder has a foot on the base and the ball trapped on the ground under the glove before the runner arrives. Out?",
+    "expected": "No. Tagging a base requires being in control of the ball (17.8 note ii), and the Manual says a ball on the ground with a glove or hand over it is not under control; the ball must be in the glove or hand. The ball must also beat the runner (1.2a).",
+    "rules": [
+      "17.8"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4035,
+    "topic": "rule 17.8",
+    "question": "Runner on 2nd only (1st empty). On a ground ball, the 3rd baseman catches the throw and steps on 3rd before the runner gets there, but never touches the runner. Out?",
+    "expected": "No. With 1st empty the runner from 2nd isn't forced (17.9), so on a non-forced play the runner must be tagged before reaching the base (17.8b). Touching the base alone only works on a force.",
+    "rules": [
+      "17.8",
+      "17.9"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4036,
+    "topic": "rule 17.8",
+    "question": "A fielder touches 2nd base with the bare hand holding the ball (feet nowhere near the base) before the forced runner arrives. Is that a valid base tag?",
+    "expected": "Yes. Under 17.8 note (ii) tagging a base means touching it with any part of the body while in control of the ball, so a hand holding the ball counts. On a force (17.8a) that puts the runner out if the ball beats the runner (1.2a).",
+    "rules": [
+      "17.8"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 4037,
+    "topic": "rule 17.8",
+    "question": "A fielder with the ball waits on the baseline and the runner deliberately barges into the fielder, knocking the ball loose. What's the call?",
+    "expected": "Runner out. The Manual (17.8) says a runner who deliberately barges a fielder to knock the ball out of their grasp has committed interference and must be called out. Runners must not charge fielders (Manual 17.14, 20), and 17.14 lets the umpire nullify any advantage and give the player out in severe cases.",
+    "rules": [
+      "17.8",
+      "17.14"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 4038,
+    "topic": "rule 17.9",
+    "question": "Runner on 1st, batter hits a ground ball. Is the runner on 1st forced to run?",
+    "expected": "Yes. Under 17.9 a forced play happens when the batter becomes a runner and there is no empty base behind the runner. The batter must run to 1st, so the runner on 1st must advance to 2nd. They can be put out by a tag of 2nd or of the runner before they arrive (17.8a).",
+    "rules": [
+      "17.9"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 4039,
+    "topic": "rule 17.9",
+    "question": "Runners on 1st and 3rd (2nd empty), ground ball. Which runners are forced?",
+    "expected": "Only the batter-runner and the runner from 1st. The runner on 3rd isn't forced because 2nd base behind them is empty (17.9), so that runner can only be put out by being tagged before reaching home (17.8b).",
+    "rules": [
+      "17.9",
+      "17.8"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 4040,
+    "topic": "rule 17.9",
+    "question": "Bases loaded, ground ball to the pitcher, who throws to the catcher. The catcher, holding the ball with a foot on home plate, receives it just before the runner from 3rd arrives. Out?",
+    "expected": "Yes, a force out. With the bases loaded every runner is forced (17.9), so tagging home before the runner arrives is enough (17.8a). The ball must beat the runner and the catcher must have control (1.2a).",
+    "rules": [
+      "17.9",
+      "17.8",
+      "1.2"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 4041,
+    "topic": "rule 17.9",
+    "question": "Runner on 1st, ground ball to the 1st baseman, who steps on 1st to put the batter out and then throws to 2nd. The fielder at 2nd touches the base before the runner from 1st arrives. Is the runner out?",
+    "expected": "No. The Manual (17.9) says the force is removed once the batter-runner is put out before 1st (tagged, or 1st base touched). The runner from 1st is no longer forced, so touching 2nd isn't enough and the runner must be tagged before reaching 2nd (17.8b).",
+    "rules": [
+      "17.9",
+      "17.8"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 4042,
+    "topic": "rule 17.9",
+    "question": "Runner on 1st, ground ball. The batter-runner reaches 1st safely, then the fielder at 2nd touches 2nd with the ball before the runner from 1st gets there. Force out?",
+    "expected": "Per the Rule Book: yes. 17.9 defines a force as no empty base behind the runner, and the batter-runner is now on 1st, so the base tag puts the runner out (17.8a). The Manual (17.9) conflicts, saying the force no longer stands once the batter reaches 1st, which would require a tag of the runner. The Rule Book (Ed 8) takes precedence, but this is unresolved; tagging the runner works under either reading.",
+    "rules": [
+      "17.9",
+      "17.8"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 4043,
+    "topic": "rule 17.10",
+    "question": "Runner on 2nd runs on the hit, and the fly ball is caught by the centre fielder. The throw goes to the 2nd baseman, who steps on 2nd while the runner is still heading back. Does the fielder need to appeal?",
+    "expected": "No verbal appeal is needed; the runner is out. Under 17.10 a runner who left before the catch is out if they fail to retouch before they or that base is tagged by a fielder with the ball. The Manual says the fielder just needs control of the caught ball and to touch or run across the base. If the ball beats the runner back, call 'Out' and let play continue.",
+    "rules": [
+      "17.10"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 4044,
+    "topic": "rule 17.11",
+    "question": "With 1 out, the runner on 1st stays on the base until a deep fly ball is caught, then runs to 2nd. Is that allowed, and how can the fielding side get the runner out?",
+    "expected": "Yes. After any catch the ball is live and runners may advance at their own risk (17.11). The batter is out, so the runner isn't forced, which means they must be tagged before reaching 2nd (17.8b); touching 2nd isn't enough. The Manual notes this is common on deep outfield catches.",
+    "rules": [
+      "17.11",
+      "17.10",
+      "17.8"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4045,
+    "topic": "rule 17.11",
+    "question": "Runner on 3rd. A foul fly ball is caught in foul territory. Is the ball dead, or can the runner try for home?",
+    "expected": "The ball is live and the runner may try for home at their own risk (17.11): any catch, fair or foul, in fair or foul territory, leaves the ball live. If the runner left 3rd before the catch, they must retouch 3rd before they or the base is tagged (17.10).",
+    "rules": [
+      "17.11"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4046,
+    "topic": "rule 17.10",
+    "question": "Runner on 1st runs on the hit and has already rounded 2nd when the fly ball is caught. What must the runner do to be safe?",
+    "expected": "Go back and retouch 1st, retouching 2nd on the way, because retouching must be in reverse order (17.7). The runner must get back before they or 1st base is tagged by a fielder with the ball (17.10). Once back on 1st they may advance again at their own risk (17.11).",
+    "rules": [
+      "17.10",
+      "17.7"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4047,
+    "topic": "rule 17.10",
+    "question": "Runner on 1st left on the hit and is standing on 3rd when the fly ball is caught. The fielder with the ball touches 2nd base. Is the runner out?",
+    "expected": "No. Under 17.10 the runner is out only if they, or the base they left (1st), are tagged before they retouch. Touching 2nd (or 3rd or home) has no effect. The fielding side needs to tag 1st or tag the runner.",
+    "rules": [
+      "17.10"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 4048,
+    "topic": "rule 17.10",
+    "question": "No outs, runner on 3rd. The runner runs on the hit and crosses home before a deep fly ball is caught by the left fielder, who throws to the 3rd baseman. The 3rd baseman steps on 3rd with the ball before the runner comes back to retouch it. Does the run count?",
+    "expected": "No. The runner left 3rd before the catch and didn't retouch before the base was tagged by a fielder with the ball, so the runner is out (17.10) and their run is cancelled. That makes two outs: the batter (caught) and the runner.",
+    "rules": [
+      "17.10",
+      "17.13"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4049,
+    "topic": "rule 17.10",
+    "question": "Runner on 1st left on the hit, the fly ball was caught, and the runner stayed at 2nd without going back. The umpire called Time before anyone tagged 1st or the runner. Can the fielding side still touch 1st to get the out?",
+    "expected": "Under the Rule Book, the runner is safe at 2nd: tags only count while the ball is live (17.8), and Time makes the ball dead (11). The documents leave a grey area, though. The Manual (17.11) describes this out as an 'appeal', and missed-base appeals can be made until 'Play Ball' on the next batter, so some umpires may allow it. The Manual also says not to call Time on a catch unless the ball is in an infield position and all runners are near their bases.",
+    "rules": [
+      "17.10",
+      "17.8",
+      "17.11",
+      "11"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 4050,
+    "topic": "rule 17.10",
+    "question": "Runner on 1st runs on the hit, but the outfielder drops the fly ball. Does the runner need to go back and retouch 1st?",
+    "expected": "No. 17.10 only applies when the batted ball is caught. With no catch, the batter becomes a runner, so the runner from 1st is still forced to 2nd (17.9) and play continues normally.",
+    "rules": [
+      "17.10",
+      "17.9"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4051,
+    "topic": "rule 17.12",
+    "question": "On a long hit, the runner from 1st runs past the runner from 2nd between 2nd and 3rd. What's the ruling?",
+    "expected": "The runner from 1st (the one who passed) is out (17.12). The Manual says only the passing runner is out; the runner who was passed carries on. Runners must stay behind the runner in front until that runner is given out.",
+    "rules": [
+      "17.12"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 4052,
+    "topic": "rule 17.12",
+    "question": "A runner falls over between 2nd and 3rd, and the runner behind stops and helps them up, staying behind them. Is that allowed?",
+    "expected": "Yes. The Manual (17.12) says a runner directly behind may assist a fallen runner back to their feet, or help them along, as long as they do not overtake them.",
+    "rules": [
+      "17.12"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4053,
+    "topic": "rule 17.12",
+    "question": "The lead runner is tagged out between 2nd and 3rd and is walking off along the baseline. The following runner runs past them. Is the following runner out for passing?",
+    "expected": "No. Under 17.12 a runner is only out for passing the runner in front before that runner has been given out. Once the front runner is out, passing them is not a violation.",
+    "rules": [
+      "17.12"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4054,
+    "topic": "rule 17.12",
+    "question": "Two outs, runners on 1st and 3rd. On a hit, the runner from 3rd crosses home. The batter-runner touches 1st, then passes the runner from 1st before 2nd for the third out. Does the run count?",
+    "expected": "Yes. The batter-runner is out for passing the runner in front (17.12), but that third out was neither on the batter-runner before touching 1st nor a force play. Under 17.13, runs scored before the third out count, so the run counts.",
+    "rules": [
+      "17.12",
+      "17.13"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 4055,
+    "topic": "rule 17.13",
+    "question": "Two outs, runner on 3rd. Ground ball to shortstop; the runner from 3rd crosses home before the throw beats the batter-runner to 1st for the third out. Does the run count?",
+    "expected": "No. Under 17.13(a) no runs score when the third out is made on the batter-runner before they touch 1st, even if the runner crossed home first. The Manual gives this exact case.",
+    "rules": [
+      "17.13"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 4056,
+    "topic": "rule 17.13",
+    "question": "Two outs, runners on 1st and 3rd. On a ground ball the runner from 3rd crosses home, then the runner from 1st is forced out at 2nd for the third out. Run?",
+    "expected": "No run. The third out was a force play, and 17.13(b) says no runs score on a play where the third out is a force play. This is the Manual's Scenario 1 under 17.13.",
+    "rules": [
+      "17.13",
+      "17.9"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4057,
+    "topic": "rule 17.13",
+    "question": "Two outs, runners on 2nd and 3rd (1st empty). The batter reaches 1st safely, the runner from 3rd crosses home, then the runner from 2nd is tagged out between 3rd and home. Does the run count?",
+    "expected": "Yes, as long as the run crossed home before the tag. The runner from 2nd wasn't forced to go past 3rd, so the third out was a tag on a non-forced runner, not a force or an out on the batter-runner before 1st. Under 17.13, runs scored before the third out count.",
+    "rules": [
+      "17.13",
+      "17.9",
+      "17.8"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4058,
+    "topic": "rule 17.13",
+    "question": "One out, runners on 2nd and 3rd. The 2nd baseman throws to 1st to put out the batter (second out). The runner from 3rd crosses home, then 1st throws to 3rd and the runner from 2nd is tagged for the third out. Run?",
+    "expected": "The run counts (Manual 17.13 scenario). The second out was a force, but the third out was a tag on a runner who was no longer forced, because the batter was out. Under 17.13, runs scored before a third out that is not (a) or (b) count.",
+    "rules": [
+      "17.13"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 4059,
+    "topic": "rule 17.13",
+    "question": "Same as the last case, but the runner from 3rd crosses home a moment AFTER the runner from 2nd is tagged at 3rd for the third out. Run?",
+    "expected": "No run. 17.13 only counts runs scored before the third out is made. Umpires need to watch whether home was crossed before or after the tag.",
+    "rules": [
+      "17.13"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 4060,
+    "topic": "rule 17.13",
+    "question": "One out, runners on 2nd and 3rd. The shortstop throws to 3rd and the runner from 2nd is tagged (second out). The runner from 3rd then crosses home before the throw to 1st beats the batter-runner for the third out. Run?",
+    "expected": "No run. The third out was made on the batter-runner before touching 1st (17.13a), which the Manual treats as a force play (17.13b). Even though the run crossed between the second and third outs, it doesn't count (Manual Scenario 2).",
+    "rules": [
+      "17.13"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 4061,
+    "topic": "rule 17.13",
+    "question": "Two outs, bases loaded. The batter reaches 1st safely and the runner from 3rd crosses home. Then the 3rd baseman, holding the ball, steps on 3rd before the runner from 2nd arrives. Is that the third out, and does the run count?",
+    "expected": "Per the Rule Book: the runner from 2nd is still forced (17.9: no empty base behind), so the base tag is a force out and no run scores (17.13b). However, the Manual (17.9) says the force ends once the batter reaches 1st, which would make the base tag invalid (a tag of the runner would be needed, and runs before it would count). The Rule Book takes precedence, but this conflict is unresolved.",
+    "rules": [
+      "17.13",
+      "17.9"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 4062,
+    "topic": "rule 17.14",
+    "question": "An unforced runner from 2nd reaches 3rd at about the same time as the throw, but keeps running towards home, trying to draw a bad throw. What should the umpire do?",
+    "expected": "Treat it as incitement running (Manual 17.14 Scenario 1). Any advantage is nullified and the runner returned to the base they had before it happened; any outs made stand. The umpire should at least warn the runner. This is a judgement call with no right of appeal.",
+    "rules": [
+      "17.14"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4063,
+    "topic": "rule 17.14",
+    "question": "A forced runner from 2nd keeps running to 3rd even though the 3rd baseman is holding the ball on the baseline in front of the base. Incitement?",
+    "expected": "No. The Manual cautions not to treat a forced runner as an incited runner, and in Scenario 3 says the runner is entitled to try to reach 3rd: it's the fielder's choice to challenge the runner, and the fielder could simply tag the base. The runner still must not charge the fielder to dislodge the ball.",
+    "rules": [
+      "17.14"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4064,
+    "topic": "rule 17.14",
+    "question": "A base coach keeps sending runners on when the ball is already ahead of them, to force throwing errors. One runner nearly collides with a fielder. What penalties are available?",
+    "expected": "Under 17.14 the umpire nullifies any advantage (returns the runner to the earlier base, outs stand) and should at least warn. In severe cases where injury could have occurred, the umpire can give the player out, or eject the coach if the coach called it, but the coach or player must have had at least one warning before ejection.",
+    "rules": [
+      "17.14",
+      "1.1"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 4066,
+    "topic": "rule 17.15",
+    "question": "A runner slides safely into 2nd and the base is knocked a metre out of position. The runner is standing on the moved base when a fielder tags them. Out?",
+    "expected": "No. Under 17.15(a), if the runner's impact dislodges a base and the runner reached it safely, no play can be made on that runner at that base. The Manual calls it a 'safe haven'. The umpires refit the base after Time.",
+    "rules": [
+      "17.15"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 4067,
+    "topic": "rule 17.15",
+    "question": "On the same play a base was dislodged, a following runner arrives at that base and stands on the moved base rather than the spot where it belongs. Protected?",
+    "expected": "No. Under 17.15(b) a following runner is treated as touching or occupying the base only if, in the umpire's judgement, they touch or occupy the point marked for the dislodged base. The Manual says following runners don't get the same luxury, as a base coach can guide them.",
+    "rules": [
+      "17.15"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4068,
+    "topic": "rule 17.15",
+    "question": "A runner dislodges 2nd on arrival and is safe, then sets off for 3rd, changes their mind and is tagged before getting back to the marked spot of 2nd. Out?",
+    "expected": "Yes. The 17.15 note says any attempt to advance beyond the dislodged base removes the runner's exemption while they are off the point marked for that base, so a tag off that point counts (17.8).",
+    "rules": [
+      "17.15"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4069,
+    "topic": "rule 17.16",
+    "question": "Between 2nd and 3rd, a runner swerves well wide of the running line to get around a fielder who is holding the ball and about to tag. Call?",
+    "expected": "Runner out for deviating from the running line to avoid a tag (17.16). The Manual says call the out as soon as the illegal deviation happens, so fielders know they can move on to the next play.",
+    "rules": [
+      "17.16"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 4070,
+    "topic": "rule 17.16",
+    "question": "Close to 3rd base, a runner slides under the fielder's tag and reaches the base. Legal?",
+    "expected": "Yes. 17.16 note: a runner close to a base may try to slide under a tag. If the slide gets the runner to the base before the tag, they are safe.",
+    "rules": [
+      "17.16"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 4071,
+    "topic": "rule 17.16",
+    "question": "Runner on 2nd with 1st empty is caught off base and turns back towards 2nd along the shortest line to avoid a tag. Is that deviating from the running line?",
+    "expected": "No, that's legal. The 17.16 note lets runners who are not in a force situation turn back on the shortest line. The Manual says runners may run forward or backwards (if not forced) to avoid a tag; they just may not deviate sideways off their line.",
+    "rules": [
+      "17.16"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4072,
+    "topic": "rule 17.16",
+    "question": "On a ground ball, the forced runner from 1st sees a fielder with the ball ahead and turns back to 1st to avoid the tag. What happens?",
+    "expected": "Turning back doesn't help a forced runner: the 17.16 note only allows non-forced runners to turn back. The runner stays forced, and the Manual says the fielder simply tags the base the runner is going to (2nd) to make the out (17.8a), or tags the runner.",
+    "rules": [
+      "17.16",
+      "17.8",
+      "17.9"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4073,
+    "topic": "rule 17.16",
+    "question": "A runner moves off the running line to go around a fielder who is fielding a ground ball. Out for avoiding a tag?",
+    "expected": "No. The Manual (17.16) says moving off the running line to avoid interfering with a fielder fielding the ball is not avoiding a tag. The fielder has right of way on a batted ball (18.1), so the runner must go around, but must not deviate to avoid a tag if the fielder is in a position to tag.",
+    "rules": [
+      "17.16",
+      "18.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4074,
+    "topic": "rule 17.16",
+    "question": "A runner steps off the line to go around a fielder who is standing in the base path without the ball. Avoiding a tag?",
+    "expected": "No. The Manual says the umpire must decide whether the fielder has the ball and is in a position to make a tag. A fielder without the ball can't tag, so this is not a 17.16 deviation. A fielder without the ball who impedes the runner may be obstruction (rule 20).",
+    "rules": [
+      "17.16"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 5001,
+    "topic": "rule 18.1",
+    "question": "On a ground ball, the runner from 2nd heading to 3rd runs straight into the shortstop, who is bent over about to pick the ball up. What is the call?",
+    "expected": "Interference on a batted ball: the runner is out, the ball is dead and no runners may advance unless forced (18.1). The shortstop was in the act of fielding (about to pick the ball up), so the fielder has right of way and the runner must go around (Manual 18.1, p44).",
+    "rules": [
+      "18.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 5002,
+    "topic": "rule 18.1",
+    "question": "A ground ball gets past the diving 2nd baseman and then hits the runner going from 1st to 2nd. No other fielder was near the ball. Is the runner out for interference?",
+    "expected": "No. Under 18.1 interference needs the runner to interfere with a fielder in the act of fielding a batted ball. Manual 18.1 (p44): a runner hit by a batted ball is safe provided the fielder was not in the act of fielding it, so play continues.",
+    "rules": [
+      "18.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5003,
+    "topic": "rule 18.1",
+    "question": "For interference on a batted ball, what does 'in the act of fielding' mean?",
+    "expected": "Manual 18.1 (p44): the fielder can be in no other place to field that ball, or is just about to pick the ball up, or must be in that particular position to attempt a catch. If a runner runs into or interferes with a fielder in any of these cases, the runner is out, ball dead, no advance unless forced (18.1).",
+    "rules": [
+      "18.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5004,
+    "topic": "rule 18.1 / 17.16",
+    "question": "A fielder is fielding a slow ground ball right on the running line between 2nd and 3rd. The runner swings wide around the fielder. The fielding coach says the runner left the running line and should be out. Correct?",
+    "expected": "Not out for going around the fielder. A fielder fielding a batted ball has right of way and the runner must go around (Manual 18.1, p44); moving off the running line to avoid interfering with a fielder fielding a ball is not avoiding a tag (Manual 17.16, p43). Only if the fielder has the ball and is in a position to tag, and the runner deviates from the running line to avoid that tag, is the runner out (17.16).",
+    "rules": [
+      "18.1",
+      "17.16"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 5005,
+    "topic": "rule 18.2",
+    "question": "A throw to 2nd base hits the runner in the back and rolls away. The fielding coach wants interference called. What is the ruling?",
+    "expected": "No interference. On a thrown ball the runner is only out if the interference is intentional (18.2). Manual 18.2 (p44): a thrown ball simply hitting a runner is not intentional interference unless the runner deliberately tried to block the ball getting to the fielder; play continues.",
+    "rules": [
+      "18.2"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 5006,
+    "topic": "rule 18.2",
+    "question": "As the throw comes in to 3rd, the runner deliberately raises their arms and knocks the ball away from the fielder. What is the call?",
+    "expected": "Intentional interference on a thrown ball: the runner is out, the ball is dead and no runners may advance unless forced (18.2). Whether it was wilful and deliberate is the umpire's judgement (Manual 18.2, p44).",
+    "rules": [
+      "18.2"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5007,
+    "topic": "rule 18.2",
+    "question": "The 1st baseman stretches for a throw, the batter-runner accidentally bumps the 1st baseman, and the ball drops out of the glove. Interference or out?",
+    "expected": "Neither, if the contact was accidental. Interference on a thrown ball requires intentional interference (18.2; Manual: wilful and deliberate), and a force out requires the fielder to have control of the ball (1.2a, 17.8 note iii), so the runner is safe. Intent and control are umpire judgement; a runner who deliberately charges a fielder can be called out (Manual p40, p42).",
+    "rules": [
+      "18.2",
+      "1.2"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5008,
+    "topic": "rule 18.3",
+    "question": "A runner already called out stays standing between 2nd and 3rd and accidentally gets in the way of a throw to 3rd on another runner. What happens?",
+    "expected": "The umpires come together and decide the outcome of the play (18.3); it applies whether the interference by the out runner was deliberate or accidental. It is a judgement call with no right of appeal (Manual 18.3, p44). Players should leave the field immediately once given out.",
+    "rules": [
+      "18.3"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5009,
+    "topic": "rule 19.1",
+    "question": "The fielding team has 10 players on the field when Play Ball is about to be called. What should the umpire do?",
+    "expected": "Not allowed: nine fielders occupy the field (19.1), and only nine may be on the field while play is in progress (21.1). The umpire should not call Play Ball until the fielding team has nine fielders in orthodox positions (Manual Pre-Game Address, p68).",
+    "rules": [
+      "19.1",
+      "21.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 5010,
+    "topic": "rule 19.2",
+    "question": "A player has sat out the 1st and 2nd fielding innings. What does the umpire do?",
+    "expected": "No listed player may sit out two consecutive fielding innings unless at the player's own request to the umpire (19.2). On noticing it, the umpire gives the coach one warning; on a second occasion the umpire removes the coach from the game.",
+    "rules": [
+      "19.2"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 5011,
+    "topic": "rule 19.2",
+    "question": "An upset player asks the umpire to sit out a second fielding innings in a row. Is that allowed?",
+    "expected": "Yes. 19.2 allows a player to sit out two consecutive fielding innings if it is at their request to the umpire. Without such a request it is an infringement (warning to coach, then removal of the coach).",
+    "rules": [
+      "19.2"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5012,
+    "topic": "rule 19.2 / 21.1",
+    "question": "A coach keeps a weaker player on the bench, then after Time with two outs swaps the player in for one batter only so the player has 'fielded' that innings. Is this OK?",
+    "expected": "No. Fielder changes after Time are allowed (21.1), but 21.1 must not be used to circumvent 19.2 (no sitting out two consecutive fielding innings). Whether the swap is a token circumvention is umpire judgement; penalty under 19.2 is one warning to the coach, then removal of the coach. The intent is participation and a fair go (Manual 19.2, p45).",
+    "rules": [
+      "19.2",
+      "21.1"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 5013,
+    "topic": "rule 19.3(c)",
+    "question": "Before the swing, the 3rd baseman is standing inside the diamond in front of 3rd base to get to short hits quickly. Is that allowed, and what is the penalty?",
+    "expected": "Not allowed: from Play Ball until the swing the pitcher must be the only fielder inside the diamond (19.3c), and fielders must be in orthodox areas (19.3a, 19.6); the umpire should not call Play Ball until positions are correct and settled (10a, 19.3f). Penalty is unclear: Manual 19.3(g) includes (c) (dead ball, runners return, warn if advantage gained), but the Rule Book Ed 8 19.3(g) lists only (b), (d), (e), (f); the Rule Book takes precedence.",
+    "rules": [
+      "19.3",
+      "19.6"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 5014,
+    "topic": "rule 19.3(e)",
+    "question": "The 1st baseman sets up behind 1st base on the foul side of the line. Allowed?",
+    "expected": "No. From Play Ball until the swing no fielder except the catcher may be in foul territory (19.3e). The foul lines are fair territory (Manual 7.1h and Definitions, p71), so standing on or inside the line is fine. If the fielder gains an advantage from the violation, the umpire calls Dead Ball, returns runners and warns the fielder (19.3g).",
+    "rules": [
+      "19.3"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5015,
+    "topic": "rule 19.3(d)",
+    "question": "Where must the catcher be positioned before the swing?",
+    "expected": "Whole body on the side opposite the batter, outside and behind the back line of the batting box; only an arm may extend forward of the back line, and not into the batting box (19.3d). For a left-handed batter the catcher stands on the other side (Manual 19.6 diagram, p47). The catcher should stay stationary (19.3f).",
+    "rules": [
+      "19.3"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 5016,
+    "topic": "rule 19.3(d),(g)",
+    "question": "The catcher creeps forward past the back line of the batting box before the swing, fields a short hit quickly and throws the batter-runner out at 1st. What is the ruling?",
+    "expected": "If, in the umpire's opinion, the catcher gained an advantage from the 19.3(d) violation, the umpire calls Dead Ball and returns all runners to their bases, so the play does not stand, and warns the catcher (19.3g). The catcher must stay behind the back line with only an arm forward. Manual (p46): umpires control when Play Ball is called, so check positions first; a repeat offender can be dealt with under 1.1.",
+    "rules": [
+      "19.3"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5017,
+    "topic": "rule 19.3(b),(f)",
+    "question": "The outfielders start running in as the batter swings, and one of them catches a short fly ball they would not have reached. What is the call?",
+    "expected": "Violation of 19.3(b)/(f): from Play Ball until the swing fielders must be reasonably set, and outfielders must not be running (Manual: slowly walking or creeping sideways is OK). If the umpire judges the fielder gained an advantage, call Dead Ball, return all runners to their bases and warn the fielder (19.3g), so the catch doesn't count.",
+    "rules": [
+      "19.3"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5018,
+    "topic": "rule 19.3(f)",
+    "question": "Between Play Ball and the swing, how much may fielders move?",
+    "expected": "Only limited movement within their orthodox fielding positions; the pitcher and catcher should stay stationary (19.3f). Outfielders may creep sideways or walk slowly but not run (19.3b; Manual p45). The umpire should not call Play Ball until all fielders are reasonably settled.",
+    "rules": [
+      "19.3"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 5019,
+    "topic": "rule 19.3(h)",
+    "question": "After Play Ball, the pitcher steps off the pitching plate toward the batter before the ball is hit. It's the pitcher's first time this innings. What happens?",
+    "expected": "The umpire calls Dead Ball, returns all runners to their bases and warns the pitcher (19.3h). The pitcher must be in contact with the pitching plate from Play Ball until the ball is hit (19.3c).",
+    "rules": [
+      "19.3"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 5020,
+    "topic": "rule 19.3(i)",
+    "question": "The pitcher was warned earlier this innings for leaving the plate before the hit, and now does it again with runners on 1st and 3rd. What happens?",
+    "expected": "Second (or later) offence in the same innings: the umpire calls Dead Ball and advances each runner on base one extra base (19.3i), so the runner from 3rd scores and the runner from 1st goes to 2nd.",
+    "rules": [
+      "19.3"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5021,
+    "topic": "rule 19.3(h),(i)",
+    "question": "The pitcher left the plate early once in the 2nd innings and was warned, then does it again in the 4th innings with runners on base. Do the runners advance?",
+    "expected": "No. The extra-base penalty applies only to a second offence in the same innings (19.3i). In the 4th innings it is treated under 19.3(h): Dead Ball, all runners returned to their bases, and the pitcher warned.",
+    "rules": [
+      "19.3"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 5022,
+    "topic": "rule 19.6",
+    "question": "When should the umpire set the fielding positions, and when should the umpire move fielders later in the game?",
+    "expected": "Manual 19.6 (p47): the umpire sets the field at the first dig for each team, then lets coaches move players as required. After that, only move fielders if they are extremely out of their area, otherwise wait until the batting coach asks for a player to be moved. Orthodox positions are judged relative to age group and ability and are not open to protest.",
+    "rules": [
+      "19.3",
+      "19.6"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5023,
+    "topic": "rule 19.6",
+    "question": "The 2nd baseman and shortstop are both standing on the same side of 2nd base before the swing. Should the umpire act?",
+    "expected": "Yes, this is not orthodox. Fielders must be in orthodox areas while keeping relative separation (19.3a), and Manual 19.6 (p47) gives 2nd base and shortstop on the same side of 2nd, or adjacent fielders too close together, as examples the umpire looks for. Finer placement within the general area is the coach's choice.",
+    "rules": [
+      "19.3",
+      "19.6"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5024,
+    "topic": "rule 19.6",
+    "question": "The batting coach complains the fielding team's outfielders are standing very close in. Is there a set minimum distance?",
+    "expected": "No. There is no specified spacing between infield and outfield; it depends on age group and ability, and each umpire decides what is orthodox (Manual 19.6, p47). It is a judgement call and not open to protest, but coaches may ask, and the umpire may move fielders back if they are well out of their orthodox areas (19.3a).",
+    "rules": [
+      "19.3",
+      "19.6"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5025,
+    "topic": "rule 19.4",
+    "question": "The catcher pulls off their helmet and drops it near home plate while the ball is live. A throw to home then hits the discarded helmet and rolls away. What is the ruling?",
+    "expected": "Fielders wearing helmets must not intentionally remove them while the ball is live (19.4). Interference caused by a discarded helmet gives all runners one extra base, and no outs can be recorded on that play. The umpire may also deal with the offence under 1.1 (Manual 19.4, p46).",
+    "rules": [
+      "19.4"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5026,
+    "topic": "rule 19.4",
+    "question": "The pitcher takes their helmet off during a live play but the helmet doesn't affect the play. Any penalty?",
+    "expected": "No base award: the 19.4 penalty (all runners one extra base, no outs) applies only when the discarded helmet causes interference. But removing it while the ball is live is still not allowed (19.4); the Manual (p46) says the umpire may use rule 1.1 (warning, then removal) to deal with it, since helmets are safety equipment.",
+    "rules": [
+      "19.4",
+      "1.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5027,
+    "topic": "rule 19.4",
+    "question": "A fielder throws their helmet off while the ball is live, the batter-runner trips over it, and the 1st baseman then tags the batter-runner. Does the out count?",
+    "expected": "No. No outs can be recorded on a play where interference has been caused by a discarded helmet, and all runners get one extra base (19.4).",
+    "rules": [
+      "19.4"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 5028,
+    "topic": "rule 19.5",
+    "question": "The shortstop pulls off their glove and throws it at a batted ball going past, but misses. Penalty?",
+    "expected": "No penalty: the 19.5 home-run penalty only applies if the removed item touches the ball (Manual 19.5 Scenario 1, p46). After Time, the umpire should explain to the player what would have happened.",
+    "rules": [
+      "19.5"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 5029,
+    "topic": "rule 19.5",
+    "question": "The centre fielder throws their cap at a batted ball and stops it. What is the ruling?",
+    "expected": "Home run to the batter (19.5): a fielder may not deliberately remove part of the uniform or equipment to stop a batted or thrown ball, and the ball was touched by it. Runners ahead of the batter are forced home too (Manual 19.5 Scenario 2, p46).",
+    "rules": [
+      "19.5"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 5030,
+    "topic": "rule 19.5 / 12",
+    "question": "A fielder takes off their cap and catches a fly ball in it. Is the batter out?",
+    "expected": "No. It is not a catch: a catch must be taken in the hand or glove without deliberately using any part of the uniform (12a; Manual Definitions, p70, no cap). And deliberately removing part of the uniform to stop a batted ball that it touches gives the batter a home run (19.5).",
+    "rules": [
+      "19.5",
+      "12"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 5031,
+    "topic": "rule 19.5",
+    "question": "An overthrow is heading toward the dead ball line, and the right fielder throws their glove at it and stops it. What is the ruling?",
+    "expected": "Home run to the batter. 19.5 covers deliberately removing uniform or equipment to stop a batted OR thrown ball; if the ball is touched in this way, the penalty is a home run to the batter.",
+    "rules": [
+      "19.5"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5032,
+    "topic": "rule 20",
+    "question": "The 3rd baseman, without the ball and not fielding, stands in the base path between 2nd and 3rd. The runner has to slow down and go around but never touches the fielder. Can it be obstruction without contact?",
+    "expected": "Yes. Obstruction is a fielder not holding the ball and not in the act of fielding who impedes a runner's progress (20); 'impedes' does not need contact (Manual 20, p48). The umpire nullifies it, and the runner advances at least one base beyond where they were going.",
+    "rules": [
+      "20"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 5033,
+    "topic": "rule 20",
+    "question": "On a deep hit, the 1st baseman straddles 1st base without the ball. The batter-runner slows to squeeze past, then carries on and reaches 3rd safely. What should the umpire award?",
+    "expected": "Obstruction (20): runner obstructed at 1st must advance at least one base beyond where they were going. The Manual's matching scenario (p48) concludes the umpire should send the runner Home. Don't call Time early and award only one base; award where you believe the runner would have ended.",
+    "rules": [
+      "20"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 5034,
+    "topic": "rule 20",
+    "question": "A fielder holding the ball stands in the middle of the running line in front of 3rd. The runner slows and has to go around. Obstruction?",
+    "expected": "No. Obstruction only applies to a fielder not in possession of the ball (20). The fielder with the ball can tag the runner; the runner must not charge through to dislodge the ball (Manual 17.14 and 20, p42 and p48). If there is a collision, the umpire decides whether the runner used excessive force (judgement).",
+    "rules": [
+      "20",
+      "17.14"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5035,
+    "topic": "rule 20",
+    "question": "The base umpire sees a fielder without the ball block a runner at 2nd while the ball is still in the outfield. Should the umpire call Time immediately and give the runner 3rd?",
+    "expected": "No. Calling Time early and awarding only the next base can penalise the runner (Manual 20, p48). Signal obstruction so the partner knows (Manual Signals, p64), let play continue, then after Time award the base the runner would have reached, at least one beyond where they were going (20). Ask the fielding coach to talk to the player.",
+    "rules": [
+      "20"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5036,
+    "topic": "rule 20",
+    "question": "A runner from 1st collides with a fielder (no ball) standing on 2nd, is slow to get up and stops at 2nd while the ball comes in. Another runner was on 3rd. After Time, the umpires agree the runner from 1st would have scored without the collision. What is awarded?",
+    "expected": "Obstruction (20): the runner from 1st is sent home, and all runners in front of that runner also advance home (Manual 20 scenario, p48). The umpires come together after Time to decide where the runner would have reached; the award is at least one base beyond where they were going.",
+    "rules": [
+      "20"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 5037,
+    "topic": "rule 20 / 18.1",
+    "question": "The shortstop dives and misses a ground ball, which rolls into the outfield, then gets up into the runner's path and the runner from 2nd collides with them. Interference or obstruction?",
+    "expected": "Probably obstruction, umpire judgement. Once the ball is past, the fielder is no longer in the act of fielding it (Manual 18.1: can be in no other place / about to pick it up / positioned for a catch) and doesn't have the ball, so impeding the runner is obstruction (20): at least one base beyond where the runner was going. If the fielder was still in the act of fielding, the runner would have to avoid them, and contact would be interference (18.1).",
+    "rules": [
+      "20",
+      "18.1"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 5038,
+    "topic": "rule 21.1",
+    "question": "The fielding coach wants to swap the shortstop with a player from the bench while a play is still going on. Allowed?",
+    "expected": "Not until Time has been called. Any player listed in the batting line-up may be swapped for a fielder at any time, provided Time has been called (21.1); the coach can ask the umpire for Time (Manual 21.1, p49). Only nine fielders may be on the field during play.",
+    "rules": [
+      "21.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 5039,
+    "topic": "rule 21.1",
+    "question": "A fielder taken off in the 2nd innings wants to come back on in the 4th. Allowed?",
+    "expected": "Yes. A replaced fielder may return to the field with the umpire's approval at any time after Time is called, provided only nine fielders are on the field while play is in progress (21.1). This is different from an official substitution (21.2), where the replaced player can't return.",
+    "rules": [
+      "21.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5040,
+    "topic": "rule 21.2",
+    "question": "A team makes an official substitution. What happens to the batting order, the fielding position, and the player taken off?",
+    "expected": "The replaced player takes no further part in the game; the substitute takes their place in the batting order (21.2). Scorers write the new player's name in the same box and cross out the departing player; other players keep their batting order, and the sub can field any position (Manual 21.2, p49). The sub must be listed as a reserve, and the team must already have twelve players listed in the batting order.",
+    "rules": [
+      "21.2"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5041,
+    "topic": "rule 21.2",
+    "question": "A team has 11 players in its batting order and a 12th player listed as a reserve. Can the reserve be brought in as an official substitute?",
+    "expected": "No. Rule Book 21.2: substitutes may only be used in a team that already has twelve players listed in the batting order, and they must be listed as reserves. The Manual (7A) wording is 'more than twelve players listed'; the Rule Book Ed 8 wording takes precedence, but under either version 11 in the batting order is not enough.",
+    "rules": [
+      "21.2"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 5042,
+    "topic": "rule 21.2",
+    "question": "Can a coach use an official substitution to put a strong batter at the top of the batting order?",
+    "expected": "No. The substitute must take the replaced player's place in the batting order (21.2). Replacement cannot be used to change the batting order; remaining players bat in the same order (Manual 21.2, p49).",
+    "rules": [
+      "21.2"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 5043,
+    "topic": "rule 21.2",
+    "question": "A team has 12 in its batting order plus a listed reserve. A player gets injured in the 2nd innings, before every player has had a turn. Can the reserve be substituted in now?",
+    "expected": "Yes. The Manual (21.2, p49) says substitution is normally only used after all players have participated, but in the case of injury a player may be subbed when required. The injured player then takes no further part in the game, and the reserve takes their batting spot (21.2).",
+    "rules": [
+      "21.2",
+      "6.2"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5044,
+    "topic": "rule 22.1",
+    "question": "What are the official TBAWA age divisions for metropolitan carnivals?",
+    "expected": "U/7, U/9, U/10, U/11, U/12 and U/13 (22.1). These are the official divisions for TBAWA-sanctioned metropolitan carnivals.",
+    "rules": [
+      "22.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 5045,
+    "topic": "rule 22.2",
+    "question": "For the 2026/27 season (which finishes in 2027), can a player born on 10 May 2018 play in U/9?",
+    "expected": "No. Players must be under the age of the division as at 30 June of the year the season finishes (22.2). On 30 June 2027 the player is 9, so not under 9; the player must play U/10.",
+    "rules": [
+      "22.2"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5046,
+    "topic": "rule 22.2",
+    "question": "For the 2026/27 season (finishing in 2027), can a player born on 20 July 2018 play in U/9?",
+    "expected": "Yes. The age cut-off is 30 June of the year the season finishes (22.2). On 30 June 2027 the player is still 8 (turns 9 in July), so is under 9 and eligible for U/9.",
+    "rules": [
+      "22.2"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5047,
+    "topic": "rule 22.1",
+    "question": "A small club runs 'Juniors', 'Intermediates' and 'Seniors' instead of the official age divisions. Is that allowed?",
+    "expected": "Yes, for club competition. The official divisions (22.1) apply to TBAWA metropolitan carnivals; the Manual (22.1, p50) says clubs may run such groupings. It suggests keeping players within about a three-year age range per division (e.g. 4-6, 7-9, 10-12); these groupings are not official.",
+    "rules": [
+      "22.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5048,
+    "topic": "Signals",
+    "question": "What are the official umpire signals in tee-ball?",
+    "expected": "Six official signals: Time, Safe, Out, Home Run, Obstruction, and Pass Ball / Dead Ball (Manual Signals, p62-64). They should be used by both umpires and be animated, clear and decisive.",
+    "rules": [],
+    "difficulty": "easy"
+  },
+  {
+    "id": 5049,
+    "topic": "Signals",
+    "question": "When is the Obstruction signal used?",
+    "expected": "Either umpire uses it to show their partner they have seen an obstruction before the partner makes any call (Manual Signals, p64). Play continues, then the umpires come together and award bases under rule 20.",
+    "rules": [
+      "20"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5050,
+    "topic": "Signals",
+    "question": "An overthrow from 3rd to 1st crosses the dead ball line. Which signal is used and by whom?",
+    "expected": "The Pass Ball / Dead Ball signal, used by both umpires when a ball passes over the dead ball line (Manual Signals, p64). The ball is dead (15a), and runners are awarded the next base from where they were when the thrown ball crossed the line (17.3).",
+    "rules": [
+      "15",
+      "17.3"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5051,
+    "topic": "Signals",
+    "question": "Who gives the Home Run signal and why?",
+    "expected": "Both umpires (Manual Signals, p63), to inform the spectators and scorers and to acknowledge a significant achievement by the player.",
+    "rules": [],
+    "difficulty": "easy"
+  },
+  {
+    "id": 5052,
+    "topic": "Practical umpiring at the plate",
+    "question": "The batter hits a fly ball that looks like it is going foul. What exactly should the plate umpire do?",
+    "expected": "Pick up the tee, move into position and WAIT until the ball hits the ground, because it could be caught (a ball can't be foul until it touches the ground, 13.1 note iii). If it first lands foul and isn't caught, throw both arms in the air and call 'Time, Foul Ball!'. Wait for the ball to be reset on the tee, call '... strikes on the batter, Batter Up', then 'Play Ball' once batter and fielders are settled (Manual p25, p60).",
+    "rules": [
+      "13.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 5053,
+    "topic": "Practical umpiring at the plate",
+    "question": "The batter swings and misses, and the ball stays on the tee. What is the umpire's procedure?",
+    "expected": "Throw both arms in the air and call 'Time!', then 'One strike on the batter. Batter Up!'. Wait for the batter and fielders to settle, then call 'Play Ball!' (Manual Strikes & Outs, p61; 13.2b).",
+    "rules": [
+      "13.2"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 5054,
+    "topic": "Practical umpiring at the plate",
+    "question": "The batter's front foot is completely outside the batting box when the ball is hit. What does the plate umpire do?",
+    "expected": "Wait to make sure the ball hits the ground and isn't caught (if caught, the batter is out), then call 'Time!' and announce why, e.g. 'batting out of the box'. Reset the ball, call the strike count and 'Batter Up', then 'Play Ball' (Manual p61; 16.6: strike, ball dead, runners don't advance). Touching a line is not out of the box, and it only applies if the ball is hit.",
+    "rules": [
+      "16.6"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5055,
+    "topic": "Umpire mechanics: missed base",
+    "question": "The base umpire clearly sees a runner miss 2nd base. Should the umpire signal or say anything?",
+    "expected": "No. Make no visible sign or verbal call; just announce the play's outcome as usual when Time is called (Manual 17.7, p39). The fielding side may appeal (ball held on the missed base, correct runner named on the first appeal) until Play Ball is called on the next batter. If the appeal is valid, call 'Runner out for missing the base' (17.7).",
+    "rules": [
+      "17.7"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5056,
+    "topic": "Positioning: responsibility",
+    "question": "In a two-umpire game there's a close play at 2nd. The base umpire calls safe, but the plate umpire thinks it was out. What happens?",
+    "expected": "The base umpire's call stands: the base umpire has the final say on 1st and 2nd, the plate umpire on 3rd and home (Manual 1.2c p5; Positioning p65). Umpires may consult but not overrule each other (1.2c). Any disagreement should be resolved by coming together quietly and quickly, never challenged in front of players.",
+    "rules": [
+      "1.2"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5057,
+    "topic": "Positioning: responsibility",
+    "question": "Is there ever a case where one umpire may overrule the other?",
+    "expected": "Yes, only one: when an umpire makes an incorrect call on a base that is not within their jurisdiction (Manual 1.2c, p5). E.g. in a two-umpire game the plate umpire calls a play at 1st, which is the base umpire's base. Otherwise umpires consult but do not overrule each other (1.2c).",
+    "rules": [
+      "1.2"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 5058,
+    "topic": "Positioning: responsibility",
+    "question": "How is jurisdiction split in a three-umpire game?",
+    "expected": "The plate umpire has the final say on 3rd and home, and the 1st and 2nd base umpires each have the final say on their own base (Manual 1.2c, p5). On a rule-interpretation question, a collective decision should be made. In a four-umpire system each umpire has their own base.",
+    "rules": [
+      "1.2"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5059,
+    "topic": "Positioning: plate umpire",
+    "question": "Where should the plate umpire go after a clean hit?",
+    "expected": "Pick up the tee, fold it and hold it until Time is called and all runners have stopped (3.2). Then move left up the 3rd base line, staying back far enough not to interfere with runners: at least 1/3 of the way up; 1/3 to 1/2 for plays at 1st or 2nd; almost at 3rd for a play at 3rd; at home for a play at home (Manual p61, p65).",
+    "rules": [
+      "3.2"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5060,
+    "topic": "Practical umpiring at the plate",
+    "question": "After a hit, the dropped bat is lying where a runner coming home could step on it. What should the plate umpire do?",
+    "expected": "Remove it by kicking it out of the way or picking it up, while keeping eyes on the game (Manual Clean Hit, p61).",
+    "rules": [],
+    "difficulty": "easy"
+  },
+  {
+    "id": 5061,
+    "topic": "Positioning: base umpire",
+    "question": "Where should the base umpire start with a runner on 1st, and with runners on other bases?",
+    "expected": "With a runner on 1st: about three quarters of the way up the line from 1st toward 2nd, at least 2-5 metres back depending on age group. With runners on 1st, 2nd or 3rd, the base umpire can start on either side of 2nd base, the same distance back, and then move to the best position for each play (Manual Positioning, p65).",
+    "rules": [],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5062,
+    "topic": "Positioning: base umpire",
+    "question": "Should the base umpire go inside the diamond to get a better view of a play at 1st?",
+    "expected": "Only if totally necessary. The base umpire should move to get the best view without interfering with throws from 2nd, shortstop or 3rd base (Manual p65). Key points: don't be set in stone, don't get in the way, get into the best position, and try to stay out of the diamond (diagram p66).",
+    "rules": [],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5063,
+    "topic": "See the play, hear the play",
+    "question": "What does 'see the play, hear the play' mean for umpires?",
+    "expected": "Position yourself in the best place to both see and hear the play (Manual Positioning, p65). Hearing the ball enter the mitt is a big help when you are watching the runner's foot touch the base on a close play.",
+    "rules": [],
+    "difficulty": "easy"
+  },
+  {
+    "id": 5064,
+    "topic": "Pre-game",
+    "question": "What should umpires do when they arrive for a game?",
+    "expected": "Both umpires should arrive 10-15 minutes before start time and inspect the diamond for safety (Manual Pre-Game, p67). Then check the bases are set out correctly, introduce yourself to your partner umpire, the coaches and the scorers, make sure there is a match ball, and check the line-ups are in the scorebook.",
+    "rules": [],
+    "difficulty": "easy"
+  },
+  {
+    "id": 5065,
+    "topic": "Pre-game",
+    "question": "What should the umpire check about how the bases and plates are set out before the game?",
+    "expected": "1st and 3rd bases go INSIDE the corner of the diamond (helps with foul ball calls), 2nd is centred on the diamond point, and home plate sits at the point with the tee directly over it (Manual Pre-Game, p67). The pitcher's plate is in the centre of the diamond, about one pace closer to 2nd than home (14.02 m from home plate, 7.1b).",
+    "rules": [
+      "7.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5066,
+    "topic": "Pre-game",
+    "question": "What should the umpire tell the coaches before the game?",
+    "expected": "Only the Head Coach may approach the umpire during the game, only after Time has been called for and granted, and in a respectful manner (Manual Pre-Game, p67; 1.2b). Also discuss ground rules and obstructions (fences, other diamonds), and ask coaches to have their manager allocate fielding positions while players wait to bat, to speed up the game.",
+    "rules": [
+      "1.2"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5067,
+    "topic": "Pre-game address to players",
+    "question": "How should the pre-game address to the players be run?",
+    "expected": "No less than two minutes before game time, assemble the home team behind 1st and the visiting team behind 3rd. Call them in: they trot to the pitcher's plate, then turn and come in two parallel lines to stand in front of the tee, while the umpire speaks from behind the tee (Manual p68). Mention any concerns, e.g. bat throwers or a soft patch in the outfield, then invite the fielding team to take the diamond.",
+    "rules": [],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5068,
+    "topic": "Pre-game address to players",
+    "question": "After the pre-game address, what should the plate umpire check before calling the first Play Ball?",
+    "expected": "Stand centrally behind the batting boxes, call 'Batter Please' and ask the batter if they want the tee height adjusted. Check that nine fielders are in orthodox areas and the catcher is correctly positioned, then call 'Batter Up!'. Call 'Play Ball!' once batter and fielders are reasonably settled (Manual p68; 10a).",
+    "rules": [
+      "10"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5069,
+    "topic": "Safety: risk management",
+    "question": "During the pre-game inspection, the umpire finds a pothole in the outfield. What should be done?",
+    "expected": "Risk management (Manual Safety, p55): have someone fill the hole with sand and compact it, or, if one is available, move to another diamond. Umpires have a duty of care to protect players (2.3g), and inspecting the diamond before every game is part of it.",
+    "rules": [],
+    "difficulty": "easy"
+  },
+  {
+    "id": 5070,
+    "topic": "Dealing with difficult situations",
+    "question": "A parent on the sideline keeps abusing the umpires and players. How should the umpire handle it?",
+    "expected": "First go through the coach and ask them to talk to the person (Manual p20, p57). If it continues, approach the person yourself, calmly and preferably between innings; never call them over or point at them from the field. Offer to discuss it after the game, and call an official if needed. Under 1.1/8 the person can be warned and removed; failing to leave means forfeit 9-0, and warnings are recorded by the scorers.",
+    "rules": [
+      "1.1",
+      "8"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5071,
+    "topic": "Dealing with difficult situations",
+    "question": "A coach charges onto the field yelling about a call. What should the umpire do?",
+    "expected": "Send the coach straight back to the bench with at least a warning (Manual 1.2b, p5; rule 1.1h). Judgement decisions are final; only the Head Coach may raise a rule-interpretation question, respectfully, with the plate umpire (1.2b).",
+    "rules": [
+      "1.1",
+      "1.2"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 5072,
+    "topic": "Green Shirt Program",
+    "question": "A spectator is aggressive toward a Level 1 umpire wearing a green shirt. What does the policy say?",
+    "expected": "There is no tolerance for harassment of Level 1 green shirt/capped umpires (Manual p53). All club and association officials and Level 2+ umpires are responsible for removing anyone who treats or addresses a green shirt umpire aggressively (physical, verbal or implied).",
+    "rules": [],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5073,
+    "topic": "Umpire decisions: appeals",
+    "question": "After the head coach respectfully queries a rule interpretation, the plate umpire realises the original ruling was wrong. What should happen?",
+    "expected": "The umpire should show integrity by changing the decision and accepting the mistake; if satisfied with the original call, the coach must accept it (Manual 1.2b, p5). Don't hold the game up: decide quickly and move on, since playing with an error is better than not playing.",
+    "rules": [
+      "1.2"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5074,
+    "topic": "Scorers",
+    "question": "Should the umpire check the score with the scorers during the game?",
+    "expected": "No. Umpires should not ask for or check scores during the game, because it could be seen as compromising impartiality (Manual 4.1, p10). Scorers must give the score to a coach if asked, and the umpire may restrict people checking the score if it distracts the scorers.",
+    "rules": [
+      "4.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5075,
+    "topic": "Umpire calls",
+    "question": "What is the correct order of calls to get a batter hitting?",
+    "expected": "Call 'Batter Please' (or 'Next Batter Please'), then 'Batter Up' once the batter has stepped in, then pause and check the batter and fielders are settled before 'Play Ball' (10; Manual p22). It is good practice to announce the count, e.g. '... out, ... strikes on the batter, Batter Up', so players and scorers can follow.",
+    "rules": [
+      "10"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5076,
+    "topic": "Umpire calls",
+    "question": "Nine batters have batted with fewer than three out. How should the umpire end the half-innings?",
+    "expected": "Call 'Time' first, then 'Side Away', e.g. 'Time, side away' or 'Nine batters, side away' (16.1b, 9.2; Manual p21, p31). Always put 'Time' in front of any call that stops the game.",
+    "rules": [
+      "16.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 5077,
+    "topic": "Definitions & Jargon",
+    "question": "What does 'proximity of their base' mean when deciding whether to call Time?",
+    "expected": "Generally within three paces either side of the base, for the relevant age group (Manual Definitions, p72; rule 11). It is scaled to the players: U/7 steps are smaller than U/13.",
+    "rules": [
+      "11"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 5078,
+    "topic": "Definitions & Jargon",
+    "question": "In the TBAWA manual, what is a 'squeeze play'?",
+    "expected": "A base runner trapped between bases by two fielders advancing from either side to tag them, while the runner tries to avoid the tag (Manual Definitions, p73).",
+    "rules": [],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5079,
+    "topic": "Definitions & Jargon",
+    "question": "Which positions count as infielders and which as outfielders?",
+    "expected": "Infielders: 1st base, 2nd base, 3rd base, shortstop, pitcher and catcher (six positions). Outfielders: left field (7), centre field (8) and right field (9) (Manual Definitions, p72).",
+    "rules": [],
+    "difficulty": "easy"
+  },
+  {
+    "id": 5080,
+    "topic": "Definitions & Jargon",
+    "question": "A line drive hits the fielder's chest, the fielder traps it against their body, then takes it out with their hand before it hits the ground. Catch?",
+    "expected": "Yes, it's a catch: smothered onto the body and then taken out by hand counts (Manual Definitions, p70). By contrast, a ball just held in the arms, or a line drive caught in the shirt, is not a catch; it must end up in the hand or glove (12a).",
+    "rules": [
+      "12"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5081,
+    "topic": "Definitions & Jargon",
+    "question": "Which team bats in the top of the inning?",
+    "expected": "The team in the 3rd base dugout bats in the top of the inning (Manual Definitions, p73). That is the away/visiting team, since the home team takes the 1st base line bench and the away team the 3rd base line bench (7.1f); the home team bats in the bottom.",
+    "rules": [
+      "7.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5082,
+    "topic": "Umpires general",
+    "question": "The base umpire hasn't turned up. Can the plate umpire start the game alone?",
+    "expected": "No. Competition games need a minimum of two umpires (1.1a), and the plate umpire should never start a game without at least one base umpire (Manual 1.1a p4, 2.2 p7). Recruiting a parent to base umpire is encouraged.",
+    "rules": [
+      "1.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 5083,
+    "topic": "Umpiring levels",
+    "question": "What are the minimum ages for Level 1 and Level 2 umpire accreditation?",
+    "expected": "Level 1: minimum age 12. Level 2: minimum age 13, with an online theory exam (90% pass mark) and a practical assessment in a club game (Manual Umpiring Levels, p52).",
+    "rules": [],
+    "difficulty": "easy"
+  }
+]

@@ -34,6 +34,40 @@ For Claude Code (be honest):
 - **Plot twist: verify the evaluator too.** The "best" model (Qwen, 8/12) returned empty strings for every question; the LLM judge graded them CORRECT anyway. Only spotted by reading the raw answers. Lesson: add deterministic checks (empty answer, missing citation) before the LLM judge, and spot-read results, especially surprising wins.
 - Caveats worth stating: LLM judges vary (self-judge harsher than Maverick), single runs are noisy, 12 questions is small; still far better than eyeballing answers on a phone.
 
+### Is 12 questions enough? (blog question)
+- No: fine for catching regressions (empty answers) and direction, not precise scores. One question = ~8 points.
+- Rough 95% margin at ~75% accuracy: n=12 ±~25 pts; n=100 ±~8.5; n=400 ±~4. 5→9 correct is encouraging but within noise; GPT-OSS hybrid runs 7/7/9 correct show variance.
+- Scaling the eval set: LLM-generate Q/A per rule chunk (~270 chunks → 300-500 Qs), umpire spot-checks a sample, add real Genie conversation questions over the season, stratify by rule section, repeat runs 3x and average.
+
+### Why not just use Claude Opus reading the whole rulebook? (THE blog question)
+- Honest answer: for this rulebook you could. ~55k tokens fits in context; it produced the 12 reference answers; long context avoids retrieval misses (which most iterations fixed).
+- Retrieval wins when: corpus outgrows the context window (hundreds of docs, company knowledge, many associations' rulebooks); cost per question (whole corpus each question vs ~5-10k tokens to a cheaper model; prompt caching narrows gap for a fixed small corpus, not a growing one); platform/governance (Free Edition has no Claude; data stays governed in UC, shareable to groups, audited).
+- Paid Databricks has Claude via FMAPI → "long-context mode" inside ask_rulebook is a valid design for small corpora: a choice, not dogma.
+- Best of both: expensive whole-document model = **teacher** (generates + annotates large eval set, human spot-checks); cheap scalable RAG = **student** scored against it.
+- Caveat: grading vs Opus measures agreement with Opus, not truth. My review of the 12 is what made them trustworthy; bigger Opus-made set needs human spot checks.
+- Possible experiment: add `long_context` mode to eval (GPT-OSS on Free, Claude on paid) → compare accuracy + tokens/cost per question vs hybrid RAG; turns this question into numbers.
+
+### Building a bigger eval set (teacher/student)
+- Attempt 1, in-platform teacher: bundle job `generate_evalset`; GPT-OSS-120B with the full Rule Book + target rule text writes 2 Qs per topic (~120 topics). Pilot (10 topics, 20 Qs): most good game-situation questions, BUT near-duplicates (3 versions of "ball lands foul"), wrong expected answers (deflection over dead-ball line → "at-bat continues"; spectator interference cited as 18.1 runner interference), incoherent scenarios ("first contacts the line… still in the air"). Est. 75-80% usable.
+- Added quality gates: embedding dedupe (cosine > 0.93) + independent checker (Llama 4 Maverick, same context) marking VALID/INVALID. Re-pilot: 19 kept, 1 duplicate, **0 invalid**; checker looks too lenient (same lesson as the judge: LLM graders are generous).
+- Attempt 2, Opus 5.5 as teacher (the user's idea): the same Claude session that produced the trusted 12, reading BOTH full documents. 4 parallel sub-agents by rule area (1-9, 10-16, 17, 18-22 + Manual-only umpiring content), ~60-70 Qs each, instructed to verify each answer against the text and drop uncertain ones. Model diversity: Opus writes, GPT-OSS answers, Maverick judges. Trade-off: one-off step outside the platform (not schedulable), uses Claude tokens; Databricks generator kept as the in-platform option.
+
+- Opus result: 302 questions in ~6 min wall-clock (4 agents in parallel, ~530k sub-agent tokens total); 1 near-duplicate dropped (same base-runner-charging scenario written for 15(e) and 17.14) → **301 questions** (102 easy / 145 medium / 54 hard) in `evals/opus.json`. Age cut-off pair (born 10 May vs 20 July 2018) kept on purpose.
+- Side effect worth a blog paragraph: writing a test exposed gaps/conflicts in the rulebooks themselves. Agents deliberately left out questions the documents can't settle:
+  - 16.6 batting out of the box: Rule Book "dead at contact" vs Manual "wait for possible catch".
+  - Manual batting-out-of-order scenario 5 contradicts Rule Book 16.3(a).
+  - Untouched fair ball rolling over the dead ball line: not covered by Rule 15.
+  - 17.9 force after batter reaches 1st (known); 19.3(g) penalty list differs (Manual adds (c)); catcher's mitts legal on Manual p72 vs illegal on p19; Rule Book 2.3(f) cites a nonexistent "9.1d"; Manual fielder numbering typo; 7.4 bat stamp new in Ed 8.
+  - Unclear in the documents: 2nd pitcher offence per pitcher or per team; "one extra base" beyond what.
+- Flagged for human review: #2005 follows the Manual (plate umpire final on 3rd/home) where Rule Book 1.2c says umpires don't overrule each other.
+- Human spot-check: `docs/eval-review.md`: 25 stratified random (seed 2026) + flagged items, checkbox per item → teacher accuracy estimate.
+
+- **Iteration 9 result: live agent (GPT-OSS + hybrid) on 301 Opus questions** (judge Maverick): **208 CORRECT (69%) / 72 PARTIAL (24%) / 21 WRONG (7%)**, rule cited 295/301. 95% margin now ~±5 pts (vs ±25 with 12 Qs). The 12-question 9/3/0 (75% correct) was in the right ballpark but optimistic.
+  - By area: Rule 17 base running 82% correct / 8% wrong; Rules 1-9 78% / 3%; Rules 10-16 71% / 7%; **Rules 18-22 + Manual umpiring 48% / 10%** (weakest: signals, positioning, procedures live in unnumbered Manual sections, the chunks retrieval and citation handle worst).
+  - By difficulty: easy 70% C / 6% W, medium 68% / 6%, hard 70% / 13% W (hard questions fail harder).
+  - Wrong ids: 2033 2038 3004 3027 3033 3057 3071 4023 4031 4041 4051 4063 4067 5001 5002 5004 5012 5023 5039 5057 5082. Note 3027 (tee foul but caught = out) is the ruling-10 pattern again.
+  - Bigger eval → targeted improvement: next iteration should focus on Manual-only umpiring content (chunk headings/section names, retrieval of unnumbered sections), not on base running which is already strong.
+
 ### Disadvantages of the Genie solution
 - **No memory across conversations**: Genie One can't keep track of questions I asked previously. The local Claude session kept them (rulings log in CLAUDE.md) and reused them. Genie conversations persist per user (web/mobile/desktop) but the agent doesn't learn from them.
 - **Workaround (planned, not built)**: scheduled job harvests conversations via Genie API (`genie list-conversations --include-all` + messages + thumbs feedback) → LLM summarises good Q&As into the rulings format → reviewer approves → approved rulings written as md into the volume / a `rulings` table → ingest job chunks + embeds them → future answers retrieve past rulings. Bonus: rulings become shared knowledge across all users, not just mine.

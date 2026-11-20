@@ -12,6 +12,8 @@ resources:
           default: databricks-llama-4-maverick
         - name: label
           default: adhoc
+        - name: evals_file
+          default: rulings.json
       tasks:
         - task_key: eval
           environment_key: default
@@ -22,12 +24,44 @@ resources:
               - ${resources.schemas.teeball.name}
               - ${var.embedding_endpoint}
               - ${workspace.file_path}/src/prompts/answer_rules.md
-              - ${workspace.file_path}/evals/rulings.json
+              - ${workspace.file_path}/evals/{{job.parameters.evals_file}}
               - "{{job.parameters.judge}}"
               - "{{job.parameters.models}}"
               - "{{job.parameters.modes}}"
               - "{{job.parameters.label}}"
               - ${workspace.file_path}/src/jobs
+      environments:
+        - environment_key: default
+          spec:
+            environment_version: "4"
+
+    generate_evalset:
+      name: teeball_generate_evalset
+      description: Teacher LLM (full Rule Book in context) writes question/expected-answer pairs per rule topic
+      parameters:
+        - name: limit
+          default: "10"
+        - name: per_topic
+          default: "2"
+        - name: teacher
+          default: ${var.llm_endpoint}
+        - name: checker
+          default: databricks-llama-4-maverick
+      tasks:
+        - task_key: generate
+          environment_key: default
+          spark_python_task:
+            python_file: ../src/jobs/generate_evalset.py
+            parameters:
+              - ${var.catalog}
+              - ${resources.schemas.teeball.name}
+              - "{{job.parameters.teacher}}"
+              - ${workspace.file_path}/src/prompts/generate_questions.md
+              - "{{job.parameters.per_topic}}"
+              - "{{job.parameters.limit}}"
+              - /Volumes/${var.catalog}/${resources.schemas.teeball.name}/${resources.volumes.kb_docs.name}/evals/generated.json
+              - "{{job.parameters.checker}}"
+              - ${var.embedding_endpoint}
       environments:
         - environment_key: default
           spec:

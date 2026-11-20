@@ -34,7 +34,7 @@ with open(prompt_file) as f:
     prompt = f.read()
 with open(evals_json) as f:
     evals = json.load(f)
-spark.createDataFrame(evals, "id INT, question STRING, expected STRING").createOrReplaceTempView("evals")
+spark.createDataFrame([(e["id"], e["question"], e["expected"]) for e in evals], "id INT, question STRING, expected STRING").createOrReplaceTempView("evals")
 
 run_at = datetime.now(timezone.utc)
 out = []

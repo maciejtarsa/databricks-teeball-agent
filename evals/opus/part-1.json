@@ -1,0 +1,760 @@
+[
+  {
+    "id": 2001,
+    "topic": "rule 1.1",
+    "question": "Only one umpire has turned up for a competition game. Can the game go ahead with a single umpire?",
+    "expected": "No. Rule 1.1(a): competition games are to be administered by a minimum of two umpires (a plate umpire and a field/base umpire). The Manual (p4) explains this is for safety and fairness, as one umpire cannot view the whole game accurately; Manual p7 also advises never starting without at least one base umpire.",
+    "rules": [
+      "1.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2002,
+    "topic": "rule 1.2",
+    "question": "On a force play at 1st, the throw and the runner arrive at the base at exactly the same time. Safe or out?",
+    "expected": "Safe. Rule 1.2(a): on a close forced play the ball must BEAT the runner to the base and the fielder must have control of the ball. The Manual (p5) states a dead heat means the runner is safe because the ball did not beat the runner.",
+    "rules": [
+      "1.2"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2003,
+    "topic": "rule 1.2",
+    "question": "An assistant coach runs onto the field to argue that the base umpire got a safe/out call wrong at 2nd base. What should the umpire do?",
+    "expected": "A safe/out call is a judgement decision and is final, not open to inquiry (1.2b). Inquiries are allowed only on rule interpretations, only by the team Head Coach, and only directed respectfully to the plate umpire. Manual p5: a coach charging onto the field ranting should immediately be sent back to the bench with at least a warning (per 1.1h).",
+    "rules": [
+      "1.2",
+      "1.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2004,
+    "topic": "rule 1.2",
+    "question": "The head coach thinks the base umpire applied a rule incorrectly at 1st base. Who do they speak to, and what happens next?",
+    "expected": "The Head Coach (only) may raise the rule-interpretation inquiry, respectfully, with the plate umpire, who then consults the base umpire (1.2b, 1.2c). Per the Manual (p5), if the umpire concludes their decision was wrong they should change it; if satisfied with the original call the coach must accept it, and the discussion should not hold up the game. Manual p67: coaches should approach only after Time has been called and granted.",
+    "rules": [
+      "1.2"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2005,
+    "topic": "rule 1.2",
+    "question": "In a two-umpire game there is a close play at 3rd base. The base umpire calls the runner out, but the plate umpire saw the runner safe. Can the plate umpire overrule?",
+    "expected": "Yes, per the Manual. Rule 1.2(c) says umpires may consult with but not overrule each other, but the Manual (p5, p65) gives the plate umpire final say on 3rd and home and the base umpire final say on 1st and 2nd, and the only time an umpire may overrule another is when that umpire makes a call on a base outside their jurisdiction. In a three-umpire game each base umpire has final say on their own base (plate keeps 3rd and home); in a four-umpire game each umpire has final say on their own base.",
+    "rules": [
+      "1.2"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 2006,
+    "topic": "rule 1.1",
+    "question": "A coach keeps instructing players to do things that technically aren't against the written rules but exploit gaps in them to gain an advantage. What can the umpire do?",
+    "expected": "This is \"bringing the sport into disrepute\": the 1.1 definition includes any act designed to exploit gaps in the rules, and 1.2(d) says umpires must discourage exploitation of gaps. Penalty (1.1): at the umpire's discretion a warning or removal from the game and vicinity; on a second occasion by the same offender they should be ejected. The Manual (p6) says warn them or, in more severe cases, remove them.",
+    "rules": [
+      "1.1",
+      "1.2"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2007,
+    "topic": "rule 1.1",
+    "question": "What acts count as \"bringing the sport into disrepute\" under the rules?",
+    "expected": "Rule 1.1 defines it as: any act intended to contravene the rules; any act designed to exploit gaps in the rules; any act of general anti-social behaviour; any act that may reasonably be foreseen to cause injury; and any act in contravention of the Four F's of Tee-Ball (Fun, Fair Play, Fundamental Skills, Family Involvement).",
+    "rules": [
+      "1.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2008,
+    "topic": "rule 1.1",
+    "question": "A parent spectator keeps abusing the umpire. The umpire warns the parent once, the abuse continues, and the parent then refuses to leave the ground. What happens?",
+    "expected": "Under 1.1 (and 8): for a first offence the umpire may at their discretion warn or remove the person from the game and vicinity; on the second occasion by the same offender they should be ejected (8a: must be removed). Failure to leave the vicinity means forfeiture of the game, scored 9-0 in favour of the opposing team (1.1 ii, 8b). Each warning must be recorded by the scorers with the offender's name, team and type of offence (1.1 iii, 8c). The Manual (p20) treats forfeiture as a last resort and recommends a written report afterwards.",
+    "rules": [
+      "1.1",
+      "8"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 2009,
+    "topic": "rule 1.1",
+    "question": "When the umpire gives a coach or player a warning, what must also be done?",
+    "expected": "The umpire must instruct the scorers to record the warning on the scorecard/scorebook, with the offending person's name, team and type of offence (1.1 penalty iii; 8c).",
+    "rules": [
+      "1.1",
+      "8"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2010,
+    "topic": "rule 1.1",
+    "question": "An abusive coach refuses to go back to the bench. Can the umpire take the coach by the arm and lead them off the field?",
+    "expected": "No. Rule 1.1(f): umpires must use no physical force towards any person, and 1.1(g) requires solving problems diplomatically without petty squabbling. Deal with it through the conduct penalties instead (warning, then removal; refusal to leave = 9-0 forfeit under 1.1/8). The Manual (p4, p57) recommends having a club official on hand or calling for an official if the situation can't be controlled.",
+    "rules": [
+      "1.1",
+      "8"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2011,
+    "topic": "rule 2.1",
+    "question": "What are the \"Four F's\" and the main objectives of Tee-Ball?",
+    "expected": "The Four F's are Fun, Fair Play, Fundamental Skills and Family Involvement (rulebook p1). Main objectives (2.1): introduce children to a diamond-based team sport where enjoyment and success come from simple participation; promote good health through exercise; and promote good sportsmanship. 2.2 encourages parents to get involved as coaches, scorers, umpires, managers or equipment officers.",
+    "rules": [
+      "2.1",
+      "2.2"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2012,
+    "topic": "rule 2.3",
+    "question": "A player turns up wearing football boots with screw-in metal studs. Can the player play? What about the team scorer wearing thongs?",
+    "expected": "Neither is allowed. Rule 2.3(b): enclosed shoes must be worn at all times by anyone involved in a game, and screw-in studs and metal cleats are not permitted on any Tee-Ball diamond. The Manual (p8) says any exposed metal on shoes is generally illegal (rivets set below the sole surface are usually legal), and that coaches, managers, umpires, scorers and any parent performing a role count as \"involved in the game\".",
+    "rules": [
+      "2.3"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2013,
+    "topic": "rule 2.3",
+    "question": "Which players must wear helmets and what other protective equipment is compulsory?",
+    "expected": "Batters, base runners and catchers must wear helmets in all regulation games; pitchers must wear helmets with facemasks (2.3c). Chest plates are also compulsory for pitchers (2.3f). Helmet types (7.6): batters and catchers wear a conventional baseball/softball batter's helmet with both ear covers; pitchers wear one with a non-removable face mask.",
+    "rules": [
+      "2.3",
+      "7.6"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2014,
+    "topic": "rule 2.3",
+    "question": "It's time to start but the fielding team's pitcher doesn't have a chest plate fitted. What should the umpire do?",
+    "expected": "The pitcher must not take the diamond until a chest plate is correctly fitted (2.3f). The Manual (p9) adds that the game should not be held up if the pitcher isn't ready in a reasonable time: the game may start without that pitcher, who may only enter after a stoppage in play with the plate umpire's consent.",
+    "rules": [
+      "2.3"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2015,
+    "topic": "rule 2.3",
+    "question": "A player has earrings that won't come out and the parent offers to tape over them. Is that acceptable? What about a medical alert bracelet?",
+    "expected": "Earrings: no. Exposed jewellery (watches, bracelets, earrings etc.) must not be worn (2.3d), and the Manual (p8) says umpires will refuse to let the player participate until it is removed, and that taping is not acceptable. Medical alert bracelets/necklaces are not considered jewellery; if a metal-type one is loose or exposed it should be taped to the wrist leaving the tag free (2.3d).",
+    "rules": [
+      "2.3"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2016,
+    "topic": "rule 2.3",
+    "question": "A fielder wants to wear ordinary fashion sunglasses. Is that against the rules?",
+    "expected": "Not prohibited, but not recommended. Rule 2.3(e) only recommends that glasses (including prescription) be approved sports glasses (ASTM F803-2003). The Manual (p9) explains the concern is that cheap sunglasses could shatter if hit, and asks parents to arrange approved sports or safety sunglasses if non-prescription sunglasses are wanted.",
+    "rules": [
+      "2.3"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2017,
+    "topic": "rule 2.3",
+    "question": "Before the game the umpire notices several players with shirts hanging out and caps on backwards. Does the umpire need to do anything?",
+    "expected": "Yes. Rule 2.3(a): correct uniforms must be worn in all regulation games, including shirts tucked in and caps properly aligned. The Manual (p7) says umpires MUST make sure players are correctly attired before play begins, partly for safety (a fielder once broke an arm caught in a runner's untucked shirt). Correct attire = team shirt, Tee-Ball/baseball pants, socks (no skin showing on the legs), jogger/baseball shoes and team cap.",
+    "rules": [
+      "2.3"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2018,
+    "topic": "rule 2.3",
+    "question": "A fielder is hit in the head by a thrown ball, gets up and says they are fine. Can they keep playing?",
+    "expected": "No. The umpire calls Time for the injury (6.1, 15c). Per the Manual (p9 under 2.3g, and p13 under 6.1), any player hit in the head by a ball, or who hits their head falling to the ground, must be removed from the game and sent for professional medical assessment, and must not re-enter until assessed as safe by a qualified medical professional.",
+    "rules": [
+      "2.3",
+      "6.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2019,
+    "topic": "rule 2.3",
+    "question": "A base coach notices a dangerous object or hazard on the field while play is going on. Is it only the umpire's job to stop play?",
+    "expected": "No. Rule 2.3(g): umpires, coaches and all game officials have a duty of care for player safety. The Manual (p9) says \"all officials\" includes managers, scorers, base coaches and anyone performing a role in the game, and anyone who sees a safety risk should call \"Time Safety\" and bring it immediately to the plate umpire's attention. Umpires may call Time/Dead Ball when someone is foreseeably about to enter into danger (15d).",
+    "rules": [
+      "2.3",
+      "15"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2020,
+    "topic": "rule 7.6",
+    "question": "The pitcher is wearing a baseball catcher's helmet with a face mask that flips up. Is that legal?",
+    "expected": "Not as described. Pitchers need a conventional baseball/softball helmet with a non-removable face mask (2.3c, 7.6). The Manual (p8, p19) says some baseball catchers' helmets are acceptable for pitchers only if the mask cannot be flicked off or lifted up while worn and the helmet covers both ears.",
+    "rules": [
+      "7.6",
+      "2.3"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 2021,
+    "topic": "rule 7.6",
+    "question": "The catcher wants to wear a cricket helmet, and a batter has a skull-cap style helmet with one ear cover. Are these legal?",
+    "expected": "Neither is legal. Rule 7.6: batters and catchers must wear a conventional baseball or softball batter's-type helmet with both ear covers; cricket helmets are not acceptable because they are cut higher at the back. The Manual (p19) confirms skull-cap helmets with one or no ear covers are not legal, and that caps may be worn under helmets as long as they are not worn back to front.",
+    "rules": [
+      "7.6",
+      "2.3"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2022,
+    "topic": "rule 3.1",
+    "question": "A batter asks the umpire to move the tee a little forward of home plate, towards the pitcher. A coach then walks out to lower the tee. What's correct?",
+    "expected": "Neither is allowed. The tee must sit directly on top of home plate with the stem directly above the point of the plate (3.1a, b). Only the umpire may handle the tee, and the umpire adjusts the height at the request of a player or coach (3.1 note). The Manual (p10) says players are not entitled to have the tee moved sideways, forward or back; only height can change. Best practice is to ask each batter about tee height as soon as they come to the plate.",
+    "rules": [
+      "3.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2023,
+    "topic": "rule 3.2",
+    "question": "After a hit, when may the plate umpire put the tee back down on home plate?",
+    "expected": "Only after \"Time\" has been called and all runners have stopped running. Rule 3.2: the plate umpire MUST pick up the tee after each hit, fold it and hold it until then. The Manual (p10) stresses this as a safety rule (\"FOLD IT & HOLD IT\"), gripping the base and stem together so the tee can't swivel and hurt anyone.",
+    "rules": [
+      "3.2"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2024,
+    "topic": "rule 4.1",
+    "question": "Where must the scorers sit during a game?",
+    "expected": "Together, behind home plate and just outside the dead ball line (4.1). The Manual (p10) says the area between the plate umpire and the scorers must be kept clear so scorers can hear calls and see signals; at State Championships, where parent lines are used, scorers sit between the parent line and the dead ball line.",
+    "rules": [
+      "4.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2025,
+    "topic": "rule 4.2",
+    "question": "When must the scorers notify the umpire during a game?",
+    "expected": "When a batter bats or is about to bat out of order, and when the ninth batter has completed their turn at bat (4.2a, b). The Manual (p11) asks scorers to report the ninth batter as soon as \"Time\" is called, and to flag out-of-order batters quickly because delays make it harder to untangle.",
+    "rules": [
+      "4.2"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2026,
+    "topic": "rule 4",
+    "question": "A coach asks the scorer what the score is during the game. Must the scorer answer, and should the umpire check the score?",
+    "expected": "There is no rule preventing it; per the Manual (p10) scorers must give the score to a coach if asked, though umpires can restrict people checking the score if it distracts the scorer. The umpire should NOT ask or check the score during the game, as that could compromise their impartiality.",
+    "rules": [
+      "4.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2027,
+    "topic": "rule 9.3",
+    "question": "As the batting team's ninth batter walks up, the scorer says \"this is the ninth batter\" out loud. How should scorers handle the ninth batter correctly?",
+    "expected": "Scorers must not announce or indicate that the ninth batter is approaching or at bat: rule 9.3(a) bans anyone, including scorers, from making any verbal or physical indication of the ninth batter. Their duty under 4.2(b) is to tell the umpire after the ninth batter has completed their turn at bat (Manual p11: as soon as Time is called), so the umpire can declare \"Side Away\".",
+    "rules": [
+      "4.2",
+      "9.3"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2028,
+    "topic": "rule 5.1",
+    "question": "When a team is batting, where are its coaches allowed to be?",
+    "expected": "Only in the 1st and 3rd base coach's boxes or in the team bench area (5.1a). Coaches may go out to assist and instruct a batter but must return to the bench or a coach's box before \"Play Ball\" is called, and coaches in the boxes must stay inside the marked lines during play.",
+    "rules": [
+      "5.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2029,
+    "topic": "rule 5.1",
+    "question": "The 3rd base coach keeps stepping outside the coach's box lines during play. Can the umpire remove the coach straight away?",
+    "expected": "No, not straight away. Penalty for failing to stay in the box could be removal from the game, but the coach must be given at least one warning first (5.1a). The Manual (p11) says if a pre-warned coach keeps stepping out while the ball is in play, rule 1.1 may be invoked. After Time, coaches may move around, but they should be back in their areas once \"Batter Up\" is called.",
+    "rules": [
+      "5.1",
+      "1.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2030,
+    "topic": "rule 5.1",
+    "question": "Runners on 1st and 3rd. On the hit, the 3rd base coach steps out of the coach's box and gets in the way of a fielder making a play. What's the ruling?",
+    "expected": "The leading runner is out (5.1b): if a coach moves outside the lines of the box and interferes with play, the leading runner is given out. Here that is the runner from 3rd.",
+    "rules": [
+      "5.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2031,
+    "topic": "rule 5.1",
+    "question": "Runner on 3rd, batter hits to 1st. The 1st base coach steps out of the box and interferes with the throw to 1st. Who is out, the batter-runner or someone else?",
+    "expected": "The leading runner is out, i.e. the runner from 3rd, not the batter-runner (5.1b). The penalty for a coach outside the box interfering with play always falls on the leading runner.",
+    "rules": [
+      "5.1"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 2032,
+    "topic": "rule 5.1",
+    "question": "When a team is fielding, where must its coaches be?",
+    "expected": "All fielding-team coaches must stay in the bench area (5.1b). Exception: for nines or lower age teams, one coach may stand anywhere behind the line of the outfielders to direct play. If a live ball touches that coach, or the coach physically assists a fielder, the batter is awarded a home run.",
+    "rules": [
+      "5.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2033,
+    "topic": "rule 5.1",
+    "question": "In an Under 10s game, the fielding coach stands behind the outfielders to direct the fielders. Is that allowed?",
+    "expected": "No. The exception allowing one fielding coach behind the outfielders applies only to nines or lower age teams (5.1b), so it covers U9 and U7 but not U10. In U10 all fielding-team coaches must stay in the bench area.",
+    "rules": [
+      "5.1",
+      "22.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2034,
+    "topic": "rule 5.1",
+    "question": "In an Under 9s game, a long hit rolls to the outfield and touches the fielding coach standing behind the outfielders. What's the ruling?",
+    "expected": "The batter is awarded a home run (5.1b): if a live ball touches the fielding coach positioned behind the outfielders, or that coach physically assists a fielder, it is a home run. The Manual (p11) adds that the batter must still run the bases touching each in order and may be out on appeal if a base is missed.",
+    "rules": [
+      "5.1",
+      "17.7"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2035,
+    "topic": "rule 5.1",
+    "question": "An overthrow rolls towards the 3rd base coach's box and the batting-team coach, standing in the box, bends down and stops the live ball. What happens?",
+    "expected": "The umpire calls \"Time, Dead Ball\" and, in consultation with the base umpire(s), decides the outcome of that play (5.1c) by working out what would have happened had the infringement not occurred. The Manual (p12) says no one other than the umpires takes part in that discussion, and the rule applies only when the ball is live.",
+    "rules": [
+      "5.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2036,
+    "topic": "rule 5.1",
+    "question": "A hard-hit ball comes straight at the 1st base coach in the coach's box. Case 1: the coach puts a hand up inside the box to protect themselves. Case 2: the coach reaches outside the lines of the box and touches the ball. Is either intentional handling under 5.1(c)?",
+    "expected": "Case 1 is not intentional handling: the Manual (p12) says a ball hit straight into the box that the coach puts a hand up to protect themselves from is not intentionally handled, and a hard throw that hits a coach in the box is not the coach's fault. Case 2 is considered deliberate, so 5.1(c) applies: Time, Dead Ball, and the umpires decide the outcome together. The rule only applies when the ball is live, and the umpires alone judge what is accidental.",
+    "rules": [
+      "5.1"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 2037,
+    "topic": "rule 5.2",
+    "question": "A runner rounding 3rd hesitates, and the 3rd base coach gives the runner a push towards home. What's the ruling?",
+    "expected": "The runner is out. Batting coaches in the 1st or 3rd base coach's boxes may not physically assist runners; if the umpire considers any touching to be assistance, the runner is called out (5.2).",
+    "rules": [
+      "5.2"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2038,
+    "topic": "rule 5.2",
+    "question": "The 1st base coach steps out of the coach's box to give a runner a high-five after a hit. Is the runner out?",
+    "expected": "No, congratulatory contact is allowed (5.2), but the coach's feet must stay inside the box lines. Per the Manual (p12), a hand or arm may extend out of the box as long as the bulk of the body stays inside; a coach who steps out to give a high-five should be warned, and on a second time rule 1.1 may be invoked. The runner is out only if the umpire judges the touching was assistance.",
+    "rules": [
+      "5.2",
+      "1.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2039,
+    "topic": "rule 5.1",
+    "question": "A batting-team parent stands up the line on the fielding team's side of the diamond, behind the dead ball line, calling out instructions. Can the umpire act?",
+    "expected": "Yes. The Manual (p11, under 5.1b) says umpires should make sure no coaching staff are up the dead ball lines on the opposition's side trying to direct play, and any parent or supporter sitting or standing on the opposition's side may be removed or sent back to their own side if the umpire thinks they are causing problems or directing play.",
+    "rules": [
+      "5.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2040,
+    "topic": "rule 6.1",
+    "question": "During a play a fielder dives for the ball and stays down on the ground. What should the umpires do, and how is the play then resolved?",
+    "expected": "Call \"Time\" immediately to halt the game; any umpire, plate or base, can call it (6.1; Manual p13; 15c). After the player is attended to, the plate umpire consults the field umpire(s) and they use their discretion to decide the outcome of the play: what they believe would have happened had Time not been called (e.g. where runners end up). No one other than the umpires takes part in that discussion (Manual p13).",
+    "rules": [
+      "6.1",
+      "15"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2041,
+    "topic": "rule 6.2",
+    "question": "A player is badly hurt and cannot continue. The team has 11 players. What happens to that player's spot in the batting line-up?",
+    "expected": "With the umpire's permission (requested by the coach), the player is removed from the batting line-up without penalty and may not re-enter the game (6.2a). The Manual (p13) says the request is a courtesy and should be granted, and to trust the coach's judgement on incapacity.",
+    "rules": [
+      "6.2"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2042,
+    "topic": "rule 6.2",
+    "question": "A team has exactly nine players. One is incapacitated and removed from the game. How does the game continue?",
+    "expected": "Removal without penalty only applies while 9 or more players remain; below 9, rules 16.1(c) and/or (d) apply (6.2a). With 8 players and no loan player, play continues but the missing batting spot (batter 9) is an automatic out each time it is due to bat; scorers must notify the umpire and coaches (16.1d). If the team falls below 7 players it forfeits 9-0, unless the opposition lends one or two players (16.1c).",
+    "rules": [
+      "6.2",
+      "16.1"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 2043,
+    "topic": "rule 6.2",
+    "question": "A player gets a minor knock (not incapacitated) and goes for first aid while their batting turn is coming up. What happens, and can they come back?",
+    "expected": "With the umpire's approval they may be removed from the line-up for first aid and the line-up closes up without penalty, unless fewer than 9 players remain, in which case 16.1(c)/(d) apply (6.2b i). After treatment, with the approval of the umpire and the first-aid person, they may return in the same batting position (6.2b ii). The Manual (p13) warns some coaches may misuse this to skip a weaker batter, and the plate umpire may refuse re-entry, but only with good cause.",
+    "rules": [
+      "6.2",
+      "16.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2044,
+    "topic": "rule 6.2",
+    "question": "A fielder grazes a knee sliding and it is bleeding. Can the fielder just carry on?",
+    "expected": "No. A player with a bleeding or open injury MUST be removed and treated; contaminated clothing/equipment must be replaced or cleaned of blood and the wound covered before the player returns. If bleeding recurs and can't be controlled, the player takes no further part (6.2c). No penalty applies; the line-up closes up until the player returns or is removed (except 16.1d). The Manual (p14) says not to refuse re-entry over a faint discolouration left after washing.",
+    "rules": [
+      "6.2"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2045,
+    "topic": "rule 6.3",
+    "question": "A batter hurt their ankle last week. The batter hits and reaches 1st, and only then does the coach ask for a substitute runner. Allowed?",
+    "expected": "No. For a previously injured player, the umpire must be told of the substitute-runner request before the player bats (6.3a). Substitution happens only at 1st base after \"Time\" is called, and the substitute must be the last batter who scored or was put out. The Manual (p14) says this applies to any previous injury, from a week earlier or earlier in the game.",
+    "rules": [
+      "6.3"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2046,
+    "topic": "rule 6.3",
+    "question": "The coach told the umpire before the at-bat that an injured batter would need a substitute runner. The batter hits a double and ends up on 2nd base. Can the substitute come in at 2nd?",
+    "expected": "No. Under 6.3(a) the substitution can only happen at 1st base after \"Time\". The Manual (p14) says that if the runner goes past 1st and ends up on 2nd or any other base, they may not be replaced. (Rule 6.3(b) covers only a runner who is injured while safe on a base.)",
+    "rules": [
+      "6.3"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 2047,
+    "topic": "rule 6.3",
+    "question": "A runner slides safely into 3rd and twists an ankle. The coach wants to put the team's fastest player in as a substitute runner. Allowed?",
+    "expected": "A substitute runner is allowed at that base (6.3b: any runner injured when safe at a base). But the substitute must be the last batter who scored or was put out, not the coach's choice of the fastest player. The Manual (p14) says this is meant to stop coaches getting a faster runner on base.",
+    "rules": [
+      "6.3"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2048,
+    "topic": "rule 6.4",
+    "question": "After a game in which a player was hurt, what paperwork should the umpire and scorers complete?",
+    "expected": "The umpire instructs the scorers to record, next to that player's name in the scorebook, any injury that could need ongoing attention (6.4a), and the scorers should have the umpire fill out an incident report after the game (6.4b). The Manual (p15) says clubs should supply the forms and completed reports go to the club secretary for the record.",
+    "rules": [
+      "6.4"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2049,
+    "topic": "rule 7.1",
+    "question": "What are the key diamond measurements: baseline length, pitcher's plate distance, and dead ball line distance?",
+    "expected": "Baselines are 18.29m. The pitcher's plate is 14.02m from the point of home plate, centred between 1st and 3rd. The dead ball line is 6.10m from the foul ball lines and on a 6.10m radius from the point of home plate (7.1a, b).",
+    "rules": [
+      "7.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2050,
+    "topic": "rule 7.1",
+    "question": "Which team sits on which bench, and where should the benches and coach's boxes be?",
+    "expected": "Home team on the 1st base line bench, away team on the 3rd base line bench (7.1f). Benches are outside the dead ball line, about halfway up the 1st and 3rd base lines (7.1e); the Manual (p17) says keep them far enough back that players on the bench can't hinder a fielder near the dead ball line. Coach's boxes are 3m x 0.9m, set 1.83m from the foul lines (7.1d).",
+    "rules": [
+      "7.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2051,
+    "topic": "rule 7.1",
+    "question": "Where is the batters' warm-up circle, and what should an umpire do if they see a player swinging a bat in it without supervision?",
+    "expected": "Each warm-up circle is 1m in diameter, centred 1.25m inside the dead ball line and 1.5m forward of home plate, to the left and right of the batting boxes (7.1g). The Manual (p17) says players must be supervised while swinging bats there; the umpire should ask the coach to fix it immediately, and rule 1.1 may be applied to a coach who doesn't comply. Note: a ball entering an occupied warm-up circle is a dead ball (15b).",
+    "rules": [
+      "7.1",
+      "1.1",
+      "15"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2052,
+    "topic": "rule 7.1",
+    "question": "What size are the bases and plates, and where exactly should 1st, 2nd and 3rd bases sit?",
+    "expected": "Bases are 375mm square and 10-75mm thick; the pitcher's plate is 600 x 150mm, 5-20mm thick; home plate is 430 x 430mm, 5-10mm thick (7.1h-j). The Manual (p17, p67) says 1st and 3rd bases sit entirely inside the corners of the diamond, and 2nd is centred on the 2nd base point. Diamond lines are fair territory.",
+    "rules": [
+      "7.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2053,
+    "topic": "rule 7.2",
+    "question": "Which ball is used in each age division? Can an Under 11 game be played with a rubber tee-ball?",
+    "expected": "Incrediballs (vinyl cover, soft core) for U7; tee-balls (rubber imitation baseball) for U7, U9 and U10; conventional baseballs for U11, U12 and U13 (7.2). So U11 uses baseballs, not tee-balls. (The Manual 7A says Incrediballs are \"recommended\" for U7; the Rule Book Ed 8 just lists them for U7 alongside tee-balls.)",
+    "rules": [
+      "7.2"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2054,
+    "topic": "rule 7.3",
+    "question": "A parent brings a home-made tee to the game. Can it be used?",
+    "expected": "Not unless it is approved. All new tee designs must be approved by the TBAWA Rules Committee before use (7.3g), and the Manual (p18) says only professionally made tees (e.g. Reliance or All-Star type or replicas) are legal. Specs: lightweight steel/composite tubing with a base, telescopic centre tube, flexible top ball holder; base no more than 400mm across, outer tube no more than 40mm thick, flexible top no longer than 250mm; must hold a baseball upright; no spikes or sharp edges (7.3a-e). Umpires may refuse an unsafe tee (7.3f).",
+    "rules": [
+      "7.3",
+      "7.7"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2055,
+    "topic": "rule 7.4",
+    "question": "A batter brings an aluminium bat that is 81cm long and 5.7cm in diameter, professionally made and branded but with no certification stamp. Is it legal?",
+    "expected": "No, under Rule Book Ed 8. The size is within the maximum (86.4cm long, 5.7cm diameter), but 7.4 (changed in Ed 8) requires bats to carry an official baseball- or softball-specific certification mark. Only single-piece wood bats or foam bats for very young players are exempt. The older Manual 7A (p18) only required bats to be professionally made and branded; the Rule Book wins.",
+    "rules": [
+      "7.4"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 2056,
+    "topic": "rule 7.4",
+    "question": "A batter uses a certified bat that is 87cm (just over 34 inches) long. Legal?",
+    "expected": "No. Maximum bat length is 86.4cm (34in) and maximum diameter is 5.7cm (2.25in) (7.4). The Manual (p18) notes this is the maximum and not a suitable size for most players.",
+    "rules": [
+      "7.4"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2057,
+    "topic": "rule 7.5",
+    "question": "The catcher wants to use a softball catcher's mitt. Is that allowed?",
+    "expected": "No. Each fielder must wear a standard diamond sports glove no more than 32.5cm long (top to bottom) and no more than 20cm wide across the palm (7.5). The Manual's commentary on 7.5 (p19) says baseball or softball catchers' mitts are not acceptable or legal for tee-ball. (The Manual's glossary entry for \"Mitt\" on p72 loosely says catchers' and first basemen's mitts are legal but rarely used; the specific 7.5 commentary and the size limit govern.)",
+    "rules": [
+      "7.5"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 2058,
+    "topic": "rule 7.7",
+    "question": "A new style of helmet already used in baseball has just come on the market. Can a player wear it in tee-ball?",
+    "expected": "Not until approved. Any new design of equipment must first be approved by the TBAWA rules committee and TBAWA council before it is used in games (7.7). The Manual (p19) says being used in baseball or softball does not by itself make an item legal for tee-ball, and all equipment must be professionally made.",
+    "rules": [
+      "7.7"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2059,
+    "topic": "rule 8",
+    "question": "A fielder makes insulting remarks to an opposing batter. What can the umpire do?",
+    "expected": "Rule 8 prohibits disparaging, offensive or insulting remarks. For a first offence the umpire may, at their discretion, remove the player from the game and the vicinity of the field, or give a warning; on a second occasion by the same offender they must be removed (8a). Warnings are recorded by the scorers with name, team and offence (8c). The Manual (p20) advises approaching the person calmly and respectfully, not calling them over to you.",
+    "rules": [
+      "8"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2060,
+    "topic": "rule 8",
+    "question": "Does the umpire have to give a warning before removing someone for offensive conduct, like a coach's 5.1 box warning?",
+    "expected": "No. Under rule 8(a) (and 1.1), a first offender is liable to be removed at the umpire's discretion; a warning is optional, but a second offence by the same person must lead to removal. By contrast, some specific rules need at least one warning before removal or ejection: coaches leaving the coach's box (5.1a), incitement running (17.14) and the sitting-out rule (19.2).",
+    "rules": [
+      "8",
+      "1.1",
+      "5.1"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 2061,
+    "topic": "rule 8",
+    "question": "A coach has been removed for a second offence but refuses to leave the vicinity of the field. What's the outcome?",
+    "expected": "The game is forfeited, with a score of 9-0 in favour of the opposing team (8b; also 1.1 penalty ii). The Manual (p20) calls forfeiture a last resort (it deprives up to 24 players of their game), suggests calling a ground official first, and says to follow up with a written report to the committee.",
+    "rules": [
+      "8",
+      "1.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2062,
+    "topic": "rule 8",
+    "question": "According to the Manual, how should an umpire deal with a spectator making unacceptable comments from the sideline?",
+    "expected": "First go through the coach: quietly ask the coach to talk to the person (Manual p20, p57). If that fails, or the offender is the coach, approach the person yourself calmly and respectfully (go to them, don't call them over), ideally between innings, explain what's expected, and offer to discuss grievances after the game. Call for an official if needed. Formal penalties under rule 8/1.1: warning or removal, and refusal to leave means a 9-0 forfeit.",
+    "rules": [
+      "8",
+      "1.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2063,
+    "topic": "rule 9",
+    "question": "What is a \"regulation game\"?",
+    "expected": "A game where scores are kept and that is played with Incrediballs, Tee-balls or Baseballs (9(i)). Safety rules such as helmets and pitchers' chest plates apply in all regulation games (2.3c, f); the Manual (p9) adds that umpires may insist on chest plates in practice and training games too, under duty of care.",
+    "rules": [
+      "9",
+      "2.3"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2064,
+    "topic": "rule 9.1",
+    "question": "How long is a regulation game?",
+    "expected": "Nine innings or one hour, whichever comes first (9.1). No innings may start within five minutes of the scheduled finishing time (9.1a), and an innings that has started must be completed so both sides get an equal number of batting turns (9.1b).",
+    "rules": [
+      "9.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2065,
+    "topic": "rule 9.1",
+    "question": "Scheduled finishing time is 10:00. An innings (both halves) finishes at 9:53. Should another innings be started, and what if it runs past 10:00?",
+    "expected": "Yes, start another innings: more than five minutes remain (9.1a; Manual p21: more than 5 minutes left means call the teams out again). Once started, the innings must be played to completion with equal batting turns for both sides, even if it runs past 10:00 (9.1b).",
+    "rules": [
+      "9.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2066,
+    "topic": "rule 9.1",
+    "question": "Scheduled finish is 10:00 and an innings finishes at exactly 9:55. Does another innings start?",
+    "expected": "No, the game is over. No innings may commence within five minutes of the scheduled finishing time (9.1a), and the Manual (p21) says that when you call Time at the end of an innings, if 5 minutes or less remain you call \"Time and game\".",
+    "rules": [
+      "9.1"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 2067,
+    "topic": "rule 9.1",
+    "question": "The one-hour mark passes while the away team is batting in the top of the 5th innings. Does the game end when the top half finishes?",
+    "expected": "No. Once an innings has started it must be completed, so both sides get an equal number of batting turns (9.1b). The home team bats in the bottom of the 5th, and then the game ends.",
+    "rules": [
+      "9.1"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2068,
+    "topic": "rule 9.1",
+    "question": "At a club carnival, games are shorter than an hour and time runs out partway through an innings. How is the result decided?",
+    "expected": "Rule 9.1(c) allows exceptions to 9.1 at the Warren Lake Carnival and club carnivals where time doesn't allow full games. Per the Manual (p21), the score reverts to the last even innings unless the team batting second is ahead at the end; if the team batting second is ahead but disadvantaged by percentage, it still reverts to the last even innings. State Championships use the normal 1 hour/9 innings rule (9.1a, b).",
+    "rules": [
+      "9.1"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 2069,
+    "topic": "rule 9.2",
+    "question": "When does a team's half of an innings end?",
+    "expected": "When the third out is made or the innings is declared (9.2), i.e. when nine players have completed their turn at bat with fewer than three outs and the umpire declares \"Side Away\" (16.1b). Manual p21: the plate umpire announces \"Nine batters - side away\". Each team bats in its listed order.",
+    "rules": [
+      "9.2",
+      "16.1"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2070,
+    "topic": "rule 9.3",
+    "question": "As the ninth batter steps up, the batting team's coach calls out \"last batter, everyone run hard!\". The umpire hears it. What's the ruling?",
+    "expected": "The batter is out and the side is away (9.3b). Nobody may verbally or physically indicate that the ninth batter is approaching or at bat (9.3a); if a member of the batting team does, the penalty is batter out, side away.",
+    "rules": [
+      "9.3"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2071,
+    "topic": "rule 9.3",
+    "question": "With the batting team's ninth batter at the plate, a fielder shouts \"last batter, get this one!\". The batter then hits a ground ball and is thrown out at 1st. What's the ruling?",
+    "expected": "The batter is credited with a home run: the indication was made by the fielding team (9.3c), so the throw-out does not stand. The batter must still touch all bases legally.",
+    "rules": [
+      "9.3"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2072,
+    "topic": "rule 9.3",
+    "question": "The fielding coach tells the umpire that a batting-team parent called out \"ninth batter\". The umpire didn't hear it. Can the umpire apply the penalty?",
+    "expected": "No. The Manual (p22) says the umpire must hear the indication personally, and cannot act on someone else reporting that they heard it. Also, if a parent says it unwittingly from the sidelines, the umpire should use common sense about the penalty.",
+    "rules": [
+      "9.3"
+    ],
+    "difficulty": "hard"
+  },
+  {
+    "id": 2073,
+    "topic": "rule 9.3",
+    "question": "The batting team's coach scratches their head in the coach's box every time the ninth batter comes up. Is that a ninth-batter indication?",
+    "expected": "It is the umpire's judgement. The Manual (p22) says a single head-scratch cannot be proved to be an indication and umpires shouldn't be over-zealous, but doing it every time the ninth batter comes up could be construed as an indication. A quiet word with the coach about the umpire's suspicions is preferred. If clearly indicated by the batting team, 9.3(b) applies: batter out, side away.",
+    "rules": [
+      "9.3"
+    ],
+    "difficulty": "hard"
+  }
+]
