@@ -1,6 +1,6 @@
 resources:
   genie_spaces:
-    teeball_umpire:
+    teeball_agent:
       title: Teeball Umpire
       description: >-
         Teeball / tee-ball / T-ball umpire rules assistant for TBAWA (Teeball Association of Western Australia).
@@ -9,7 +9,9 @@ resources:
         citing rule numbers from the TBAWA Official Rule Book Edition 8 and the Annotated Rule Book & Umpire Manual 7A.
         Use this agent for all teeball, tee-ball, T-ball and junior baseball rules questions.
       warehouse_id: ${var.warehouse_id}
-      parent_path: ${workspace.file_path}/genie
+      # Visible, non-shared folder: Genie One search/routing doesn't find agents under hidden .bundle paths,
+      # and /Workspace/Shared would give every user CAN_MANAGE through folder inheritance
+      parent_path: /Workspace/Users/${workspace.current_user.userName}
       serialized_space:
         version: 2
         config:
@@ -38,7 +40,7 @@ resources:
                 - "Return the function's answer text exactly as the response. Do not summarise it into a table or chart.\n"
                 - "Only query the rule_chunks table directly if the user asks to see the source text of a specific rule number.\n"
           example_question_sqls:
-            - id: "2d524b7ec0ee4372be4866d10110a54d"
+            - id: "1daa8f02109b40ac90939f45f556916f"
               question:
                 - "Runner on 1st runs on the hit and the ball is caught. Is the runner out?"
               sql:
@@ -48,9 +50,39 @@ resources:
                   type_hint: STRING
                   description:
                     - "The user's full rules question including situation context"
-            - id: "bf4829069f2d4c2c85ffc7840c74e7de"
+            - id: "511459a91dce4a9ba30a78b6e93b7c86"
               question:
                 - "What's the ruling when a fielder without the ball blocks the base?"
+              sql:
+                - "SELECT ${var.catalog}.${resources.schemas.teeball.name}.ask_rulebook(:question) AS answer"
+              parameters:
+                - name: question
+                  type_hint: STRING
+                  description:
+                    - "The user's full rules question including situation context"
+            - id: "5b4ba78f88a9400dbab4d047676825c9"
+              question:
+                - "Ball first lands fair between home and 3rd then rolls foul. Fair or foul?"
+              sql:
+                - "SELECT ${var.catalog}.${resources.schemas.teeball.name}.ask_rulebook(:question) AS answer"
+              parameters:
+                - name: question
+                  type_hint: STRING
+                  description:
+                    - "The user's full rules question including situation context"
+            - id: "77e42a2bae5d43e49b08bbf74bcceeaf"
+              question:
+                - "Do runs count if the 3rd out is a force out?"
+              sql:
+                - "SELECT ${var.catalog}.${resources.schemas.teeball.name}.ask_rulebook(:question) AS answer"
+              parameters:
+                - name: question
+                  type_hint: STRING
+                  description:
+                    - "The user's full rules question including situation context"
+            - id: "d8a08ada744641f7b3bb06c8f9c11a11"
+              question:
+                - "The batter hits more tee than ball. What should the plate umpire do and say?"
               sql:
                 - "SELECT ${var.catalog}.${resources.schemas.teeball.name}.ask_rulebook(:question) AS answer"
               parameters:

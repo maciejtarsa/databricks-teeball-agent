@@ -53,7 +53,7 @@ targets:
     resources:
       # Prod is what business users (business_us group) can ask; dev stays owner-only
       genie_spaces:
-        teeball_umpire:
+        teeball_agent:
           permissions:
             - group_name: business_us
               level: CAN_RUN
