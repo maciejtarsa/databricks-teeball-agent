@@ -6,7 +6,8 @@ resources:
         Teeball / tee-ball / T-ball umpire rules assistant for TBAWA (Teeball Association of Western Australia).
         Answers ANY teeball rules question, umpiring ruling or game situation (outs, force plays, tag ups, fair/foul balls,
         obstruction, interference, batting, base running, fielding positions, substitutions, safety, equipment, age groups),
-        citing rule numbers from the TBAWA Official Rule Book Edition 8 and the Annotated Rule Book & Umpire Manual 7A.
+        plus Wembley Tee-Ball Association (WTBA) by-laws (position rotation, game length, weather/heat, finals, fines),
+        citing rule numbers from the TBAWA Official Rule Book Edition 8, the Annotated Rule Book & Umpire Manual 7A and the WTBA By-Laws.
         Use this agent for all teeball, tee-ball, T-ball and junior baseball rules questions.
       warehouse_id: ${var.warehouse_id}
       # Visible, non-shared folder: Genie One search/routing doesn't find agents under hidden .bundle paths,

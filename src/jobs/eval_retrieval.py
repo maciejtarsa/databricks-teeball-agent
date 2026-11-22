@@ -36,7 +36,7 @@ def words(s):
 
 def is_hit(q, chunk):
     rules = {b for b in (base_rule(r) for r in q.get("rules", [])) if b}
-    got = chunk.get("rule_no")
+    got = chunk.get("rule_no") if "by-laws" not in chunk.get("file", "").lower() else None  # separate numbering
     if rules:
         return bool(got) and any(got == r or r.split(".")[0] == got or got.split(".")[0] == r for r in rules)
     topic = words(q["topic"].split(":")[0]) | words(q["topic"])

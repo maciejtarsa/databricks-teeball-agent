@@ -1,9 +1,10 @@
 # Teeball umpire rules reference
 
 User = teeball umpire. Asks situational ruling questions. Answer from `knowledge/rulebooks/Rule-Book-Edition-8.pdf` (TBAWA Official Rules, Ed 8, 2026/27, 21 pages) + `knowledge/rulebooks/Annotated-Rule-Manual-7A.pdf` (Annotated Rule Book & Umpire Manual, Ed 7A, 73 pages: rules + interpretations, scenarios, signals, glossary). Cite rule numbers. Manual is older edition than rulebook — rulebook text wins if they differ.
+Also `knowledge/rulebooks/Wembley-By-Laws-July-2026.pdf` (WTBA By-Laws, July 2026, 15 pages): local rules for Wembley competition games, add to TBAWA rules (position rotation 12.3, U7 coach 11, weather/heat 13, bats/tees/balls 14-16, finals 35-40, fines 42, umpiring notes App 1). Separate numbering: cite "By-Law X", never confuse with Rule X.
 
 ## Source files
-- `knowledge/text/rules-ed8.md`, `knowledge/text/annotated-manual-7a.md` = text of the PDFs, "## Page N" headers = PDF page numbers. Read/grep these first.
+- `knowledge/text/rules-ed8.md`, `knowledge/text/annotated-manual-7a.md`, `knowledge/text/wembley-by-laws-2026.md` = text of the PDFs, "## Page N" headers = PDF page numbers. Read/grep these first.
 - PDFs remain the authority; check them for diagrams (rulebook pp 8, 13, 20 = diamond specs, fair/foul areas, fielding positions; manual has signals/diagrams too) or if extracted text looks garbled.
 - Regenerate md (e.g. new edition): pypdf in scratchpad (`pip install --target <scratch>/py pypdf`, `PYTHONPATH=<scratch>/py`); no pdftotext/poppler on machine. If import fails, rm -rf <scratch>/py and reinstall.
 
@@ -75,3 +76,6 @@ A: Depends if out at 3rd was force (17.13b). Runner forced to 3rd only if bases 
 ### 12. Non-forced runner stranded between 2nd-3rd (3rd occupied), fielder w/ ball between runner and 2nd, no tag attempt
 User called Time, runner safe, returned to 2nd.
 A: Not tagged = not out — correct. 3rd occupied so can't go there (11 one runner per base; 17.7). Fielder holds ball → NOT obstruction (20 needs fielder w/o ball). Runner can't charge (manual p42) or deviate from line to avoid tag (17.16; may turn back on shortest line). Time: rule 11 needs ALL runners within ~3 paces of base. If runner within ~3 paces of 2nd → Time + return to 2nd = correct. If midway → manual p23: "YOU SHOULD NOT HAVE CALLED TIME"; keep ball live — fielding side must tag or runner gets back; manual gives no rule for where to send runner if Time called early. Returning to 2nd (last base held) = reasonable fix. Fielding side choosing not to tag doesn't make play dead.
+
+### 13. Same fielder in same position consecutive innings — rule?
+A: Wembley: YES. WTBA By-Law 12.3 (p6): teams must rotate fielding positions in regular season; player can't play same position 2 consecutive fielding innings. TBAWA rules themselves have no rotation rule; only 19.2: no listed player sits out 2 consecutive fielding innings (unless at their request to umpire); warn coach, 2nd time coach removed (repeated in By-Law 12.4). Manual 19.2 intent: participation / "fair go". 21: subs can't circumvent 19.2. By-laws give no penalty for rotation breach (12.4 penalty is for sitting out). (Initially answered "no" before by-laws were added.)

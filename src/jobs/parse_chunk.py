@@ -135,12 +135,14 @@ chunks = merged
 
 # Unnumbered sections (e.g. Manual "Obstruction") inherit the rule number of the
 # highest-authority document's section with the same heading (Rule Book "20 Obstruction")
+# By-laws have their own numbering (By-Law 17 Safety Bases != Rule 17 Running), so they're left out
 rank = lambda c: doc_meta.get(c["file_name"], {}).get("authority_rank", 99)
+is_bylaw = lambda c: doc_meta.get(c["file_name"], {}).get("doc_type") == "bylaws"
 heading_rule = {}
-for c in sorted((c for c in chunks if c["rule_no"]), key=rank, reverse=True):
+for c in sorted((c for c in chunks if c["rule_no"] and not is_bylaw(c)), key=rank, reverse=True):
     heading_rule[c["heading"].strip().lower()] = c["rule_no"]
 for c in chunks:
-    if not c["rule_no"] and c["part"] and c["part"].strip().lower() in heading_rule:
+    if not c["rule_no"] and not is_bylaw(c) and c["part"] and c["part"].strip().lower() in heading_rule:
         c["rule_no"], c["heading"] = heading_rule[c["part"].strip().lower()], c["part"]
 
 rows = []
@@ -150,7 +152,8 @@ for c in chunks:
         continue
     meta = doc_meta.get(c["file_name"], {"title": c["file_name"], "doc_type": "other",
                                          "edition": None, "authority_rank": 99})
-    rule_label = f"Rule {c['rule_no']} {c['heading']}" if c["rule_no"] else (c["part"] or "General")
+    rule_word = "By-Law" if meta["doc_type"] == "bylaws" else "Rule"
+    rule_label = f"{rule_word} {c['rule_no']} {c['heading']}" if c["rule_no"] else (c["part"] or "General")
     header = f"{meta['title']} | {rule_label} | pages {c['page_start']}-{c['page_end']}"
     # Split long sections, repeating the header so every piece stands alone
     pieces = [body[i:i + MAX_CHARS] for i in range(0, max(len(body), 1), MAX_CHARS)]
@@ -187,13 +190,14 @@ MERGE INTO {chunks_tbl} t USING new_chunks s ON t.chunk_id = s.chunk_id
 WHEN NOT MATCHED THEN INSERT *
 WHEN NOT MATCHED BY SOURCE THEN DELETE
 """)
-spark.sql(f"""COMMENT ON TABLE {chunks_tbl} IS 'Teeball (tee-ball, T-ball) rules knowledge base for TBAWA umpires: every rule and umpire interpretation from the TBAWA Official Rule Book (Edition 8) and the Annotated Rule Book & Umpire Manual (Edition 7A), one row per rule section. Answer teeball rules questions with the ask_rulebook function.'""")
+spark.sql(f"""COMMENT ON TABLE {chunks_tbl} IS 'Teeball (tee-ball, T-ball) rules knowledge base for TBAWA umpires: every rule and umpire interpretation from the TBAWA Official Rule Book (Edition 8), the Annotated Rule Book & Umpire Manual (Edition 7A) and the Wembley Tee-Ball Association (WTBA) By-Laws (local competition rules), one row per rule section. Answer teeball rules questions with the ask_rulebook function.'""")
 for col, comment in {
-    "rule_no": "Teeball rule number, e.g. 17.10 (tag up after catch), 13.1 (foul ball), 20 (obstruction)",
+    "rule_no": "Teeball rule number, e.g. 17.10 (tag up after catch), 13.1 (foul ball), 20 (obstruction). For WTBA By-Laws (doc_type bylaws) this is the by-law number, a separate numbering",
+    "doc_type": "rulebook (TBAWA Rule Book), manual (Annotated Manual) or bylaws (Wembley WTBA local by-laws)",
     "heading": "Rule heading / title, e.g. Forced Play, Obstruction, Fair Batted Balls",
     "content": "Full rule text with document title, rule number and page numbers",
-    "doc_title": "Source document: TBAWA Official Rule Book Ed 8 or Annotated Rule Book & Umpire Manual Ed 7A",
-    "authority_rank": "1 = Rule Book (wins on conflict), 2 = Annotated Manual",
+    "doc_title": "Source document: TBAWA Official Rule Book Ed 8, Annotated Rule Book & Umpire Manual Ed 7A, or WTBA By-Laws July 2026",
+    "authority_rank": "1 = Rule Book (wins on conflict), 2 = Annotated Manual, 3 = WTBA By-Laws (local rules for Wembley competition games)",
 }.items():
     spark.sql(f"ALTER TABLE {chunks_tbl} ALTER COLUMN {col} COMMENT '{comment}'")
 # Clean up duplicate ids left by earlier runs

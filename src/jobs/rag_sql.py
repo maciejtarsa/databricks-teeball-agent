@@ -49,7 +49,8 @@ def function_body(catalog, schema, llm_endpoint, embedding_endpoint, prompt, mod
              + {KEYWORD_WEIGHT} * coalesce(
                  aggregate(filter(q.words, w -> instr(lower(c.content), w) > 0), 0D, (acc, w) -> acc + {kw_weight})
                  / nullif(aggregate(q.words, 0D, (acc, w) -> acc + {kw_weight}), 0), 0)
-             + CASE WHEN c.rule_no IS NOT NULL
+             -- by-laws number separately, so "rule 17" must not boost By-Law 17
+             + CASE WHEN c.rule_no IS NOT NULL AND c.doc_type <> 'bylaws'
                      AND q.ql RLIKE concat('(^|[^0-9.])', replace(c.rule_no, '.', '\\\\.'), '([^0-9]|$)')
                     THEN {RULE_NO_BOOST} ELSE 0 END AS score
       FROM {chunks} c, q, vocab

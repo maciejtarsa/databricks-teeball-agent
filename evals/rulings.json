@@ -73,5 +73,20 @@
     "id": 15,
     "question": "A ball is caught by a fielder after a bat, do all the runners need to come back to their base?",
     "expected": "Not all, and it is not automatic. The batter is out on the catch; any runner who left their base before the catch must retouch it (in reverse order, 17.7) and is out only if they or that base are tagged by a fielder holding the ball before they get back (17.10). The ball stays live and runners may then advance at their own risk (17.11)."
+  },
+  {
+    "id": 16,
+    "question": "Is there a rule about having the same fielder in the same position in consecutive innings?",
+    "expected": "Yes, in the Wembley (WTBA) competition: By-Law 12.3 - teams must rotate fielding positions in the regular season; a player cannot play the same position for two consecutive fielding innings. The TBAWA Rule Book itself has no rotation rule, only 19.2 (no player sits out two consecutive fielding innings; warning to coach, then coach removed), which By-Law 12.4 repeats."
+  },
+  {
+    "id": 17,
+    "question": "It's really hot today. When are games called off for heat and what happens to the score?",
+    "expected": "WTBA By-Law 13 heat policy: if the temperature passes 37 degrees (Google Weather for Woodlands, City Beach, Stirling or Balcatta) there are 3 siren blasts to call off games; scores revert to even innings; a minimum of 3 innings constitutes a game; if fewer than 3 innings, teams agree a time and day to reschedule before leaving the diamond."
+  },
+  {
+    "id": 18,
+    "question": "In an under 7s game, can a coach from the fielding team be on the field?",
+    "expected": "Yes, one coach/assistant coach may be in the outfield but must stand behind the outfield players, not in the diamond, in fielding positions or behind the umpire (WTBA By-Law 11.1). TBAWA Rule 5 similarly allows one fielding coach behind the outfield for 9s and under; a live ball touching them or the coach assisting a fielder = home run to the batter."
   }
 ]

@@ -21,7 +21,7 @@ spark.sql(f"""
 CREATE OR REPLACE FUNCTION {catalog}.{schema}.ask_rulebook(
   question STRING COMMENT 'The umpire''s teeball rules question, in plain English')
 RETURNS STRING
-COMMENT 'Answers a teeball umpire rules question from the TBAWA Rule Book and Annotated Manual, with rule and page citations. Use for ANY question about teeball rules, rulings, umpiring or game situations.'
+COMMENT 'Answers a teeball umpire rules question from the TBAWA Rule Book, Annotated Manual and Wembley (WTBA) By-Laws, with rule and page citations. Use for ANY question about teeball rules, rulings, umpiring or game situations.'
 RETURN {function_body(catalog, schema, llm_endpoint, embedding_endpoint, prompt, mode)}
 """)
 print(f"created {catalog}.{schema}.ask_rulebook (llm={llm_endpoint}, retrieval={mode})")

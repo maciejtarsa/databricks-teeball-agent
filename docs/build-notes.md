@@ -263,3 +263,11 @@ Gotchas: serverless python tasks have no `__file__` (pass code dir as arg); `bun
 - Lessons: Chat routing best-effort; direct agent link = reliable entry point; avoid recreating agents (key/parent_path changes) close to a demo.
 - Possible fallback (not done): table comment telling Chat to run `SELECT workspace.teeball.ask_rulebook('<q>')`.
 - Resolved (same day, few hours later): web Chat found agent unprompted. Mobile Chat missed it first; found it once agent named explicitly. Confirms index lag, not permissions/folder. No certification needed.
+
+## Iteration 14: third document - Wembley (WTBA) By-Laws (2026-11-23)
+- Trigger: asked "same fielder same position consecutive innings?" -> answered "no rule" from TBAWA docs. Wrong for Wembley: By-Law 12.3 requires rotation. Knowledge gap, not model error.
+- Adding a doc = drop PDF in knowledge/rulebooks + entry in documents.json + run ingest. 52 chunks, clean one-per-by-law.
+- Gotcha: by-laws numbered 1-43 separately (By-Law 17 Safety Bases vs Rule 17 Running). Fixed: label "By-Law X", rule-number boost + heading inheritance skip doc_type bylaws, retrieval eval ignores by-law rule numbers.
+- Prompt v3: by-laws = local rules adding to TBAWA, label as WTBA, never as TBAWA. Citation format (WTBA By-Law 12.3, p6).
+- Eval (rulings, 18 q): original 15 unchanged 10C/4P/1W; by-law q's 2C/1P. Partial = rotation answer invents penalty (borrows 12.4 sit-out warning/removal).
+- Blog angle: growing knowledge base worked as designed; evaluation set grew with it (3 by-law questions).
