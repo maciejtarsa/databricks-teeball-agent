@@ -27,7 +27,7 @@ Sources: TBAWA (Teeball Association of Western Australia) Official Rule Book Ed 
   databricks auth login --host https://<your-workspace>.cloud.databricks.com --profile teeball
   ```
 - A SQL warehouse named "Serverless Starter Warehouse" (Free Edition default) or override `warehouse_id`.
-- For prod: a workspace group for business users (default `business_us`, override with `--var business_group=<name>`). It gets CAN_RUN on the agent, EXECUTE on `ask_rulebook` and SELECT on `documents` only; the function reads `rule_chunks` with its owner's rights.
+- For prod: a workspace group for business users (default `business_us`, override with `--var business_group=<name>`). It gets CAN_RUN on the agent and USE_SCHEMA/SELECT/EXECUTE on the schema (calling `ask_rulebook` from Genie fails without SELECT).
 
 ## Deploy
 

@@ -280,4 +280,5 @@ Gotchas: serverless python tasks have no `__file__` (pass code dir as arg); `bun
 - Gotcha: Genie space PATCH fails if data source table doesn't exist yet -> deploy, run ingest (creates table), deploy again.
 - New job `eval_genie`: asks deployed agent the rulings via Genie API, records queries run + judges the text Genie shows -> `genie_runs`.
 - Run `function-only`: ask_rulebook 18/18; 9C/9P/0W; cites_rule 5/18. Genie's visible text is its own short summary (~300 chars) of the function output, dropping most citations + conditions despite "return the function's answer text exactly". Function itself: 12C/5P/1W, cites 18/18.
+- Grants reverted: business user on mobile got "technical issue accessing the rulebook function" with EXECUTE but no SELECT, despite docs saying SQL UDF bodies use owner's rights (maybe ai_query/Genie checks). Back to USE_SCHEMA + SELECT + EXECUTE. Lockdown = space config only.
 - To verify: Genie One chat on mobile as business user (routing + generated code = ask_rulebook).
