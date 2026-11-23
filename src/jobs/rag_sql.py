@@ -133,11 +133,11 @@ def llm_call(llm_endpoint, prompt_expr):
 
 
 def answer_sql(catalog, schema, llm_endpoint, embedding_endpoint, question="question"):
-    """Top-level statement that answers `question` via build_rule_prompt.
+    """Top-level statement that answers `question` via build_rule_prompt (the Genie agent's query, see genie.yml).
 
-    ai_query fails with AI_FUNCTION_REGISTRY_LOOKUP_FAILURE for non-owners when it runs inside another user's
-    SQL UDF, so both model calls sit here, outside the function, and run as the caller (e.g. Genie's user).
+    ai_query fails with AI_FUNCTION_REGISTRY_LOOKUP_FAILURE for non-admins when it runs inside another user's
+    SQL UDF, or when given modelParameters, so both model calls sit here, outside the function, with defaults.
     """
     prompt_expr = (f"{catalog}.{schema}.build_rule_prompt({question}, "
                    f"ai_query({sql_str(embedding_endpoint)}, {question}))")
-    return f"SELECT {llm_call(llm_endpoint, prompt_expr)} AS answer"
+    return f"SELECT ai_query({sql_str(llm_endpoint)}, {prompt_expr}) AS answer"

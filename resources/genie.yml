@@ -46,8 +46,9 @@ resources:
               question:
                 - "Runner on 1st runs on the hit and the ball is caught. Is the runner out?"
               sql: &answer_sql
-                # Model calls stay outside the function: ai_query fails for non-owners inside another user's SQL UDF
-                - "SELECT ai_query('${var.llm_endpoint}', ${var.catalog}.${resources.schemas.teeball.name}.build_rule_prompt(:question, ai_query('${var.embedding_endpoint}', :question)), modelParameters => named_struct('temperature', 0.0, 'max_tokens', 8000)) AS answer"
+                # Model calls stay outside the function: ai_query fails for non-owners inside another user's SQL UDF.
+                # No modelParameters: with them ai_query fails for non-admins (AI_FUNCTION_REGISTRY_LOOKUP_FAILURE)
+                - "SELECT ai_query('${var.llm_endpoint}', ${var.catalog}.${resources.schemas.teeball.name}.build_rule_prompt(:question, ai_query('${var.embedding_endpoint}', :question))) AS answer"
               parameters:
                 - name: question
                   type_hint: STRING
