@@ -34,7 +34,7 @@ variables:
     description: "ask_rulebook retrieval: vector | hybrid | hybrid_siblings (see src/jobs/rag_sql.py)"
     default: hybrid
   business_group:
-    description: Workspace group that can ask the prod agent (CAN_RUN) and read the prod schema
+    description: Workspace group that can ask the prod agent (CAN_RUN), call build_rule_prompt and read the documents table
     default: business_us
   warehouse_id:
     description: SQL warehouse for Genie + SQL tasks
@@ -63,7 +63,7 @@ targets:
       schemas:
         teeball:
           grants:
-            # SELECT needed: without it business users get an error calling ask_rulebook from Genie, even though
-            # SQL UDF bodies run with owner's rights. The agent's only data source is still the documents table.
+            # No SELECT: build_rule_prompt reads rule_chunks with its owner's rights, and without it Genie One chat
+            # can't fall back to querying rule_chunks itself. The ingest job grants SELECT on the documents table only.
             - principal: ${var.business_group}
-              privileges: [USE_SCHEMA, SELECT, EXECUTE]
+              privileges: [USE_SCHEMA, EXECUTE]

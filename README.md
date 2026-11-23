@@ -27,7 +27,7 @@ Sources: TBAWA (Teeball Association of Western Australia) Official Rule Book Ed 
   databricks auth login --host https://<your-workspace>.cloud.databricks.com --profile teeball
   ```
 - A SQL warehouse named "Serverless Starter Warehouse" (Free Edition default) or override `warehouse_id`.
-- For prod: a workspace group for business users (default `business_us`, override with `--var business_group=<name>`). It gets CAN_RUN on the agent and USE_SCHEMA/SELECT/EXECUTE on the schema.
+- For prod: a workspace group for business users (default `business_us`, override with `--var business_group=<name>`). It gets CAN_RUN on the agent, USE_SCHEMA/EXECUTE on the schema and SELECT on `documents` only (the functions read `rule_chunks` with their owner's rights, and Genie One can't query it directly).
   - The group also needs the **Databricks SQL access** entitlement (set once in the workspace admin settings or via `databricks groups patch`; bundles can't manage entitlements). With consumer access only, `ai_query` fails with `AI_FUNCTION_REGISTRY_LOOKUP_FAILURE`.
 
 ## Deploy
