@@ -295,4 +295,4 @@ Gotchas: serverless python tasks have no `__file__` (pass code dir as arg); `bun
 - Unknown: Free Edition limits vs platform bugs. Opening up properly = Databricks App as service principal (SDK model calls with max_tokens), but apps run while started (no scale to zero).
 - CONFIRMED: admin status, not function ownership. Same test user made admin (not owner, only USE_SCHEMA + EXECUTE, fewer grants than as business user): ask_rulebook works in SQL, plain ai_query + modelParameters works, agent works in Genie One web + mobile. As non-admin (with SQL access + schema SELECT) both failed.
 - Workspace `admins` group can't be a UC grant principal (PRINCIPAL_DOES_NOT_EXIST: workspace-local group). Other admins need explicit schema grants: complex var `agent_grants`, set per user in gitignored .databricks/bundle/prod/variable-overrides.json.
-- Test user left in `admins` for now (manual, outside DABs).
+- Test user removed from `admins` again and from agent_grants (empty list deploy revoked their schema grants). Back to: owner + admins only.
