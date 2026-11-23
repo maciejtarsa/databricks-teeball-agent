@@ -1,4 +1,5 @@
-"""(Re)create the ask_rulebook SQL function: embed question, rank rule_chunks in SQL, LLM answer with citations.
+"""(Re)create the SQL functions: ask_rulebook (embed question, rank rule_chunks in SQL, LLM answer with citations)
+and build_rule_prompt (same ranking + prompt, no model calls; what the Genie agent uses).
 
 Plain SQL over stored embeddings (no Vector Search endpoint), so it is pay-per-use and runs from Genie.
 
@@ -25,3 +26,15 @@ COMMENT 'Answers a teeball umpire rules question from the TBAWA Rule Book, Annot
 RETURN {function_body(catalog, schema, llm_endpoint, embedding_endpoint, prompt, mode)}
 """)
 print(f"created {catalog}.{schema}.ask_rulebook (llm={llm_endpoint}, retrieval={mode})")
+
+# Same retrieval + prompt, without the model calls: ai_query fails for non-owners inside another user's SQL UDF,
+# so the Genie agent runs both ai_query calls itself around this function (rag_sql.answer_sql)
+spark.sql(f"""
+CREATE OR REPLACE FUNCTION {catalog}.{schema}.build_rule_prompt(
+  question STRING COMMENT 'The umpire''s teeball rules question, in plain English',
+  question_embedding ARRAY<FLOAT> COMMENT 'Embedding of the question from the same model as rule_chunks')
+RETURNS STRING
+COMMENT 'Builds the answering prompt for a teeball rules question: ranks TBAWA Rule Book, Annotated Manual and WTBA By-Laws sections and adds the best ones as excerpts. Call it as: SELECT ai_query(<llm>, build_rule_prompt(q, ai_query(<embedding model>, q)))'
+RETURN {function_body(catalog, schema, llm_endpoint, embedding_endpoint, prompt, mode, output="prompt")}
+""")
+print(f"created {catalog}.{schema}.build_rule_prompt (retrieval={mode})")

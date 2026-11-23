@@ -191,7 +191,7 @@ MERGE INTO {chunks_tbl} t USING new_chunks s ON t.chunk_id = s.chunk_id
 WHEN NOT MATCHED THEN INSERT *
 WHEN NOT MATCHED BY SOURCE THEN DELETE
 """)
-spark.sql(f"""COMMENT ON TABLE {chunks_tbl} IS 'Teeball (tee-ball, T-ball) rules knowledge base for TBAWA umpires: every rule and umpire interpretation from the TBAWA Official Rule Book (Edition 8), the Annotated Rule Book & Umpire Manual (Edition 7A) and the Wembley Tee-Ball Association (WTBA) By-Laws (local competition rules), one row per rule section. Answer teeball rules questions with the ask_rulebook function.'""")
+spark.sql(f"""COMMENT ON TABLE {chunks_tbl} IS 'Teeball (tee-ball, T-ball) rules knowledge base for TBAWA umpires: every rule and umpire interpretation from the TBAWA Official Rule Book (Edition 8), the Annotated Rule Book & Umpire Manual (Edition 7A) and the Wembley Tee-Ball Association (WTBA) By-Laws (local competition rules), one row per rule section. Answer teeball rules questions with the build_rule_prompt example query.'""")
 for col, comment in {
     "rule_no": "Teeball rule number, e.g. 17.10 (tag up after catch), 13.1 (foul ball), 20 (obstruction). For WTBA By-Laws (doc_type bylaws) this is the by-law number, a separate numbering",
     "doc_type": "rulebook (TBAWA Rule Book), manual (Annotated Manual) or bylaws (Wembley WTBA local by-laws)",
@@ -228,7 +228,7 @@ spark.createDataFrame(
 ).createOrReplaceTempView("doc_list")
 spark.sql(f"""
 CREATE OR REPLACE TABLE {docs_tbl}
-COMMENT 'Teeball (tee-ball, T-ball) rules documents for TBAWA umpires: the TBAWA Official Rule Book (Edition 8), the Annotated Rule Book & Umpire Manual (Edition 7A) and the Wembley Tee-Ball Association (WTBA) By-Laws. Titles only, no rule text: answer every teeball rules question with the ask_rulebook function.' AS
+COMMENT 'Teeball (tee-ball, T-ball) rules documents for TBAWA umpires: the TBAWA Official Rule Book (Edition 8), the Annotated Rule Book & Umpire Manual (Edition 7A) and the Wembley Tee-Ball Association (WTBA) By-Laws. Titles only, no rule text: answer every teeball rules question with the build_rule_prompt example query.' AS
 SELECT d.*, count(c.chunk_id) AS sections
 FROM doc_list d LEFT JOIN {chunks_tbl} c ON c.file_name = d.file_name
 GROUP BY ALL
@@ -240,7 +240,7 @@ for col, comment in {
     "sections": "Number of rule sections indexed for ask_rulebook",
 }.items():
     spark.sql(f"ALTER TABLE {docs_tbl} ALTER COLUMN {col} COMMENT '{comment}'")
-# Readers get this table only; ask_rulebook reads rule_chunks with its owner's rights (schema grants EXECUTE, not SELECT)
+# Explicit grant so the agent's only table stays readable if the schema-wide SELECT is ever dropped
 try:
     spark.sql(f"GRANT SELECT ON TABLE {docs_tbl} TO `{readers}`")
 except Exception as e:  # e.g. group doesn't exist in this workspace
