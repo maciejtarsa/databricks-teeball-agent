@@ -26,11 +26,14 @@ variables:
     description: Foundation model endpoint for chunk + question embeddings
     default: databricks-gte-large-en
   answer_prompt:
-    description: Answer prompt file in src/prompts used by ask_rulebook (v2 = Manual-aware, procedure steps)
+    description: Answer prompt file in src/prompts used by ask_rulebook (v3 = Manual-aware, procedure steps, WTBA by-laws)
     default: answer_rules_v3.md
   retrieval_mode:
     description: "ask_rulebook retrieval: vector | hybrid | hybrid_siblings (see src/jobs/rag_sql.py)"
     default: hybrid
+  business_group:
+    description: Workspace group that can ask the prod agent (CAN_RUN) and read the prod schema
+    default: business_us
   warehouse_id:
     description: SQL warehouse for Genie + SQL tasks
     lookup:
@@ -41,24 +44,22 @@ targets:
     mode: development
     default: true
     workspace:
-      host: https://dbc-414b7f92-c469.cloud.databricks.com
-      profile: teeball
+      profile: teeball  # ~/.databrickscfg profile holding your workspace host
 
   prod:
     mode: production
     workspace:
-      host: https://dbc-414b7f92-c469.cloud.databricks.com
-      profile: teeball
+      profile: teeball  # ~/.databrickscfg profile holding your workspace host
       root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
     resources:
-      # Prod is what business users (business_us group) can ask; dev stays owner-only
+      # Prod is what business users (var.business_group) can ask; dev stays owner-only
       genie_spaces:
         teeball_agent:
           permissions:
-            - group_name: business_us
+            - group_name: ${var.business_group}
               level: CAN_RUN
       schemas:
         teeball:
           grants:
-            - principal: business_us
+            - principal: ${var.business_group}
               privileges: [USE_SCHEMA, SELECT, EXECUTE]
