@@ -33,6 +33,13 @@ variables:
   retrieval_mode:
     description: "ask_rulebook retrieval: vector | hybrid | hybrid_siblings (see src/jobs/rag_sql.py)"
     default: hybrid
+  agent_grants:
+    description: >-
+      Schema grants for other workspace admins who ask the agent (the owner needs none), e.g.
+      [{principal: "admin@example.com", privileges: [USE_SCHEMA, SELECT, EXECUTE]}].
+      Set in .databricks/bundle/prod/variable-overrides.json to keep emails out of the repo
+    type: complex
+    default: []
   warehouse_id:
     description: SQL warehouse for Genie + SQL tasks
     lookup:
@@ -50,5 +57,10 @@ targets:
     workspace:
       profile: teeball  # ~/.databrickscfg profile holding your workspace host
       root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
-    # Admin-only: no business-user permissions. Non-admins can't run ai_query from Genie on this workspace
-    # (see README Limitations); opening it up needs a Databricks App or similar that calls the models itself
+    # Admin-only: non-admins can't run ai_query from Genie on this workspace (see README Limitations); opening it up
+    # needs a Databricks App or similar that calls the models itself. Being a workspace admin doesn't grant Unity
+    # Catalog privileges, so other admins who ask the agent need schema access: list them in var.agent_grants
+    resources:
+      schemas:
+        teeball:
+          grants: ${var.agent_grants}

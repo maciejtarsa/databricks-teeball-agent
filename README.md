@@ -27,7 +27,10 @@ Sources: TBAWA (Teeball Association of Western Australia) Official Rule Book Ed 
   databricks auth login --host https://<your-workspace>.cloud.databricks.com --profile teeball
   ```
 - A SQL warehouse named "Serverless Starter Warehouse" (Free Edition default) or override `warehouse_id`.
-- Deploy as a workspace admin. The agent is admin-only (see [Limitations](#limitations)).
+- Deploy as a workspace admin. The agent is admin-only (see [Limitations](#limitations)). Other admins who ask it need schema access (being a workspace admin doesn't grant Unity Catalog privileges): list them in `.databricks/bundle/prod/variable-overrides.json` (not committed):
+  ```json
+  {"agent_grants": [{"principal": "admin@example.com", "privileges": ["USE_SCHEMA", "SELECT", "EXECUTE"]}]}
+  ```
 
 ## Deploy
 
@@ -79,7 +82,7 @@ Experiments run through temporary functions, so the live agent isn't touched. Em
 
 | Path | What |
 |---|---|
-| `databricks.yml` | Bundle, variables, dev/prod targets |
+| `databricks.yml` | Bundle, variables, dev/prod targets, schema grants for other admins |
 | `resources/` | Schema + volume, ingest job, evaluation jobs, Genie agent |
 | `src/jobs/` | Copy PDFs, parse/chunk/embed, create function, evaluation jobs |
 | `src/jobs/rag_sql.py` | Shared SQL template for `ask_rulebook` (retrieval modes, answer/retrieval output) |
@@ -97,20 +100,20 @@ Experiments run through temporary functions, so the live agent isn't touched. Em
 
 ### Admin-only: non-admin users can't use the agent
 
-The agent works for workspace admins only. Every call that business users (consumer access) made to `ask_rulebook` failed with `[AI_FUNCTION_REGISTRY_LOOKUP_FAILURE] Failed to dynamically resolve function "ai_query" from AI Function Registry. INTERNAL: An unknown error occurred.` Admins never see it, so it went unnoticed for days: Genie quietly fell back to its own keyword query on `rule_chunks` and answered from that.
+The agent works for workspace admins only. We tested this with the same user as a non-admin and as an admin (not the function's owner, with fewer grants): every failure below disappeared once the user was an admin, on the web and in the mobile app. Every call that business users (consumer access) made to `ask_rulebook` failed with `[AI_FUNCTION_REGISTRY_LOOKUP_FAILURE] Failed to dynamically resolve function "ai_query" from AI Function Registry. INTERNAL: An unknown error occurred.` Admins never see it, so it went unnoticed for days: Genie quietly fell back to its own keyword query on `rule_chunks` and answered from that.
 
 What we found, testing as a non-admin user on Free Edition (2026-11-23):
 
 | Problem | Workaround tried | Outcome |
 |---|---|---|
 | Consumer access only: `ai_query` fails everywhere | Add the Databricks SQL access entitlement | Direct `ai_query` works |
-| `ai_query` inside a SQL function owned by another user fails, even with SQL access | Split the function: `build_rule_prompt` (no model calls) + both `ai_query` calls at the top of Genie's query | Function works; model calls move to the caller |
+| `ai_query` inside a SQL function owned by another user fails for non-admins, even with SQL access (works for a non-owner admin) | Split the function: `build_rule_prompt` (no model calls) + both `ai_query` calls at the top of Genie's query | Function works; model calls move to the caller |
 | `ai_query(..., modelParameters => ...)` fails for non-admins (even just `max_tokens`) | Drop `modelParameters` | GPT-OSS (a reasoning model) then hits the default output limit and returns NULL in roughly 1 of 4 answers |
 | Entitlement changes don't reach open sessions; logging out isn't enough | Test in a new SQL editor tab / new Genie chat | Explained "worked, then failed" results |
 
 Also learned along the way: an inline `ai_query` passed as a function argument can be re-evaluated (pass it as a scalar subquery), and with schema-wide SELECT, Genie One chat can query `rule_chunks` directly, bypassing the agent.
 
-Every workaround worked, but together they left a fragile agent that still drops answers. So the agent stays admin-only with the simple `ask_rulebook` design, and nothing is granted to other users. We couldn't tell whether these are Free Edition limits or general platform bugs.
+Every workaround worked, but together they left a fragile agent that still drops answers. So the agent stays admin-only with the simple `ask_rulebook` design, and nothing is granted to non-admins. We couldn't tell whether these are Free Edition limits or general platform bugs.
 
 To open it up properly, move the model calls out of users' hands: for example a Databricks App (mobile-friendly, opens from the Databricks mobile app) that runs as a service principal and calls the models through the SDK with `max_tokens` set. The catch: an app runs, and costs, while it's started; it doesn't scale to zero like the serverless pieces here.
 
