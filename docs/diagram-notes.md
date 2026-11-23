@@ -1,6 +1,9 @@
 # Infra diagram notes (for image generation)
 
-## v2 render: current (docs/images/architecture-v2.png)
+## v3 render: current (docs/images/architecture-v3.png)
+v2 + edit pass below: arrow now points down from "Knowledge base" to "Find rules + answer", orange icon moved from "Parse & chunk" to "Find rules + answer", phone aligned with bottom lane. All pending tweaks done.
+
+## v2 render (superseded)
 Generated from the Option A prompt below. Good: two lanes tell the story, return arrow with "Fair ball (Rule 14c)" shows the payoff, no clutter. Blog-ready as is.
 
 Pending tweaks (next image-generation session):

@@ -8,7 +8,7 @@ A teeball umpire rules assistant on Databricks. Rulebook PDFs go in, a Genie age
 
 Sources: TBAWA (Teeball Association of Western Australia) Official Rule Book Ed 8, TBAWA Annotated Rule Book & Umpire Manual 7A, and Wembley Tee-Ball Association (WTBA) By-Laws July 2026.
 
-![Architecture](docs/images/architecture-v2.png)
+![Architecture](docs/images/architecture-v3.png)
 
 ## How it works
 
