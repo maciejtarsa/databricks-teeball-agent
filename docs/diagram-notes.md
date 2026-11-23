@@ -71,7 +71,7 @@ Small icon: serverless SQL warehouse (auto-stop).
 - Small person icon "umpire" holding the phone, on a teeball field
 
 ### Bottom bar: Deploy and govern
-- "Databricks Asset Bundles": `databricks bundle deploy -t dev | prod`
+- "Declarative Automation Bundles": `databricks bundle deploy -t dev | prod`
 - Two lanes: **dev** (owner only, prefixed names) and **prod** ("Teeball Umpire", group `business_us`: CAN_RUN + SELECT/EXECUTE)
 - Unity Catalog shield icon (governance)
 
@@ -91,6 +91,6 @@ The question goes right-to-left and the answer comes back left-to-right; draw th
 - 16:9 landscape, readable at blog width (~1200px). Keep text short; image generators mangle long text.
 
 ## Example prompt (Nano Banana / Gemini image)
-> Flat, clean technical architecture diagram, 16:9, white background, Databricks colours (orange-red #FF3621, dark navy #1B3139, light grey panels). Four zones left to right, titled "Source", "Ingest", "Answer", "Ask". Source: a GitHub repo box with two PDF icons labelled "Rule Book Ed 8" and "Manual 7A". Ingest: a job box with three steps, "Copy to Volume", "Parse → Chunk → Embed", "Create function", feeding a table icon labelled "rule_chunks". Answer: a box labelled "ask_rulebook(question)" with steps "Embed question", "Similarity search (SQL)", "LLM answer + citations". Ask: a box "Genie Agent: Teeball Umpire" connected to a smartphone showing a chat bubble "Fair or foul?" and a reply "Fair ball (Rule 14c)". Arrows connect the zones; a dashed arrow returns the answer to the phone. Bottom banner: "Databricks Asset Bundles: dev | prod", with a shield icon "Unity Catalog". Small badge: "Nothing always-on". Minimal teeball icons (ball on a tee). Short, legible labels, no extra text.
+> Flat, clean technical architecture diagram, 16:9, white background, Databricks colours (orange-red #FF3621, dark navy #1B3139, light grey panels). Four zones left to right, titled "Source", "Ingest", "Answer", "Ask". Source: a GitHub repo box with two PDF icons labelled "Rule Book Ed 8" and "Manual 7A". Ingest: a job box with three steps, "Copy to Volume", "Parse → Chunk → Embed", "Create function", feeding a table icon labelled "rule_chunks". Answer: a box labelled "ask_rulebook(question)" with steps "Embed question", "Similarity search (SQL)", "LLM answer + citations". Ask: a box "Genie Agent: Teeball Umpire" connected to a smartphone showing a chat bubble "Fair or foul?" and a reply "Fair ball (Rule 14c)". Arrows connect the zones; a dashed arrow returns the answer to the phone. Bottom banner: "Declarative Automation Bundles: dev | prod", with a shield icon "Unity Catalog". Small badge: "Nothing always-on". Minimal teeball icons (ball on a tee). Short, legible labels, no extra text.
 
 Tips: generate the layout first, then fix labels in a second edit pass ("change label X to Y"). Produce one variant without the crossed-out alternatives and one with them for the "what didn't work" section.
