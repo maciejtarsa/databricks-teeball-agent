@@ -14,8 +14,8 @@ Sources: TBAWA (Teeball Association of Western Australia) Official Rule Book Ed 
 
 1. **Ingest** (`ingest_rulebooks` job): PDFs in `knowledge/rulebooks/` are synced with the bundle and copied to a Unity Catalog volume.
 2. **Parse & chunk:** `ai_parse_document`, then one chunk per rule/section, each prefixed with document, rule number and pages. Only new or changed PDFs are re-parsed.
-3. **Embed:** `databricks-gte-large-en` embeddings stored in a Delta column (`rule_chunks`), plus IDF keyword weights (`rule_terms`).
-4. **Answer:** SQL function `ask_rulebook(question)` embeds the question, ranks chunks in plain SQL (cosine + keyword overlap + rule-number boost), takes the top 5 per document, and asks `databricks-gpt-oss-120b` to answer with citations using `src/prompts/answer_rules_v3.md`.
+3. **Embed:** `system.ai.gte-large-en` embeddings stored in a Delta column (`rule_chunks`), plus IDF keyword weights (`rule_terms`).
+4. **Answer:** SQL function `ask_rulebook(question)` embeds the question, ranks chunks in plain SQL (cosine + keyword overlap + rule-number boost), takes the top 5 per document, and asks `system.ai.gpt-oss-120b` to answer with citations using `src/prompts/answer_rules_v3.md`.
 5. **Agent:** Genie agent "Teeball Umpire" calls `ask_rulebook` via a parameterised example SQL. Its only table is `documents` (titles, no rule text), so it can't bypass the function with its own keyword query. Genie One (web + mobile) routes teeball questions to it.
 
 ## Prerequisites
@@ -59,7 +59,7 @@ databricks bundle run -t prod eval_rulings --params "label=my-change"
 databricks bundle run -t prod eval_rulings --params "label=my-change,evals_file=opus.json"
 
 # Compare models / retrieval modes ('|' separates values; --params splits on commas)
-databricks bundle run -t prod eval_rulings --params "label=models,models=databricks-gpt-oss-120b|databricks-meta-llama-3-3-70b-instruct"
+databricks bundle run -t prod eval_rulings --params "label=models,models=system.ai.gpt-oss-120b|databricks-meta-llama-3-3-70b-instruct"
 
 # Retrieval only (did the right rule reach the model?) -> retrieval_runs table
 databricks bundle run -t prod eval_retrieval --params "label=my-change"

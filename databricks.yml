@@ -20,11 +20,13 @@ variables:
     description: Volume folder holding the rulebook PDFs
     default: /Volumes/${var.catalog}/${resources.schemas.teeball.name}/${resources.volumes.kb_docs.name}/rulebooks
   llm_endpoint:
-    description: Foundation model endpoint that writes the answers
-    default: databricks-gpt-oss-120b
+    # system.ai.* (Unity Catalog model name), not the databricks-* endpoint name: non-admin users calling
+    # ai_query with endpoint names get AI_FUNCTION_REGISTRY_LOOKUP_FAILURE
+    description: Foundation model that writes the answers
+    default: system.ai.gpt-oss-120b
   embedding_endpoint:
-    description: Foundation model endpoint for chunk + question embeddings
-    default: databricks-gte-large-en
+    description: Foundation model for chunk + question embeddings (same model as stored embeddings)
+    default: system.ai.gte-large-en
   answer_prompt:
     description: Answer prompt file in src/prompts used by ask_rulebook (v3 = Manual-aware, procedure steps, WTBA by-laws)
     default: answer_rules_v3.md
