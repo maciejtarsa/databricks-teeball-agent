@@ -1,9 +1,10 @@
 """Parse rulebook PDFs in the volume with ai_parse_document and split them into rule-level chunks.
 
-Args: catalog schema volume_dir documents_json embedding_endpoint
+Args: catalog schema volume_dir documents_json embedding_endpoint readers
 - parsed_docs: one row per PDF (only new/changed files are re-parsed)
 - rule_chunks: one row per rule section, merged by chunk_id, with an embedding per chunk (only new chunks are embedded)
 - rule_terms: IDF per word (keyword weights for hybrid retrieval)
+- documents: one row per document, titles only (the Genie agent's only table; readers get SELECT on it)
 """
 import hashlib
 import json
@@ -12,7 +13,7 @@ import sys
 
 from pyspark.sql import SparkSession
 
-catalog, schema, volume_dir, documents_json, embedding_endpoint = sys.argv[1:6]
+catalog, schema, volume_dir, documents_json, embedding_endpoint, readers = sys.argv[1:7]
 spark = SparkSession.builder.getOrCreate()
 parsed_tbl = f"{catalog}.{schema}.parsed_docs"
 chunks_tbl = f"{catalog}.{schema}.rule_chunks"
@@ -217,6 +218,33 @@ WITH terms AS (
 SELECT w AS word, ln(n / (1 + count(*))) AS idf
 FROM terms CROSS JOIN (SELECT count(*) AS n FROM {chunks_tbl}) GROUP BY w, n
 """)
+
+# Document list for the Genie agent: titles only, no rule text, so the only way to answer a rules question
+# is the ask_rulebook function (with rule_chunks as a data source Genie sometimes wrote its own keyword query)
+docs_tbl = f"{catalog}.{schema}.documents"
+spark.createDataFrame(
+    [(f, m["title"], m["doc_type"], m["edition"], m["authority_rank"]) for f, m in doc_meta.items()],
+    "file_name STRING, title STRING, doc_type STRING, edition STRING, authority_rank INT",
+).createOrReplaceTempView("doc_list")
+spark.sql(f"""
+CREATE OR REPLACE TABLE {docs_tbl}
+COMMENT 'Teeball (tee-ball, T-ball) rules documents for TBAWA umpires: the TBAWA Official Rule Book (Edition 8), the Annotated Rule Book & Umpire Manual (Edition 7A) and the Wembley Tee-Ball Association (WTBA) By-Laws. Titles only, no rule text: answer every teeball rules question with the ask_rulebook function.' AS
+SELECT d.*, count(c.chunk_id) AS sections
+FROM doc_list d LEFT JOIN {chunks_tbl} c ON c.file_name = d.file_name
+GROUP BY ALL
+""")
+for col, comment in {
+    "title": "Document title: TBAWA Official Rule Book Ed 8, Annotated Rule Book & Umpire Manual Ed 7A, or WTBA By-Laws July 2026",
+    "doc_type": "rulebook (TBAWA Rule Book), manual (Annotated Manual) or bylaws (Wembley WTBA local by-laws)",
+    "authority_rank": "1 = Rule Book (wins on conflict), 2 = Annotated Manual, 3 = WTBA By-Laws (local rules for Wembley competition games)",
+    "sections": "Number of rule sections indexed for ask_rulebook",
+}.items():
+    spark.sql(f"ALTER TABLE {docs_tbl} ALTER COLUMN {col} COMMENT '{comment}'")
+# Readers get this table only; ask_rulebook reads rule_chunks with its owner's rights (schema grants EXECUTE, not SELECT)
+try:
+    spark.sql(f"GRANT SELECT ON TABLE {docs_tbl} TO `{readers}`")
+except Exception as e:  # e.g. group doesn't exist in this workspace
+    print(f"WARNING: could not grant SELECT on {docs_tbl} to {readers}: {e}")
 
 # ai_query is non-deterministic so can't be used in UPDATE/MERGE directly; materialise embeddings first
 to_embed = spark.sql(f"""

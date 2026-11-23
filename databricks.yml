@@ -32,7 +32,7 @@ variables:
     description: "ask_rulebook retrieval: vector | hybrid | hybrid_siblings (see src/jobs/rag_sql.py)"
     default: hybrid
   business_group:
-    description: Workspace group that can ask the prod agent (CAN_RUN) and read the prod schema
+    description: Workspace group that can ask the prod agent (CAN_RUN), call ask_rulebook and read the documents table
     default: business_us
   warehouse_id:
     description: SQL warehouse for Genie + SQL tasks
@@ -61,5 +61,6 @@ targets:
       schemas:
         teeball:
           grants:
+            # No SELECT: ask_rulebook reads rule_chunks with its owner's rights; the ingest job grants SELECT on documents only
             - principal: ${var.business_group}
-              privileges: [USE_SCHEMA, SELECT, EXECUTE]
+              privileges: [USE_SCHEMA, EXECUTE]

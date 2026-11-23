@@ -16,7 +16,7 @@ Sources: TBAWA (Teeball Association of Western Australia) Official Rule Book Ed 
 2. **Parse & chunk:** `ai_parse_document`, then one chunk per rule/section, each prefixed with document, rule number and pages. Only new or changed PDFs are re-parsed.
 3. **Embed:** `databricks-gte-large-en` embeddings stored in a Delta column (`rule_chunks`), plus IDF keyword weights (`rule_terms`).
 4. **Answer:** SQL function `ask_rulebook(question)` embeds the question, ranks chunks in plain SQL (cosine + keyword overlap + rule-number boost), takes the top 5 per document, and asks `databricks-gpt-oss-120b` to answer with citations using `src/prompts/answer_rules_v3.md`.
-5. **Agent:** Genie agent "Teeball Umpire" calls `ask_rulebook` via a parameterised example SQL. Genie One (web + mobile) routes teeball questions to it.
+5. **Agent:** Genie agent "Teeball Umpire" calls `ask_rulebook` via a parameterised example SQL. Its only table is `documents` (titles, no rule text), so it can't bypass the function with its own keyword query. Genie One (web + mobile) routes teeball questions to it.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ Sources: TBAWA (Teeball Association of Western Australia) Official Rule Book Ed 
   databricks auth login --host https://<your-workspace>.cloud.databricks.com --profile teeball
   ```
 - A SQL warehouse named "Serverless Starter Warehouse" (Free Edition default) or override `warehouse_id`.
-- For prod: a workspace group for business users (default `business_us`, override with `--var business_group=<name>`).
+- For prod: a workspace group for business users (default `business_us`, override with `--var business_group=<name>`). It gets CAN_RUN on the agent, EXECUTE on `ask_rulebook` and SELECT on `documents` only; the function reads `rule_chunks` with its owner's rights.
 
 ## Deploy
 
@@ -63,6 +63,9 @@ databricks bundle run -t prod eval_rulings --params "label=models,models=databri
 
 # Retrieval only (did the right rule reach the model?) -> retrieval_runs table
 databricks bundle run -t prod eval_retrieval --params "label=my-change"
+
+# End to end through the deployed agent (Genie Conversation API): did it call ask_rulebook? -> genie_runs table
+databricks bundle run -t prod eval_genie --params "label=my-change"
 ```
 
 Experiments run through temporary functions, so the live agent isn't touched. Empty answers are marked WRONG before judging.

@@ -271,3 +271,13 @@ Gotchas: serverless python tasks have no `__file__` (pass code dir as arg); `bun
 - Prompt v3: by-laws = local rules adding to TBAWA, label as WTBA, never as TBAWA. Citation format (WTBA By-Law 12.3, p6).
 - Eval (rulings, 18 q): original 15 unchanged 10C/4P/1W; by-law q's 2C/1P. Partial = rotation answer invents penalty (borrows 12.4 sit-out warning/removal).
 - Blog angle: growing knowledge base worked as designed; evaluation set grew with it (3 by-law questions).
+
+## Iteration 15: agent bypassing ask_rulebook (2026-11-23)
+- Seen on mobile (Genie One chat -> agent, "Thinking" mode): "Show generated code" = Genie's own `SELECT ... FROM rule_chunks WHERE lower(content) LIKE '%fair%foul%'`, not `ask_rulebook`. Right answer by luck; skips ranking + prompt the evals measure.
+- Cause: `rule_chunks` was the agent's data source (+ instruction allowing direct queries). Example SQL makes the function likely, not guaranteed.
+- Baseline via Genie Conversation API (direct to agent, 18 rulings): 18/18 called ask_rulebook. Bypass only seen via Genie One chat path, which the API can't drive.
+- Fix: new `documents` table (titles/edition/doc_type/sections, no rule text, routing comments) = agent's only data source; instruction "never answer from documents table". Business group grants: USE_SCHEMA + EXECUTE on schema, SELECT on `documents` only (SQL UDF body runs with owner's rights, so ask_rulebook still reads rule_chunks).
+- Gotcha: Genie space PATCH fails if data source table doesn't exist yet -> deploy, run ingest (creates table), deploy again.
+- New job `eval_genie`: asks deployed agent the rulings via Genie API, records queries run + judges the text Genie shows -> `genie_runs`.
+- Run `function-only`: ask_rulebook 18/18; 9C/9P/0W; cites_rule 5/18. Genie's visible text is its own short summary (~300 chars) of the function output, dropping most citations + conditions despite "return the function's answer text exactly". Function itself: 12C/5P/1W, cites 18/18.
+- To verify: Genie One chat on mobile as business user (routing + generated code = ask_rulebook).
