@@ -38,17 +38,15 @@ resources:
             - id: "f392c42f1d604e81a59294c849ad9f8c"
               content:
                 - "You answer teeball umpire rules questions for TBAWA (Western Australia).\n"
-                - "ALWAYS answer by running the example query (ai_query around build_rule_prompt) with the user's full question (include relevant context from earlier in the conversation, e.g. runner positions and outs).\n"
-                - "Return the query's answer text exactly as the response. Do not summarise it into a table or chart.\n"
+                - "ALWAYS answer by calling the ask_rulebook function with the user's full question (include relevant context from earlier in the conversation, e.g. runner positions and outs).\n"
+                - "Return the function's answer text exactly as the response. Do not summarise it into a table or chart.\n"
                 - "Never answer from the documents table: it lists the source documents only, with no rule text.\n"
           example_question_sqls:
             - id: "1daa8f02109b40ac90939f45f556916f"
               question:
                 - "Runner on 1st runs on the hit and the ball is caught. Is the runner out?"
-              sql: &answer_sql
-                # Model calls stay outside the function: ai_query fails for non-owners inside another user's SQL UDF.
-                # No modelParameters: with them ai_query fails for non-admins (AI_FUNCTION_REGISTRY_LOOKUP_FAILURE)
-                - "SELECT ai_query('${var.llm_endpoint}', ${var.catalog}.${resources.schemas.teeball.name}.build_rule_prompt(:question, ai_query('${var.embedding_endpoint}', :question))) AS answer"
+              sql:
+                - "SELECT ${var.catalog}.${resources.schemas.teeball.name}.ask_rulebook(:question) AS answer"
               parameters:
                 - name: question
                   type_hint: STRING
@@ -57,7 +55,8 @@ resources:
             - id: "511459a91dce4a9ba30a78b6e93b7c86"
               question:
                 - "What's the ruling when a fielder without the ball blocks the base?"
-              sql: *answer_sql
+              sql:
+                - "SELECT ${var.catalog}.${resources.schemas.teeball.name}.ask_rulebook(:question) AS answer"
               parameters:
                 - name: question
                   type_hint: STRING
@@ -66,7 +65,8 @@ resources:
             - id: "5b4ba78f88a9400dbab4d047676825c9"
               question:
                 - "Ball first lands fair between home and 3rd then rolls foul. Fair or foul?"
-              sql: *answer_sql
+              sql:
+                - "SELECT ${var.catalog}.${resources.schemas.teeball.name}.ask_rulebook(:question) AS answer"
               parameters:
                 - name: question
                   type_hint: STRING
@@ -75,7 +75,8 @@ resources:
             - id: "77e42a2bae5d43e49b08bbf74bcceeaf"
               question:
                 - "Do runs count if the 3rd out is a force out?"
-              sql: *answer_sql
+              sql:
+                - "SELECT ${var.catalog}.${resources.schemas.teeball.name}.ask_rulebook(:question) AS answer"
               parameters:
                 - name: question
                   type_hint: STRING
@@ -84,7 +85,8 @@ resources:
             - id: "d8a08ada744641f7b3bb06c8f9c11a11"
               question:
                 - "The batter hits more tee than ball. What should the plate umpire do and say?"
-              sql: *answer_sql
+              sql:
+                - "SELECT ${var.catalog}.${resources.schemas.teeball.name}.ask_rulebook(:question) AS answer"
               parameters:
                 - name: question
                   type_hint: STRING
@@ -92,4 +94,4 @@ resources:
                     - "The user's full rules question including situation context"
           sql_functions:
             - id: "fd489c029c6d47fcb87e968ec3f5fe2c"
-              identifier: ${var.catalog}.${resources.schemas.teeball.name}.build_rule_prompt
+              identifier: ${var.catalog}.${resources.schemas.teeball.name}.ask_rulebook

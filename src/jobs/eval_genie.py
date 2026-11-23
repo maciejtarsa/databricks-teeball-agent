@@ -1,7 +1,7 @@
 """Ask the deployed Genie agent the logged rulings through the Genie Conversation API and score what users see.
 
-eval_rulings tests ask_rulebook directly; this tests the agent end to end: did Genie use the pipeline (build_rule_prompt /
-ask_rulebook) or write its own query, and is the answer it shows right?
+eval_rulings tests ask_rulebook directly; this tests the agent end to end: did Genie call ask_rulebook
+(or write its own query), and is the answer it shows right?
 
 Args: catalog schema space_id evals_json judge_endpoint label id_prefix src_dir
 Appends to {catalog}.{schema}.genie_runs.
@@ -43,8 +43,8 @@ for e in evals:
         except Exception as ex:
             print(f"id {e['id']} attempt {attempt + 1}: {ex}")
             time.sleep(30)
-    used_function = any("build_rule_prompt" in q or "ask_rulebook" in q for q in queries)
-    print(f"id {e['id']}: {status} | pipeline={used_function} | {len(answer)} chars")
+    used_function = any("ask_rulebook" in q for q in queries)
+    print(f"id {e['id']}: {status} | ask_rulebook={used_function} | {len(answer)} chars")
     rows.append((e["id"], e["question"], e["expected"], answer, status, used_function, "\n---\n".join(queries)))
     time.sleep(5)
 
@@ -69,7 +69,7 @@ for r in sorted(judged, key=lambda r: r.id):
                 verdict, "CITES_RULE: YES" in j, j))
 
 counts = {v: sum(1 for o in out if o[10] == v) for v in ("CORRECT", "PARTIAL", "WRONG", "UNKNOWN")}
-print(f"{label} | {counts} | pipeline={sum(o[8] for o in out)}/{len(out)} | "
+print(f"{label} | {counts} | ask_rulebook={sum(o[8] for o in out)}/{len(out)} | "
       f"cites_rule={sum(o[11] for o in out)}/{len(out)} | by id: {' '.join(f'{o[3]}:{o[10][0]}' for o in out)}")
 spark.createDataFrame(out, "run_at TIMESTAMP, label STRING, judge STRING, id INT, question STRING, expected STRING, "
                            "answer STRING, status STRING, used_function BOOLEAN, queries STRING, verdict STRING, "

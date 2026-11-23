@@ -26,12 +26,9 @@ def function_body(catalog, schema, llm_endpoint, embedding_endpoint, prompt, mod
 
     output="answer": the LLM's answer text. output="retrieval": JSON array of the selected chunks
     (rule_no, heading, file) in rank order, without calling the LLM, to measure retrieval on its own.
-    output="prompt": the full LLM prompt, for a UDF that also takes `question_embedding ARRAY<FLOAT>`;
-    no ai_query inside, so non-owners can call it (see answer_sql).
     """
     if mode not in MODES:
         raise ValueError(f"unknown mode {mode}")
-    question_vector = "question_embedding" if output == "prompt" else f"ai_query({sql_str(embedding_endpoint)}, question)"
     chunks = f"{catalog}.{schema}.rule_chunks"
     cosine = """aggregate(zip_with(c.embedding, q.v, (a, b) -> a * b), 0D, (acc, x) -> acc + x)
                / (sqrt(aggregate(c.embedding, 0D, (acc, x) -> acc + x * x))
@@ -97,7 +94,7 @@ def function_body(catalog, schema, llm_endpoint, embedding_endpoint, prompt, mod
 
     ctes = f"""
   WITH q AS (
-      SELECT {question_vector} AS v, lower(question) AS ql,
+      SELECT ai_query({sql_str(embedding_endpoint)}, question) AS v, lower(question) AS ql,
              filter(array_distinct(split(regexp_replace(lower(question), '[^a-z0-9.]+', ' '), ' ')),
                     w -> length(w) >= 3 AND NOT array_contains(array({', '.join(sql_str(w) for w in STOPWORDS)}), w)) AS words),
     vocab AS (
@@ -107,37 +104,19 @@ def function_body(catalog, schema, llm_endpoint, embedding_endpoint, prompt, mod
     ),{top},{selected}"""
     ranked = f"slice(sort_array(collect_list(struct(-score AS s, content AS c, rule_no AS r, heading AS h, file_name AS f))), 1, {MAX_CHUNKS})"
 
-    full_prompt = f"concat({sql_str(prompt)}, '\\n\\nRULE EXCERPTS:\\n', excerpts, '\\n\\nQUESTION: ', question)"
-    excerpts = f"""SELECT concat_ws('\\n\\n---\\n\\n', transform({ranked}, x -> x.c)) AS excerpts
-    FROM selected"""
-    if output == "prompt":
-        return f"""({ctes}
-  SELECT {full_prompt}
-  FROM ({excerpts})
-)"""
     if output == "retrieval":
         return f"""({ctes}
   SELECT to_json(transform({ranked}, x -> named_struct('rule_no', x.r, 'heading', x.h, 'file', x.f)))
   FROM selected
 )"""
     return f"""({ctes}
-  SELECT {llm_call(llm_endpoint, full_prompt)}
-  FROM ({excerpts})
+  SELECT ai_query(
+    {sql_str(llm_endpoint)},
+    concat({sql_str(prompt)}, '\\n\\nRULE EXCERPTS:\\n', excerpts, '\\n\\nQUESTION: ', question),
+    -- generous max_tokens: reasoning models (e.g. Qwen 3.5) spend tokens thinking and return '' if cut off
+    modelParameters => named_struct('temperature', 0.0, 'max_tokens', 8000))
+  FROM (
+    SELECT concat_ws('\\n\\n---\\n\\n', transform({ranked}, x -> x.c)) AS excerpts
+    FROM selected
+  )
 )"""
-
-
-def llm_call(llm_endpoint, prompt_expr):
-    # generous max_tokens: reasoning models (e.g. Qwen 3.5) spend tokens thinking and return '' if cut off
-    return (f"ai_query({sql_str(llm_endpoint)}, {prompt_expr}, "
-            "modelParameters => named_struct('temperature', 0.0, 'max_tokens', 8000))")
-
-
-def answer_sql(catalog, schema, llm_endpoint, embedding_endpoint, question="question"):
-    """Top-level statement that answers `question` via build_rule_prompt (the Genie agent's query, see genie.yml).
-
-    ai_query fails with AI_FUNCTION_REGISTRY_LOOKUP_FAILURE for non-admins when it runs inside another user's
-    SQL UDF, or when given modelParameters, so both model calls sit here, outside the function, with defaults.
-    """
-    prompt_expr = (f"{catalog}.{schema}.build_rule_prompt({question}, "
-                   f"ai_query({sql_str(embedding_endpoint)}, {question}))")
-    return f"SELECT ai_query({sql_str(llm_endpoint)}, {prompt_expr}) AS answer"

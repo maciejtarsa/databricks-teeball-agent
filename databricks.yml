@@ -33,9 +33,6 @@ variables:
   retrieval_mode:
     description: "ask_rulebook retrieval: vector | hybrid | hybrid_siblings (see src/jobs/rag_sql.py)"
     default: hybrid
-  business_group:
-    description: Workspace group that can ask the prod agent (CAN_RUN), call build_rule_prompt and read the documents table
-    default: business_us
   warehouse_id:
     description: SQL warehouse for Genie + SQL tasks
     lookup:
@@ -53,17 +50,5 @@ targets:
     workspace:
       profile: teeball  # ~/.databrickscfg profile holding your workspace host
       root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
-    resources:
-      # Prod is what business users (var.business_group) can ask; dev stays owner-only
-      genie_spaces:
-        teeball_agent:
-          permissions:
-            - group_name: ${var.business_group}
-              level: CAN_RUN
-      schemas:
-        teeball:
-          grants:
-            # No SELECT: build_rule_prompt reads rule_chunks with its owner's rights, and without it Genie One chat
-            # can't fall back to querying rule_chunks itself. The ingest job grants SELECT on the documents table only.
-            - principal: ${var.business_group}
-              privileges: [USE_SCHEMA, EXECUTE]
+    # Admin-only: no business-user permissions. Non-admins can't run ai_query from Genie on this workspace
+    # (see README Limitations); opening it up needs a Databricks App or similar that calls the models itself

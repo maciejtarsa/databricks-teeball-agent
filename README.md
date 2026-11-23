@@ -1,6 +1,6 @@
 # databricks-teeball-agent
 
-A teeball umpire rules assistant on Databricks. Rulebook PDFs go in, a Genie agent comes out that you can ask from the Databricks mobile app mid-game: "Runner leaves 1st on the hit and the ball is caught - out?" → ruling plus rule and page citations.
+A teeball umpire rules assistant on Databricks. Rulebook PDFs go in, a Genie agent comes out that you can ask from the Databricks mobile app mid-game (workspace admins only, see [Limitations](#limitations)): "Runner leaves 1st on the hit and the ball is caught - out?" → ruling plus rule and page citations.
 
 - Built on **Databricks Free Edition**, deployed entirely with **Declarative Automation Bundles (DABs)**.
 - **Nothing always-on:** serverless jobs, pay-per-token models, no Vector Search endpoint.
@@ -16,7 +16,7 @@ Sources: TBAWA (Teeball Association of Western Australia) Official Rule Book Ed 
 2. **Parse & chunk:** `ai_parse_document`, then one chunk per rule/section, each prefixed with document, rule number and pages. Only new or changed PDFs are re-parsed.
 3. **Embed:** `system.ai.gte-large-en` embeddings stored in a Delta column (`rule_chunks`), plus IDF keyword weights (`rule_terms`).
 4. **Answer:** SQL function `ask_rulebook(question)` embeds the question, ranks chunks in plain SQL (cosine + keyword overlap + rule-number boost), takes the top 5 per document, and asks `system.ai.gpt-oss-120b` to answer with citations using `src/prompts/answer_rules_v3.md`.
-5. **Agent:** Genie agent "Teeball Umpire" answers with a parameterised example SQL: `ai_query(llm, build_rule_prompt(:question, ai_query(embedding model, :question)))`. `build_rule_prompt` is `ask_rulebook` without the model calls, because `ai_query` inside a SQL function owned by someone else fails for non-admin users. Its only table is `documents` (titles, no rule text), so it can't bypass the function with its own keyword query. Genie One (web + mobile) routes teeball questions to it.
+5. **Agent:** Genie agent "Teeball Umpire" calls `ask_rulebook` via a parameterised example SQL. Its only table is `documents` (titles, no rule text), so it can't fall back to its own keyword query on the rule text. Genie One (web + mobile) routes teeball questions to it.
 
 ## Prerequisites
 
@@ -27,8 +27,7 @@ Sources: TBAWA (Teeball Association of Western Australia) Official Rule Book Ed 
   databricks auth login --host https://<your-workspace>.cloud.databricks.com --profile teeball
   ```
 - A SQL warehouse named "Serverless Starter Warehouse" (Free Edition default) or override `warehouse_id`.
-- For prod: a workspace group for business users (default `business_us`, override with `--var business_group=<name>`). It gets CAN_RUN on the agent, USE_SCHEMA/EXECUTE on the schema and SELECT on `documents` only (the functions read `rule_chunks` with their owner's rights, and Genie One can't query it directly).
-  - The group also needs the **Databricks SQL access** entitlement (set once in the workspace admin settings or via `databricks groups patch`; bundles can't manage entitlements). With consumer access only, `ai_query` fails with `AI_FUNCTION_REGISTRY_LOOKUP_FAILURE`.
+- Deploy as a workspace admin. The agent is admin-only (see [Limitations](#limitations)).
 
 ## Deploy
 
@@ -80,7 +79,7 @@ Experiments run through temporary functions, so the live agent isn't touched. Em
 
 | Path | What |
 |---|---|
-| `databricks.yml` | Bundle, variables, dev/prod targets, prod permissions |
+| `databricks.yml` | Bundle, variables, dev/prod targets |
 | `resources/` | Schema + volume, ingest job, evaluation jobs, Genie agent |
 | `src/jobs/` | Copy PDFs, parse/chunk/embed, create function, evaluation jobs |
 | `src/jobs/rag_sql.py` | Shared SQL template for `ask_rulebook` (retrieval modes, answer/retrieval output) |
@@ -95,6 +94,25 @@ Experiments run through temporary functions, so the live agent isn't touched. Em
 - Answers are a second opinion for volunteer umpires, not an official ruling. The umpire's call stands.
 - Free Edition has no Claude models and no Genie file search; the answering model is GPT-OSS-120B.
 - Brute-force similarity in SQL suits thousands of chunks, not millions.
+
+### Admin-only: non-admin users can't use the agent
+
+The agent works for workspace admins only. Every call that business users (consumer access) made to `ask_rulebook` failed with `[AI_FUNCTION_REGISTRY_LOOKUP_FAILURE] Failed to dynamically resolve function "ai_query" from AI Function Registry. INTERNAL: An unknown error occurred.` Admins never see it, so it went unnoticed for days: Genie quietly fell back to its own keyword query on `rule_chunks` and answered from that.
+
+What we found, testing as a non-admin user on Free Edition (2026-11-23):
+
+| Problem | Workaround tried | Outcome |
+|---|---|---|
+| Consumer access only: `ai_query` fails everywhere | Add the Databricks SQL access entitlement | Direct `ai_query` works |
+| `ai_query` inside a SQL function owned by another user fails, even with SQL access | Split the function: `build_rule_prompt` (no model calls) + both `ai_query` calls at the top of Genie's query | Function works; model calls move to the caller |
+| `ai_query(..., modelParameters => ...)` fails for non-admins (even just `max_tokens`) | Drop `modelParameters` | GPT-OSS (a reasoning model) then hits the default output limit and returns NULL in roughly 1 of 4 answers |
+| Entitlement changes don't reach open sessions; logging out isn't enough | Test in a new SQL editor tab / new Genie chat | Explained "worked, then failed" results |
+
+Also learned along the way: an inline `ai_query` passed as a function argument can be re-evaluated (pass it as a scalar subquery), and with schema-wide SELECT, Genie One chat can query `rule_chunks` directly, bypassing the agent.
+
+Every workaround worked, but together they left a fragile agent that still drops answers. So the agent stays admin-only with the simple `ask_rulebook` design, and nothing is granted to other users. We couldn't tell whether these are Free Edition limits or general platform bugs.
+
+To open it up properly, move the model calls out of users' hands: for example a Databricks App (mobile-friendly, opens from the Databricks mobile app) that runs as a service principal and calls the models through the SDK with `max_tokens` set. The catch: an app runs, and costs, while it's started; it doesn't scale to zero like the serverless pieces here.
 
 ## License
 

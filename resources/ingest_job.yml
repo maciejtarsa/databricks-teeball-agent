@@ -23,7 +23,6 @@ resources:
               - ${var.volume_dir}
               - ${workspace.file_path}/knowledge/documents.json
               - ${var.embedding_endpoint}
-              - ${var.business_group}
 
         - task_key: create_function
           depends_on: [{task_key: parse_chunk}]

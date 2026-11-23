@@ -1,10 +1,10 @@
 """Parse rulebook PDFs in the volume with ai_parse_document and split them into rule-level chunks.
 
-Args: catalog schema volume_dir documents_json embedding_endpoint readers
+Args: catalog schema volume_dir documents_json embedding_endpoint
 - parsed_docs: one row per PDF (only new/changed files are re-parsed)
 - rule_chunks: one row per rule section, merged by chunk_id, with an embedding per chunk (only new chunks are embedded)
 - rule_terms: IDF per word (keyword weights for hybrid retrieval)
-- documents: one row per document, titles only (the Genie agent's only table; readers get SELECT on it)
+- documents: one row per document, titles only (the Genie agent's only table)
 """
 import hashlib
 import json
@@ -13,7 +13,7 @@ import sys
 
 from pyspark.sql import SparkSession
 
-catalog, schema, volume_dir, documents_json, embedding_endpoint, readers = sys.argv[1:7]
+catalog, schema, volume_dir, documents_json, embedding_endpoint = sys.argv[1:6]
 spark = SparkSession.builder.getOrCreate()
 parsed_tbl = f"{catalog}.{schema}.parsed_docs"
 chunks_tbl = f"{catalog}.{schema}.rule_chunks"
@@ -240,11 +240,6 @@ for col, comment in {
     "sections": "Number of rule sections indexed for ask_rulebook",
 }.items():
     spark.sql(f"ALTER TABLE {docs_tbl} ALTER COLUMN {col} COMMENT '{comment}'")
-# Explicit grant so the agent's only table stays readable if the schema-wide SELECT is ever dropped
-try:
-    spark.sql(f"GRANT SELECT ON TABLE {docs_tbl} TO `{readers}`")
-except Exception as e:  # e.g. group doesn't exist in this workspace
-    print(f"WARNING: could not grant SELECT on {docs_tbl} to {readers}: {e}")
 
 # ai_query is non-deterministic so can't be used in UPDATE/MERGE directly; materialise embeddings first
 to_embed = spark.sql(f"""
