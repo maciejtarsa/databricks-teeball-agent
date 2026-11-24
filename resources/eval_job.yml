@@ -40,6 +40,37 @@ resources:
           spec:
             environment_version: "4"
 
+    eval_genie:
+      name: teeball_eval_genie
+      description: Ask the deployed Genie agent the logged rulings via the Genie Conversation API; record whether it called ask_rulebook and judge the answer users see
+      parameters:
+        - name: judge
+          default: databricks-llama-4-maverick
+        - name: label
+          default: adhoc
+        - name: evals_file
+          default: rulings.json
+        - name: id_prefix
+          default: all
+      tasks:
+        - task_key: eval
+          environment_key: default
+          spark_python_task:
+            python_file: ../src/jobs/eval_genie.py
+            parameters:
+              - ${var.catalog}
+              - ${resources.schemas.teeball.name}
+              - ${resources.genie_spaces.teeball_agent.id}
+              - ${workspace.file_path}/evals/{{job.parameters.evals_file}}
+              - "{{job.parameters.judge}}"
+              - "{{job.parameters.label}}"
+              - "{{job.parameters.id_prefix}}"
+              - ${workspace.file_path}/src/jobs
+      environments:
+        - environment_key: default
+          spec:
+            environment_version: "4"
+
     generate_evalset:
       name: teeball_generate_evalset
       description: Teacher LLM (full Rule Book in context) writes question/expected-answer pairs per rule topic

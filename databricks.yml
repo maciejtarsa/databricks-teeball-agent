@@ -20,20 +20,26 @@ variables:
     description: Volume folder holding the rulebook PDFs
     default: /Volumes/${var.catalog}/${resources.schemas.teeball.name}/${resources.volumes.kb_docs.name}/rulebooks
   llm_endpoint:
-    description: Foundation model endpoint that writes the answers
-    default: databricks-gpt-oss-120b
+    # system.ai.* (Unity Catalog model name), not the databricks-* endpoint name: non-admin users calling
+    # ai_query with endpoint names get AI_FUNCTION_REGISTRY_LOOKUP_FAILURE
+    description: Foundation model that writes the answers
+    default: system.ai.gpt-oss-120b
   embedding_endpoint:
-    description: Foundation model endpoint for chunk + question embeddings
-    default: databricks-gte-large-en
+    description: Foundation model for chunk + question embeddings (same model as stored embeddings)
+    default: system.ai.gte-large-en
   answer_prompt:
     description: Answer prompt file in src/prompts used by ask_rulebook (v3 = Manual-aware, procedure steps, WTBA by-laws)
     default: answer_rules_v3.md
   retrieval_mode:
     description: "ask_rulebook retrieval: vector | hybrid | hybrid_siblings (see src/jobs/rag_sql.py)"
     default: hybrid
-  business_group:
-    description: Workspace group that can ask the prod agent (CAN_RUN) and read the prod schema
-    default: business_us
+  agent_grants:
+    description: >-
+      Schema grants for other workspace admins who ask the agent (the owner needs none), e.g.
+      [{principal: "admin@example.com", privileges: [USE_SCHEMA, SELECT, EXECUTE]}].
+      Set in .databricks/bundle/prod/variable-overrides.json to keep emails out of the repo
+    type: complex
+    default: []
   warehouse_id:
     description: SQL warehouse for Genie + SQL tasks
     lookup:
@@ -51,15 +57,10 @@ targets:
     workspace:
       profile: teeball  # ~/.databrickscfg profile holding your workspace host
       root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
+    # Admin-only: non-admins can't run ai_query from Genie on this workspace (see README Limitations); opening it up
+    # needs a Databricks App or similar that calls the models itself. Being a workspace admin doesn't grant Unity
+    # Catalog privileges, so other admins who ask the agent need schema access: list them in var.agent_grants
     resources:
-      # Prod is what business users (var.business_group) can ask; dev stays owner-only
-      genie_spaces:
-        teeball_agent:
-          permissions:
-            - group_name: ${var.business_group}
-              level: CAN_RUN
       schemas:
         teeball:
-          grants:
-            - principal: ${var.business_group}
-              privileges: [USE_SCHEMA, SELECT, EXECUTE]
+          grants: ${var.agent_grants}

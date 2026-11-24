@@ -30,8 +30,9 @@ resources:
             question:
               - "Do runs count if the 3rd out is a force out?"
         data_sources:
+          # Titles only: with rule_chunks here Genie sometimes wrote its own keyword query instead of calling ask_rulebook
           tables:
-            - identifier: ${var.catalog}.${resources.schemas.teeball.name}.rule_chunks
+            - identifier: ${var.catalog}.${resources.schemas.teeball.name}.documents
         instructions:
           text_instructions:
             - id: "f392c42f1d604e81a59294c849ad9f8c"
@@ -39,7 +40,7 @@ resources:
                 - "You answer teeball umpire rules questions for TBAWA (Western Australia).\n"
                 - "ALWAYS answer by calling the ask_rulebook function with the user's full question (include relevant context from earlier in the conversation, e.g. runner positions and outs).\n"
                 - "Return the function's answer text exactly as the response. Do not summarise it into a table or chart.\n"
-                - "Only query the rule_chunks table directly if the user asks to see the source text of a specific rule number.\n"
+                - "Never answer from the documents table: it lists the source documents only, with no rule text.\n"
           example_question_sqls:
             - id: "1daa8f02109b40ac90939f45f556916f"
               question:
