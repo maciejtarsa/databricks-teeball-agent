@@ -1,0 +1,42 @@
+[
+  {
+    "id": 101,
+    "question": "A batted ball lands fair, nobody touches it, and it rolls over the dead ball line in fair territory. What's the call?",
+    "expected": "Not explicitly covered. Rule 15 covers a batted ball that ricochets off a fielder in fair territory over the dead ball line (runners get the base they were going to) and a batted ball over the line straight off the bat (dead, strike, bat again), but not a fair ball that rolls over untouched. The answer should say the rules don't settle it and flag it as umpire judgement, citing the closest rules (15, 17.3), not invent a ruling."
+  },
+  {
+    "id": 102,
+    "question": "Rule 2 says chest plates are compulsory for pitchers under rule 9.1d. What does rule 9.1d say?",
+    "expected": "There is no rule 9.1d in the provided documents. Rule 9.1 (Game Duration) only has parts (a) to (c). The chest plate requirement itself is in the Player Safety rule (chest plates compulsory for pitchers in regulation games; umpires stop pitchers taking the diamond until fitted). The answer should say 9.1d can't be found, not invent its content."
+  },
+  {
+    "id": 103,
+    "question": "Is there an infield fly rule in teeball?",
+    "expected": "No. The TBAWA rules and Manual have no infield fly rule (a baseball rule). Catches are covered by Rule 12, and runners leaving before a catch by 17.10/17.11. The answer should say it isn't in the rules, not apply the baseball rule."
+  },
+  {
+    "id": 104,
+    "question": "Can the umpire call a balk on the pitcher?",
+    "expected": "No. There is no balk in teeball: the ball is hit off a tee, so the pitcher is a fielder and the rules have no balk rule. The pitcher must be on the pitcher's plate until the ball is hit (19); leaving early = dead ball, runners return, warning, and repeats in the same innings let runners advance one base. The answer should not apply the baseball balk rule."
+  },
+  {
+    "id": 105,
+    "question": "Can a runner steal second base before the batter hits?",
+    "expected": "No stealing. Rule 17.4: a runner leaving the base before the ball is hit = dead ball, all runners return, warning; the same runner doing it again in the same innings is out. The answer should not apply baseball stealing rules."
+  },
+  {
+    "id": 106,
+    "question": "The batter's foot is completely outside the batting box when they hit, and the ball is caught in the air. Out or strike?",
+    "expected": "The documents conflict. Rule Book 16.6: strike, the ball is dead and runners may not advance (so no catch). Manual 16.6 procedure: if the ball is hit, allow time for it to be caught; if not caught, call Time, Foul Ball and a strike - implying a catch is an out. A good answer gives a ruling but flags the conflict between the Rule Book and the Manual."
+  },
+  {
+    "id": 107,
+    "question": "Is there a mercy rule if one team is far ahead?",
+    "expected": "No mercy rule in the provided documents. Games run nine innings or one hour, whichever comes first (9.1), and an innings ends after three outs or nine batters (9.2), which limits runs per innings. The answer should say there is no mercy rule rather than invent one."
+  },
+  {
+    "id": 108,
+    "question": "Can a team use a designated hitter for their pitcher?",
+    "expected": "Not covered: there is no designated hitter in the TBAWA rules (a baseball rule). Teams bat in their listed batting order (16), and fielders can be swapped under the substitution rules (21). The answer should say there's no such rule, not invent one."
+  }
+]

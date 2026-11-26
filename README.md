@@ -75,6 +75,7 @@ Experiments run through temporary functions, so the live agent isn't touched. Em
 
 - `evals/rulings.json`: 18 questions from real games, answers checked against the rulebooks.
 - `evals/opus.json`: 301 questions written by Claude Opus 5.5 reading both full TBAWA documents, spot-checked by an umpire.
+- `evals/gaps.json`: 8 questions the documents don't settle (missing rules, baseball-only rules, a Rule Book vs Manual conflict), where the right answer admits the gap. Run with `evals_file=gaps.json`.
 
 **Current results** (301 questions): ~75% correct, ~5% wrong, rule cited in 99% of answers. Rulings set: 12 correct / 5 partial / 1 wrong. The build log in `docs/build-notes.md` covers every iteration and what moved the numbers.
 

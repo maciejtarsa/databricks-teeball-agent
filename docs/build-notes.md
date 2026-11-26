@@ -296,3 +296,9 @@ Gotchas: serverless python tasks have no `__file__` (pass code dir as arg); `bun
 - CONFIRMED: admin status, not function ownership. Same test user made admin (not owner, only USE_SCHEMA + EXECUTE, fewer grants than as business user): ask_rulebook works in SQL, plain ai_query + modelParameters works, agent works in Genie One web + mobile. As non-admin (with SQL access + schema SELECT) both failed.
 - Workspace `admins` group can't be a UC grant principal (PRINCIPAL_DOES_NOT_EXIST: workspace-local group). Other admins need explicit schema grants: complex var `agent_grants`, set per user in gitignored .databricks/bundle/prod/variable-overrides.json.
 - Test user removed from `admins` again and from agent_grants (empty list deploy revoked their schema grants). Back to: owner + admins only.
+
+## Iteration 16: gap questions (2026-11-26)
+- Blog comment: the 301 set never tests "Not covered by the rules provided" (teacher skipped unsettleable questions). Rulings set: 0 gap questions either.
+- evals/gaps.json, 8 q: dead-ball roll untouched, phantom 9.1d, infield fly, balk, stealing, DH, mercy rule, batting out of box (Rule Book vs Manual conflict).
+- Run gaps-v3: 3C/5P/0W, cites 8/8. Admitted the gap on 9.1d, infield fly, balk, mercy, DH. Invented a ruling on 101 (dead-ball roll: "runners awarded next base") - exactly the commenter's case. 106: ruled Out from the Manual, didn't flag the Rule Book conflict.
+- Judge marked several honest "not covered + umpire judgement" answers PARTIAL for hedging, though the prompt asks for that flag. Judge strictness, not agent failure, for 103/104/107.
